@@ -3,6 +3,7 @@ block b-dashboard, default: {
         this._mode = '',
         this.ctx = {
             block: 'b-layout-table',
+            mods: { layout: '50-50' },
             mix: [{ block: 'b-dashboard', js: true }],
             content: [
                 {
