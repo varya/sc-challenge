@@ -6,4 +6,5 @@ bem-bl
 !blocks/*/*.js
 !*.bemjson.js
 *.html
+!callback.html
 !level.js
