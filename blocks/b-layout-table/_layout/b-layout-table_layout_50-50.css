@@ -1,0 +1,15 @@
+.b-layout-table_layout_50-50 > tbody > .b-layout-table__row > .b-layout-table__cell
+{
+    width: 50%;
+    padding: 0.4em 0;
+}
+
+.b-layout-table_layout_50-50 > tbody > .b-layout-table__row > .b-layout-table__cell_position_r
+{
+    width: 50%;
+}
+
+.b-layout-table_layout_50-50 > tbody > .b-layout-table__row > .b-layout-table__inner
+{
+    margin-right: 20px;
+}
