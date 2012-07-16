@@ -11,6 +11,7 @@ all:: $(patsubst %.bemjson.js,%.html,$(wildcard *.bemjson.js))
 %.html: %.bemjson.js %.bemhtml.js %.css %.ie.css %.js
 	$(call BEM_CREATE,bem-bl/blocks-common/i-bem/bem/techs/html.js,--force)
 
+.PRECIOUS: %.bemhtml.js
 %.bemhtml.js: %.deps.js
 	bem build \
 		-l bem-bl/blocks-common \
