@@ -25,6 +25,7 @@ block b-dashboard, default: {
                         {
                             elem: 'cell',
                             mods: { position: 'r' },
+                            mix: [ { block: 'b-dashboard', elem: 'playlists'} ],
                             content: 'cell 2'
                         }
                     ]

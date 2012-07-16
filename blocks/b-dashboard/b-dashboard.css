@@ -4,3 +4,9 @@ table.b-dashboard /* type selector here is for making heavier */
     width: 800px;
     margin: auto;
 }
+
+.b-dashboard__playlists
+{
+    border: orange 1px solid;
+    background: #fff;
+}
