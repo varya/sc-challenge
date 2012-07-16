@@ -1,6 +1,7 @@
 ({
     block: 'b-page',
     title: 'Awesome playlists of SoundCloud',
+    js: true,
     head: [
         { elem: 'css', url: '_index.css'},
         { elem: 'css', url: '_index.ie.css', ie: 'lt IE 8' },
