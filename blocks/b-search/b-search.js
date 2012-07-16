@@ -4,10 +4,14 @@
 
 BEM.DOM.decl('b-search', {
 
+    val: function() {
+        return this.elem('input').val();
+    },
+
     doSearch: function(e) {
         // A method to search
         e.preventDefault();
-        console.log('I am searching');
+        console.log('I am searching', this.val());
     }
 
 }, {
