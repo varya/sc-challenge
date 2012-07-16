@@ -10,7 +10,16 @@ block b-dashboard, default: {
                     content: [
                         {
                             elem: 'cell',
-                            content: 'cell 1'
+                            content: {
+                                block: 'b-search',
+                                input: {
+                                    elem: 'input',
+                                    attrs: { value: 'Love song' }
+                                },
+                                button: {
+                                    elem: 'button'
+                                }
+                            }
                         },
                         {
                             elem: 'cell',
