@@ -11,10 +11,9 @@ BEM.DOM.decl('b-search', {
     doSearch: function(e) {
         // A method to search
         e.preventDefault();
-        SC.get('/tracks', { q: 'buskers', license: 'cc-by-sa' }, function(tracks) {
+        SC.get('/tracks', { q: this.val()}, function(tracks) {
           console.log(tracks);
         });
-        console.log('I am searching', this.val());
     }
 
 }, {
@@ -24,12 +23,6 @@ BEM.DOM.decl('b-search', {
         SC.initialize({
             client_id: '2ffbaf9479281e4b80bd1e929162dcea',
             redirect_uri: 'http://sc.toivonen.veged.dev.yandex.ru/index.html'
-        });
-
-        SC.connect(function() {
-          SC.get('/me', function(me) { 
-              alert('Hello, ' + me.username); 
-            });
         });
 
         this.liveInitOnEvent('submit')
