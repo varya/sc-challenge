@@ -2,12 +2,20 @@
 
 (function() {
 
-BEM.DOM.decl('b-search', {}, {
+BEM.DOM.decl('b-search', {
+
+    doSearch: function(e) {
+        // A method to search
+        e.preventDefault();
+        console.log('I am searching');
+    }
+
+}, {
 
     live : function() {
-        this.liveInitOnEvent('submit') 
+        this.liveInitOnEvent('submit')
             .liveBindTo('submit', function(e){
-                e.preventDefault();
+                this.doSearch(e);
             })
     }
 
