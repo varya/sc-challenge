@@ -1,20 +1,25 @@
-block b-dashboard {
-    content: {
-        block: 'b-layout-table',
-        content: [
-            {
-                elem: 'row',
-                content: [
-                    {
-                        elem: 'cell',
-                        content: 'cell 1'
-                    },
-                    {
-                        elem: 'cell',
-                        content: 'cell 2'
-                    }
-                ]
-            }
-        ]
-    }
+block b-dashboard, default: {
+    apply(
+        this._mode = '',
+        this.ctx = {
+            block: 'b-layout-table',
+            mix: [{ block: 'b-dashboard', js: true }],
+            content: [
+                {
+                    elem: 'row',
+                    content: [
+                        {
+                            elem: 'cell',
+                            content: 'cell 1'
+                        },
+                        {
+                            elem: 'cell',
+                            content: 'cell 2'
+                        }
+                    ]
+                }
+            ]
+        }
+    )
 }
+
