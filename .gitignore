@@ -1,7 +1,9 @@
 node_modules/
 bem-bl
 *.css
+!*.bemjson.css
 *.js
+!blocks/*/*.js
 !*.bemjson.js
 *.html
 !level.js
