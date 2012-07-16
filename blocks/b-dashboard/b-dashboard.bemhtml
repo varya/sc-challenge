@@ -24,6 +24,7 @@ block b-dashboard, default: {
                         },
                         {
                             elem: 'cell',
+                            mods: { position: 'r' },
                             content: 'cell 2'
                         }
                     ]
