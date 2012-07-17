@@ -29,12 +29,12 @@ BEM.DOM.decl('b-dashboard', {
         return this;
     },
     appendTracks: function(tracks) {
-        var html = '';
+        var bDashboard = this;
         $.each(tracks, function(i, track){
-            html += BEM.blocks['b-serp-item'].buildFromSearchResult(track);
+            var html = $(BEM.blocks['b-serp-item'].buildFromSearchResult(track));
+            html.bem('b-serp-item').setData(track);
+            BEM.DOM.append(bDashboard.elem('searchfield'), html)
         })
-        this.elem('searchfield').append(html);
-        BEM.DOM.init(this.elem('searchfield'));
 
         return this;
     }

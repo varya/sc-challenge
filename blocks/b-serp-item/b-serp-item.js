@@ -4,6 +4,10 @@
 
 BEM.DOM.decl('b-serp-item', {
 
+    setData: function(track) {
+        this._track = track;
+    },
+
     remove: function() {
         this.domElem.remove();
         delete this;
