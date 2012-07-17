@@ -11,6 +11,7 @@ block b-dashboard, default: {
                     content: [
                         {
                             elem: 'cell',
+                            mix: [ { block: 'b-dashboard', elem: 'searchfield'} ],
                             content: {
                                 block: 'b-search',
                                 input: {
