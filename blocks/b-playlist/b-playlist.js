@@ -8,6 +8,13 @@ BEM.DOM.decl('b-playlist', {
         'js' : function() {
             /* ... */
         }
+    },
+
+    add: function() {
+        BEM.DOM.append(this.elem('songs'), $(BEMHTML.apply({
+            block: 'b-playlist',
+            elem: 'track'
+        })));
     }
 
 }, {
@@ -18,7 +25,7 @@ BEM.DOM.decl('b-playlist', {
 
     getCurrent: function() {
         var cl = BEM.blocks['b-playlist'];
-        return cl.current || cl.createUntitled();
+        return cl.current || (cl.current = cl.createUntitled(), cl.current);
     },
 
     createUntitled: function() {
@@ -29,6 +36,7 @@ BEM.DOM.decl('b-playlist', {
             title: 'Untitled'
         }));
         BEM.blocks['b-playlist'].trigger('birth', { html: html });
+        return html.bem('b-playlist');
     }
 
 });
