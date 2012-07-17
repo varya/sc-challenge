@@ -1,7 +1,8 @@
 .b-playlist
 {
     margin: 0.4em;
-    background-color: orange;
+    background-color: #fff;
+    border: orange 1px solid;
     opacity: 0.7;
 }
 
@@ -22,7 +23,7 @@
 
 .b-playlist__title
 {
-    color: white;
+    color: black;
 }
 
 .b-playlist__play
@@ -36,6 +37,7 @@
     float: right;
     width: 19px;
     height: 19px;
+    margin: 5px;
     background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
     background-position: -19px 0;
 }
