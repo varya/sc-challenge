@@ -13,7 +13,8 @@ BEM.DOM.decl('b-dashboard', {
                     .appendTracks(data);
             })
 
-            BEM.blocks['b-serp-item'].on('selected', function(){
+            BEM.blocks['b-serp-item'].on('selected', function(e){
+                console.log(e.block.getTrack());
                 BEM.blocks['b-playlist'].getCurrent().add();
             })
 
@@ -32,7 +33,7 @@ BEM.DOM.decl('b-dashboard', {
         var bDashboard = this;
         $.each(tracks, function(i, track){
             var html = $(BEM.blocks['b-serp-item'].buildFromSearchResult(track));
-            html.bem('b-serp-item').setData(track);
+            html.bem('b-serp-item').setTrack(track);
             BEM.DOM.append(bDashboard.elem('searchfield'), html)
         })
 

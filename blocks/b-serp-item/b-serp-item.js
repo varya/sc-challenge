@@ -4,8 +4,12 @@
 
 BEM.DOM.decl('b-serp-item', {
 
-    setData: function(track) {
+    setTrack: function(track) {
         this._track = track;
+    },
+
+    getTrack: function() {
+        return this._track;
     },
 
     remove: function() {
@@ -16,9 +20,9 @@ BEM.DOM.decl('b-serp-item', {
 }, {
 
     live: function() {
-        this.liveInitOnEvent('click', function(){
+        this.liveBindTo('click', function(){
             this.trigger('selected');
-        });
+        })
     },
 
     buildFromSearchResult: function(track) {
