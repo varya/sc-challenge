@@ -6,18 +6,29 @@ BEM.DOM.decl('b-playlist', {
 
     onSetMod : {
         'js' : function() {
-            this.bindTo('play', 'click', function() {
-                console.log(this.tracks());
-            })
+            this.bindTo('play', 'click', this.play);
         }
     },
 
+    play: function() {
+        console.log(this.tracks());
+        $.each(this.elem('track'), function(i, trackNode){
+            console.log(trackNode);
+        })
+    },
+
     tracks: function(track) {
-        this._tracks = this._tracks || {};
+        this._tracks = this._tracks || (this.track(), []);
         if (track !== undefined) {
-            this._tracks[track.id] = track;
+            this._tracksIndex[track.id] = track;
+            this._tracks.push(track);
         }
         return this._tracks;
+    },
+
+    track: function(id) {
+        this._tracksIndex = this._tracksIndex || {};
+        return this._tracksIndex[id];
     },
 
     add: function(track) {
@@ -26,7 +37,7 @@ BEM.DOM.decl('b-playlist', {
             js: false,
             elem: 'track'
         }));
-        this.tracks()[track.id] || this.tracks(track) && BEM.DOM.append(this.elem('songs'), html);
+        this.track(track.id) || this.tracks(track) && BEM.DOM.append(this.elem('songs'), html);
     }
 
 }, {
