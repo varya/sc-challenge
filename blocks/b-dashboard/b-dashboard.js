@@ -22,7 +22,7 @@ BEM.DOM.decl('b-dashboard', {
             })
 
             this.bindTo('pl-add', 'click', function(){
-                BEM.blocks['b-playlist'].createUntitled();
+                BEM.blocks['b-playlist'].createNew();
             })
         }
     },

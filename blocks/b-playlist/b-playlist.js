@@ -87,10 +87,10 @@ BEM.DOM.decl('b-playlist', {
 
     getCurrent: function() {
         var cl = BEM.blocks['b-playlist'];
-        return cl.current || (cl.current = cl.createUntitled(), cl.current);
+        return cl.current || (cl.current = cl.createNew(), cl.current);
     },
 
-    createUntitled: function() {
+    createNew: function() {
         // creating a list
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
