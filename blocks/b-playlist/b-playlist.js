@@ -12,6 +12,22 @@ BEM.DOM.decl('b-playlist', {
         }
     },
 
+    onElemSetMod : {
+        'track' : {
+            'state' : {
+                'current' : function(elem) {
+                    var prev = this.elem('track', 'state', 'current');
+                    this
+                        .delMod(prev, 'state')
+                        .trigger('current', {
+                            prev    : prev,
+                            current : elem
+                        });
+                }
+            }
+        }
+    },
+
     play: function(id) {
         // starts from the first
         if (!id) {
@@ -24,7 +40,7 @@ BEM.DOM.decl('b-playlist', {
         SC.stream("/tracks/" + id,
             {
                 onplay: function() {
-                    bPlaylist.setMod(track.html, 'state', 'current');
+                    bPlaylist.setMod(bPlaylist.findElem(track.html, 'track'), 'state', 'current');
                 },
                 onfinish: function() {
                     bPlaylist.play(nextId);
