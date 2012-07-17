@@ -6,7 +6,9 @@ BEM.DOM.decl('b-playlist', {
 
     onSetMod : {
         'js' : function() {
-            /* ... */
+            this.bindTo('play', 'click', function() {
+                console.log(this.tracks());
+            })
         }
     },
 
@@ -28,10 +30,6 @@ BEM.DOM.decl('b-playlist', {
     }
 
 }, {
-
-    live : function() {
-        /* ... */
-    },
 
     getCurrent: function() {
         var cl = BEM.blocks['b-playlist'];
