@@ -25,6 +25,16 @@
     color: white;
 }
 
+.b-playlist__play
+{
+    dispaly: none;
+}
+
+.b-playlist_state_current .b-playlist__play
+{
+    display: block;
+}
+
 .b-playlist__track_state_current
 {
     background-color: red;

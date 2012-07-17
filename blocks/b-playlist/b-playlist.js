@@ -93,6 +93,12 @@ BEM.DOM.decl('b-playlist', {
 
 }, {
 
+    live: function() {
+        this.liveBindTo('click', function(){
+            this.setMod('state', 'current');
+        });
+    },
+
     getCurrent: function() {
         var cl = BEM.blocks['b-playlist'];
         if (!cl._current) {
