@@ -14,8 +14,7 @@ BEM.DOM.decl('b-dashboard', {
             })
 
             BEM.blocks['b-serp-item'].on('selected', function(e){
-                console.log(e.block.getTrack());
-                BEM.blocks['b-playlist'].getCurrent().add();
+                BEM.blocks['b-playlist'].getCurrent().add(e.block.getTrack());
             })
 
             BEM.blocks['b-playlist'].on('birth', function(e, data){

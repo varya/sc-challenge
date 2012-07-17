@@ -10,11 +10,21 @@ BEM.DOM.decl('b-playlist', {
         }
     },
 
-    add: function() {
-        BEM.DOM.append(this.elem('songs'), $(BEMHTML.apply({
+    setTracks: function(track) {
+        this._track.push(track);
+    },
+
+    getTracks: function() {
+        return this._track;
+    },
+
+    add: function(track) {
+        var html = $(BEMHTML.apply({
             block: 'b-playlist',
             elem: 'track'
-        })));
+        }));
+        html.bem('b-playlist').setTracks(track);
+        BEM.DOM.append(this.elem('songs'), html);
     }
 
 }, {
