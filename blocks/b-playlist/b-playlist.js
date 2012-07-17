@@ -11,7 +11,7 @@ BEM.DOM.decl('b-playlist', {
     },
 
     setTracks: function(track) {
-        this._track.push(track);
+        (this._track || []).push(track);
     },
 
     getTracks: function() {
