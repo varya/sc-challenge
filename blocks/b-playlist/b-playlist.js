@@ -12,6 +12,10 @@ BEM.DOM.decl('b-playlist', {
                     this.play()
                 }
             });
+            this.__self.liveBindTo('trash', 'click', function(e){
+                var trackId = e.data.domElem.closest(bPlaylist.buildSelector('track'))[0].onclick()['trackId'];
+                bPlaylist.delTrack(trackId);
+            })
         },
         'state' : {
             'current' : function() {
@@ -84,11 +88,23 @@ BEM.DOM.decl('b-playlist', {
         return this._tracksIndex[id];
     },
 
+    delTrack: function(id) {
+        // removing from Index
+        var track = this.track(id),
+            prev = this.track(track.prev),
+            next = this.track(track.next);
+        prev && (prev.nextId = track.nextId);
+        next && (next.prevId = track.prevId);
+        track.html.remove();
+        delete this._tracksIndex[id];
+    },
+
     add: function(track) {
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
             js: false,
             elem: 'track',
+            attrs: { 'onclick' : 'return {"trackId" : ' + track.id + '}'},
             title: track.title
         }));
         this.track(track.id) || this.tracks(track, html) && BEM.DOM.append(this.elem('songs'), html);
