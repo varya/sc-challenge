@@ -39,7 +39,7 @@ BEM.DOM.decl('b-playlist', {
             this._tracksIndex[track.id] = {
                 prevId : prevId,
                 track : track,
-                nextId: 0
+                nextId: undefined
             };
             (prevId != 0) && (this._tracksIndex[prevId].nextId = track.id);
             this._tracks.push(track);
