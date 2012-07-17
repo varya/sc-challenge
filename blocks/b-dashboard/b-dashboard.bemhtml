@@ -1,38 +1,49 @@
-block b-dashboard, default: {
-    apply(
-        this._mode = '',
-        this.ctx = {
-            block: 'b-layout-table',
-            mods: { layout: '50-50' },
-            mix: [{ block: 'b-dashboard', js: true }],
-            content: [
-                {
-                    elem: 'row',
-                    content: [
-                        {
-                            elem: 'cell',
-                            mix: [ { block: 'b-dashboard', elem: 'searchfield'} ],
-                            content: {
-                                block: 'b-search',
-                                input: {
-                                    elem: 'input',
-                                    attrs: { value: 'Love song' }
-                                },
-                                button: {
-                                    elem: 'button'
+block b-dashboard {
+
+    default: {
+        apply(
+            this._mode = '',
+            this.ctx = {
+                block: 'b-layout-table',
+                mods: { layout: '50-50' },
+                mix: [{ block: 'b-dashboard', js: true }],
+                content: [
+                    {
+                        elem: 'row',
+                        content: [
+                            {
+                                elem: 'cell',
+                                mix: [ { block: 'b-dashboard', elem: 'searchfield'} ],
+                                content: {
+                                    block: 'b-search',
+                                    input: {
+                                        elem: 'input',
+                                        attrs: { value: 'Love song' }
+                                    },
+                                    button: {
+                                        elem: 'button'
+                                    }
                                 }
+                            },
+                            {
+                                elem: 'cell',
+                                mods: { position: 'r' },
+                                mix: [ { block: 'b-dashboard', elem: 'playlists'} ],
+                                content: [
+                                    {
+                                        block: 'b-dashboard',
+                                        elem: 'pl-add'
+                                    }
+                                ]
                             }
-                        },
-                        {
-                            elem: 'cell',
-                            mods: { position: 'r' },
-                            mix: [ { block: 'b-dashboard', elem: 'playlists'} ],
-                            content: ''
-                        }
-                    ]
-                }
-            ]
-        }
-    )
+                        ]
+                    }
+                ]
+            }
+        )
+    }
+
+    elem 'pl-add', content: 'add playlist'
+
 }
 

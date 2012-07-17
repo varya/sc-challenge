@@ -20,6 +20,10 @@ BEM.DOM.decl('b-dashboard', {
             BEM.blocks['b-playlist'].on('birth', function(e, data){
                 BEM.DOM.append(bDashboard.elem('playlists'), data.html);
             })
+
+            this.bindTo('pl-add', 'click', function(){
+                console.log('adding button clicked');
+            })
         }
     },
     clearTracks: function() {
