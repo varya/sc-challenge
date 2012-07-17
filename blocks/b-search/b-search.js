@@ -10,9 +10,10 @@ BEM.DOM.decl('b-search', {
 
     doSearch: function(e) {
         // A method to search
+        var bSearch = this;
         e.preventDefault();
         SC.get('/tracks', { q: this.val()}, function(tracks) {
-          console.log(tracks);
+            bSearch.trigger('searched', tracks)
         });
     }
 
