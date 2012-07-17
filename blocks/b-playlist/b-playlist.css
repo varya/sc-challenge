@@ -8,3 +8,8 @@
 {
     color: white;
 }
+
+.b-playlist__track_state_current
+{
+    background-color: red;
+}

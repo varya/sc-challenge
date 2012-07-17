@@ -19,9 +19,13 @@ BEM.DOM.decl('b-playlist', {
             return;
         }
         var bPlaylist = this,
-            nextId = this.track(id).nextId;
+            track = this.track(id),
+            nextId = track.nextId;
         SC.stream("/tracks/" + id,
             {
+                onplay: function() {
+                    bPlaylist.setMod(track.html, 'state', 'current');
+                },
                 onfinish: function() {
                     bPlaylist.play(nextId);
                 }
@@ -32,13 +36,14 @@ BEM.DOM.decl('b-playlist', {
         );
     },
 
-    tracks: function(track) {
+    tracks: function(track, html) {
         this._tracks = this._tracks || (this.track(), []);
         var prevId = this._tracks.length != 0 ? this._tracks[this._tracks.length - 1].id : 0;
         if (track !== undefined) {
             this._tracksIndex[track.id] = {
                 prevId : prevId,
                 track : track,
+                html: html,
                 nextId: undefined
             };
             (prevId != 0) && (this._tracksIndex[prevId].nextId = track.id);
@@ -56,9 +61,10 @@ BEM.DOM.decl('b-playlist', {
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
             js: false,
-            elem: 'track'
+            elem: 'track',
+            title: track.title
         }));
-        this.track(track.id) || this.tracks(track) && BEM.DOM.append(this.elem('songs'), html);
+        this.track(track.id) || this.tracks(track, html) && BEM.DOM.append(this.elem('songs'), html);
     }
 
 }, {
