@@ -9,6 +9,14 @@ BEM.DOM.decl('b-playlist', {
             this.bindTo('play', 'click', function() {
                     this.play()
                 });
+        },
+        'state' : {
+            'current' : function() {
+                if (this.__self._current) {
+                    this.__self._current.delMod('state');
+                }
+                this.__self._current = this;
+            }
         }
     },
 
@@ -87,14 +95,16 @@ BEM.DOM.decl('b-playlist', {
 
     getCurrent: function() {
         var cl = BEM.blocks['b-playlist'];
-        return cl.current || (cl.current = cl.createNew(), cl.current);
+        if (!cl._current) {
+            cl.createNew().setMod('state', 'current');
+        }
+        return cl._current;
     },
 
     createNew: function() {
         // creating a list
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
-            mods: { state: 'current' },
             title: 'Untitled'
         }));
         BEM.blocks['b-playlist'].trigger('birth', { html: html });

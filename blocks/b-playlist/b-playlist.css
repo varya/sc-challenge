@@ -4,6 +4,16 @@
     background-color: orange;
 }
 
+.b-playlist__songs
+{
+    display: none;
+}
+
+.b-playlist_state_current .b-playlist__songs
+{
+    display: block;
+}
+
 .b-playlist__title
 {
     color: white;
