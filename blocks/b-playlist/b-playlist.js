@@ -46,11 +46,12 @@ BEM.DOM.decl('b-playlist', {
     play: function(id) {
         // starts from the first
         if (!id) {
-            this.play(this.tracks()[0].id);
+            // chosing for a first track in the list
+            this.play(this.findElem('track')[0].onclick()['trackId']);
             return;
         }
         var bPlaylist = this,
-            track = this.track(id),
+            track = this.getTrack(id),
             nextId = track.nextId;
         SC.stream("/tracks/" + id,
             {
@@ -67,9 +68,10 @@ BEM.DOM.decl('b-playlist', {
         );
     },
 
-    tracks: function(track, html) {
-        this._tracks = this._tracks || (this.track(), []);
-        var prevId = this._tracks.length != 0 ? this._tracks[this._tracks.length - 1].id : 0;
+    setTrack: function(track, html) {
+        this.getTrack();
+        var prev = this.findElem('track').last()[0];
+        var prevId = prev ? prev.onclick()['trackId'] : 0;
         if (track !== undefined) {
             this._tracksIndex[track.id] = {
                 prevId : prevId,
@@ -78,21 +80,20 @@ BEM.DOM.decl('b-playlist', {
                 nextId: undefined
             };
             (prevId != 0) && (this._tracksIndex[prevId].nextId = track.id);
-            this._tracks.push(track);
+            return this.getTrack(track.id);
         }
-        return this._tracks;
     },
 
-    track: function(id) {
+    getTrack: function(id) {
         this._tracksIndex = this._tracksIndex || {};
         return this._tracksIndex[id];
     },
 
     delTrack: function(id) {
         // removing from Index
-        var track = this.track(id),
-            prev = this.track(track.prev),
-            next = this.track(track.next);
+        var track = this.getTrack(id),
+            prev = this.getTrack(track.prev),
+            next = this.getTrack(track.next);
         prev && (prev.nextId = track.nextId);
         next && (next.prevId = track.prevId);
         track.html.remove();
@@ -107,7 +108,7 @@ BEM.DOM.decl('b-playlist', {
             attrs: { 'onclick' : 'return {"trackId" : ' + track.id + '}'},
             title: track.title
         }));
-        this.track(track.id) || this.tracks(track, html) && BEM.DOM.append(this.elem('songs'), html);
+        this.getTrack(track.id) || this.setTrack(track, html) && BEM.DOM.append(this.elem('songs'), html);
         this.setMod(this.elem('play'), 'state', 'ready');
     }
 
