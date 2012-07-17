@@ -16,10 +16,17 @@ block b-playlist {
         }
     ]
 
-    elem track, content: {
-        elem: 'title',
-        content: this.ctx.title
-    },
-    elem play, tag: 'span'
+    elem track, content: [
+        {
+            elem: 'trash'
+        },
+        {
+            elem: 'title',
+            content: this.ctx.title
+        }
+    ]
+
+    elem play, tag: 'span',
+    elem trash, tag: 'span'
 
 }
