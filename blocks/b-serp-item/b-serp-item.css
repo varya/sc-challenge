@@ -1,0 +1,12 @@
+.b-serp-item
+{
+    background-color: #fff;
+
+    margin: 0.4em 0;
+    padding: 0.2em;
+}
+.b-serp-item__title
+{
+    color: darkorange;
+    font-weight: bold;
+}
