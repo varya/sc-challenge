@@ -1,5 +1,8 @@
-block b-serp-item, content: [
-    { elem: 'title', content: this.ctx.title },
-    { elem: 'description', content: this.ctx.description }
-]
+block b-serp-item {
+    content: [
+        { elem: 'title', content: this.ctx.title },
+        { elem: 'description', content: this.ctx.description }
+    ]
 
+    elem description, default, this.ctx.content == '': ''
+}
