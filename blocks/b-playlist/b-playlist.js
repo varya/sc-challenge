@@ -12,7 +12,12 @@ BEM.DOM.decl('b-playlist', {
 
     setTracks: function(track) {
         this._track = this._track || {};
-        this._track[track.id] = track;
+        if (this._track[track.id]) {
+            return false;
+        } else {
+            this._track[track.id] = track;
+            return true;
+        }
     },
 
     getTracks: function() {
@@ -25,8 +30,7 @@ BEM.DOM.decl('b-playlist', {
             js: false,
             elem: 'track'
         }));
-        this.setTracks(track);
-        BEM.DOM.append(this.elem('songs'), html);
+        this.setTracks(track) && BEM.DOM.append(this.elem('songs'), html);
     }
 
 }, {
