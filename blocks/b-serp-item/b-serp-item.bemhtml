@@ -1,4 +1,6 @@
 block b-serp-item {
+    js: true
+
     content: [
         { elem: 'title', content: this.ctx.title },
         { elem: 'description', content: this.ctx.description }
