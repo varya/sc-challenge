@@ -4,7 +4,8 @@ block b-playlist {
 
     content: [
         {
-            elem: 'play'
+            elem: 'play',
+            mods: { state: 'silent' }
         },
         {
             elem: 'title',

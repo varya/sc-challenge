@@ -42,6 +42,11 @@
     background-position: -19px 0;
 }
 
+.b-playlist__play_state_silent
+{
+    opacity: 0.5;
+}
+
 .b-playlist__track_state_current
 {
     background-color: red;

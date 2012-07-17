@@ -6,9 +6,12 @@ BEM.DOM.decl('b-playlist', {
 
     onSetMod : {
         'js' : function() {
-            this.bindTo('play', 'click', function() {
+            var bPlaylist = this;
+            this.bindTo('play', 'click', function(e) {
+                if (bPlaylist.hasMod(e.data.domElem, 'state', 'ready')) {
                     this.play()
-                });
+                }
+            });
         },
         'state' : {
             'current' : function() {
@@ -89,6 +92,7 @@ BEM.DOM.decl('b-playlist', {
             title: track.title
         }));
         this.track(track.id) || this.tracks(track, html) && BEM.DOM.append(this.elem('songs'), html);
+        this.setMod(this.elem('play'), 'state', 'ready');
     }
 
 }, {
