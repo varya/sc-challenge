@@ -1,6 +1,11 @@
 block b-playlist {
 
+    js: true
+
     content: [
+        {
+            elem: 'play'
+        },
         {
             elem: 'title',
             content: this.ctx.title
@@ -10,6 +15,7 @@ block b-playlist {
         }
     ]
 
-    elem track, content: 'track here'
+    elem track, content: 'track here',
+    elem play, content: 'press to play'
 
 }
