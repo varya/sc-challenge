@@ -19,7 +19,6 @@ BEM.DOM.decl('b-dashboard', {
 
             BEM.blocks['b-playlist'].on('birth', function(e, data){
                 BEM.DOM.append(bDashboard.elem('playlists'), data.html);
-                BEM.blocks['b-playlist'].current = bDashboard.findBlockInside(data.html, 'b-playlist');
             })
         }
     },
