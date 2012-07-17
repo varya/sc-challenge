@@ -1,0 +1,10 @@
+block b-serp-item {
+
+    content: [
+        { elem: 'title', content: this.ctx.title },
+        { elem: 'description', content: this.ctx.description }
+    ]
+
+    this.ctx.elem, tag: 'span'
+
+}
