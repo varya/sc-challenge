@@ -19,6 +19,6 @@ block b-playlist {
         elem: 'title',
         content: this.ctx.title
     },
-    elem play, content: 'press to play'
+    elem play, tag: 'span'
 
 }

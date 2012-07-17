@@ -32,7 +32,12 @@
 
 .b-playlist_state_current .b-playlist__play
 {
-    display: block;
+    display: inline-block;
+    float: right;
+    width: 19px;
+    height: 19px;
+    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
+    background-position: -19px 0;
 }
 
 .b-playlist__track_state_current
