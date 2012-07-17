@@ -16,6 +16,11 @@ BEM.DOM.decl('b-dashboard', {
             BEM.blocks['b-serp-item'].on('selected', function(){
                 console.log(BEM.blocks['b-playlist'].getCurrent());
             })
+
+            BEM.blocks['b-playlist'].on('birth', function(e, data){
+                BEM.DOM.append(bDashboard.elem('playlists'), data.html);
+                BEM.blocks['b-playlist'].current = bDashboard.findBlockInside(data.html, 'b-playlist');
+            })
         }
     },
     clearTracks: function() {
