@@ -23,12 +23,12 @@ BEM.DOM.decl('b-playlist', {
 
     createUntitled: function() {
         // creating a list
-        var html = BEMHTML.apply({
+        var html = $(BEMHTML.apply({
             block: 'b-playlist',
             mods: { state: 'current' },
             title: 'Untitled'
-        });
-        console.log(html);
+        }));
+        BEM.blocks['b-playlist'].trigger('birth', { html: html });
     }
 
 });
