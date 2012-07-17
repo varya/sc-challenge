@@ -52,6 +52,7 @@
     height: 23px;
 }
 
+.b-playlist__trash-all,
 .b-playlist__trash
 {
     display: inline-block;
@@ -62,7 +63,6 @@
     background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
     background-position: 19px 0;
 }
-
 
 .b-playlist__track_state_current
 {

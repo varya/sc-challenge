@@ -4,6 +4,9 @@ block b-playlist {
 
     content: [
         {
+            elem: 'trash-all'
+        },
+        {
             elem: 'play',
             mods: { state: 'silent' }
         },
@@ -26,7 +29,6 @@ block b-playlist {
         }
     ]
 
-    elem play, tag: 'span',
-    elem trash, tag: 'span'
+    {'trash' : '', 'play' : '', 'trash-all' : ''}[this.elem], tag: 'span'
 
 }

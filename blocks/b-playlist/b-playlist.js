@@ -16,6 +16,15 @@ BEM.DOM.decl('b-playlist', {
                 var trackId = e.data.domElem.closest(bPlaylist.buildSelector('track'))[0].onclick()['trackId'];
                 bPlaylist.delTrack(trackId);
             })
+            this.__self.liveBindTo(this.findElem('trash-all'), 'click', function(e){
+                console.log('event', e);
+                var newCurrent = this.domElem.prev()[0] || this.domElem.next()[0];
+                $(newCurrent).bem('b-playlist').setMod('state', 'current');
+                bPlaylist.afterCurrentEvent(function(){
+                    console.log(bPlaylist.domElem);
+                    //bPlaylist.domElem.remove();
+                });
+            })
         },
         'state' : {
             'current' : function() {
