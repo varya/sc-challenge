@@ -1,0 +1,10 @@
+.b-playlist
+{
+    margin: 0.4em;
+    background-color: orange;
+}
+
+.b-playlist__title
+{
+    color: white;
+}
