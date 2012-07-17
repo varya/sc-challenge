@@ -12,6 +12,10 @@ BEM.DOM.decl('b-dashboard', {
                     .clearTracks()
                     .appendTracks(data);
             })
+
+            BEM.blocks['b-serp-item'].on('selected', function(){
+                console.log('item selected');
+            })
         }
     },
     clearTracks: function() {

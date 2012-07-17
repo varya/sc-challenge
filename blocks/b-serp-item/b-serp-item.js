@@ -13,7 +13,6 @@ BEM.DOM.decl('b-serp-item', {
 
     live: function() {
         this.liveInitOnEvent('click', function(){
-            console.log('xxxxxxx');
             this.trigger('selected');
         });
     },
