@@ -15,7 +15,10 @@ block b-playlist {
         }
     ]
 
-    elem track, content: 'track here',
+    elem track, content: {
+        elem: 'title',
+        content: this.ctx.title
+    },
     elem play, content: 'press to play'
 
 }
