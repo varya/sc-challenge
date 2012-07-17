@@ -1,0 +1,13 @@
+block b-playlist {
+
+    content: [
+        {
+            elem: 'title',
+            content: this.ctx.title
+        },
+        {
+            elem: 'songs'
+        }
+    ]
+
+}
