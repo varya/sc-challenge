@@ -10,18 +10,12 @@ BEM.DOM.decl('b-playlist', {
         }
     },
 
-    setTracks: function(track) {
-        this._track = this._track || {};
-        if (this._track[track.id]) {
-            return false;
-        } else {
-            this._track[track.id] = track;
-            return true;
+    tracks: function(track) {
+        this._tracks = this._tracks || {};
+        if (track !== undefined) {
+            this._tracks[track.id] = track;
         }
-    },
-
-    getTracks: function() {
-        return this._track;
+        return this._tracks;
     },
 
     add: function(track) {
@@ -30,7 +24,7 @@ BEM.DOM.decl('b-playlist', {
             js: false,
             elem: 'track'
         }));
-        this.setTracks(track) && BEM.DOM.append(this.elem('songs'), html);
+        this.tracks()[track.id] || this.tracks(track) && BEM.DOM.append(this.elem('songs'), html);
     }
 
 }, {

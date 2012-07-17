@@ -4,11 +4,11 @@
 
 BEM.DOM.decl('b-serp-item', {
 
-    setTrack: function(track) {
-        this._track = track;
-    },
-
-    getTrack: function() {
+    track: function(track) {
+        // sets and gets a track
+        if (track !== undefined) {
+            this._track = track;
+        }
         return this._track;
     },
 
