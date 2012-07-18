@@ -5,6 +5,18 @@
     border: orange 1px solid;
     opacity: 0.7;
 }
+.b-playlist__title_action_none .b-form-input__box
+{
+    border: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.b-playlist__title
+{
+    width: 200px;
+}
 
 .b-playlist_state_current
 {
@@ -19,16 +31,6 @@
 .b-playlist_state_current .b-playlist__songs
 {
     display: block;
-}
-
-.b-playlist__title
-{
-    color: black;
-}
-
-.b-playlist__title_action_none
-{
-    border: 0;
 }
 
 .b-playlist__play
@@ -61,7 +63,6 @@
 .b-playlist__trash
 {
     display: inline-block;
-    float: right;
     width: 19px;
     height: 19px;
     margin: 2px;
