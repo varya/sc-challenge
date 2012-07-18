@@ -203,6 +203,7 @@ BEM.DOM.decl('b-playlist', {
 
         this.getTrack(track.id) || this.setTrack(track, html) && BEM.DOM.append(this.elem('songs'), html);
         this.setMod(this.elem('play'), 'state', 'ready');
+        this._save();
 
     },
 
