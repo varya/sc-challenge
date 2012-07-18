@@ -2,16 +2,20 @@
 
 (function() {
 
+/* Item of SERP */
 BEM.DOM.decl('b-serp-item', {
 
+    /* Sets or get a track to/from property */
     track: function(track) {
-        // sets and gets a track
+
         if (track !== undefined) {
             this._track = track;
         }
         return this._track;
+
     },
 
+    /* Removes 'this' block */
     remove: function() {
         this.domElem.remove();
         delete this;
@@ -20,11 +24,15 @@ BEM.DOM.decl('b-serp-item', {
 }, {
 
     live: function() {
+
+        /* Inits only when a user clicks */
         this.liveBindTo('click', function(){
             this.trigger('selected');
         })
+
     },
 
+    /* Builds a new item of SERP */
     buildFromSearchResult: function(track) {
         return BEMHTML.apply({
             block: 'b-serp-item',
