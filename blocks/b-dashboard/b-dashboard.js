@@ -25,7 +25,7 @@ BEM.DOM.decl('b-dashboard', {
 
     },
 
-    clearTracks: function() {
+    _clearTracks: function() {
         $.each(this.findBlocksInside('searchfield', 'b-serp-item'), function(i, item) {
             item.remove();
         })
@@ -49,7 +49,7 @@ BEM.DOM.decl('b-dashboard', {
         /* init Dashboard when searched */
         this.liveInitOnBlockInsideEvent('searched', 'b-search', function(e, data) {
                 this
-                    .clearTracks()
+                    ._clearTracks()
                     .appendTracks(data);
             })
         /* init Dashboard when playlist added */
