@@ -16,21 +16,33 @@ BEM.DOM.decl('b-playlist', {
             BEM.blocks['b-form-input'].on(this.elem('title'), 'focus blur', function() {
                 this.toggleMod(this.elem('title'), 'action', 'editing', 'none')
             }, this);
+
         },
+
         'state' : {
+
             'current' : function() {
+
+                /* Removing 'current' state from previous 'current' list */
+
                 if (this.__self._current) {
                     this.__self._current.delMod('state');
                 }
+
                 this.__self._current = this;
+
             }
         }
     },
 
     onElemSetMod : {
+
         'track' : {
+
             'state' : {
+
                 'current' : function(elem) {
+
                     var prev = this.elem('track', 'state', 'current');
                     this
                         .delMod(prev, 'state')
