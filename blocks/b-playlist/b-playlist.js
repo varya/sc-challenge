@@ -86,21 +86,24 @@ BEM.DOM.decl('b-playlist', {
     /* Method to play the list */
     play: function(id) {
 
+        this._nowPlaying && this.sound.stop();
+
         /* Starts from the first */
-        if (!id) {
+        if (id === undefined) {
 
             /* Chosing for a first track in the list */
-            this.play(this._firstTrack());
+            this._firstTrack() && this.play(this._firstTrack());
 
             return;
 
+        }
+        if(id === null) {
+            return;
         }
 
         var bPlaylist = this,
             track = this.getTrack(id),
             nextId = track.nextId;
-
-        this._nowPlaying && this.sound.stop();
 
         SC.stream("/tracks/" + id,
             {
@@ -163,7 +166,7 @@ BEM.DOM.decl('b-playlist', {
                 prevId : prevId,
                 track : track,
                 html: html,
-                nextId: undefined
+                nextId: null
             };
             (prevId != 0) && (this._tracksIndex[prevId].nextId = track.id);
             return this.getTrack(track.id);
@@ -217,13 +220,14 @@ BEM.DOM.decl('b-playlist', {
         prev && (prev.nextId = track.nextId);
         next && (next.prevId = track.prevId);
 
+        track.html.remove();
+        this._save();
+        delete this._tracksIndex[id];
+
         if(id == this._nowPlaying) {
             this.play(track.nextId);
         }
 
-        track.html.remove();
-        this._save();
-        delete this._tracksIndex[id];
 
     },
 
