@@ -8,13 +8,16 @@ BEM.DOM.decl('b-playlist', {
         'js' : function() {
 
             /* Whatching for changes in input */
-            BEM.blocks['b-form-input'].on(this.elem('title'), 'change', function() {
+            BEM.blocks['b-form-input'].on(this.elem('title desc'), 'change', function() {
                 this._save();
             }, this);
 
             /* Toggling input editable/none */
             BEM.blocks['b-form-input'].on(this.elem('title'), 'focus blur', function() {
                 this.toggleMod(this.elem('title'), 'action', 'editing', 'none')
+            }, this);
+            BEM.blocks['b-form-input'].on(this.elem('desc'), 'focus blur', function() {
+                this.toggleMod(this.elem('desc'), 'action', 'editing', 'none')
             }, this);
 
         },
@@ -67,6 +70,16 @@ BEM.DOM.decl('b-playlist', {
     setTitle: function(title) {
 
         this.findBlockInside(this.elem('title'), 'b-form-input').val(title);
+
+        return this;
+
+    },
+
+    setDesc: function(desc) {
+
+        this.findBlockInside(this.elem('desc'), 'b-form-input').val(desc);
+
+        return this;
 
     },
 
@@ -124,6 +137,7 @@ BEM.DOM.decl('b-playlist', {
 
         var shape = {
             title: this.findBlockInside(this.elem('title'), 'b-form-input').val(),
+            desc: this.findBlockInside(this.elem('desc'), 'b-form-input').val(),
             tracks: this.getTracks(),
             current: this.hasMod('state', 'current')
         }
@@ -277,7 +291,8 @@ BEM.DOM.decl('b-playlist', {
 
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
-            title: 'Untitled'
+            title: 'Untitled',
+            desc: 'no description'
         }));
         BEM.blocks['b-playlist'].trigger('birth', { html: html });
 
@@ -285,7 +300,8 @@ BEM.DOM.decl('b-playlist', {
 
         if (id) {
             var data = JSON.parse(window.localStorage.getItem('playlist-' + id));
-            list.setTitle(data.title);
+            list.setTitle(data.title)
+                .setDesc(data.desc);
             data.tracks.forEach(function(track){
                 list.add(track.track)
             });

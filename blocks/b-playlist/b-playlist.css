@@ -10,7 +10,8 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
 }
-.b-playlist__title_action_none .b-form-input__box
+.b-playlist__title_action_none .b-form-input__box,
+.b-playlist__desc_action_none .b-form-input__box
 {
     border: 0;
     -webkit-box-shadow: none;
