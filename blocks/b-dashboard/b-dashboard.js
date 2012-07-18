@@ -7,11 +7,11 @@ BEM.DOM.decl('b-dashboard', {
     onSetMod : {
         'js' : function() {
             var bDashboard = this;
-            this.findBlockInside('b-search').on('searched', function(e, data){
+            /*this.findBlockInside('b-search').on('searched', function(e, data){
                 bDashboard
                     .clearTracks()
                     .appendTracks(data);
-            })
+            })*/
 
             BEM.blocks['b-serp-item'].on('selected', function(e){
                 BEM.blocks['b-playlist'].getCurrent().add(e.block.track());
@@ -43,6 +43,14 @@ BEM.DOM.decl('b-dashboard', {
         return this;
     }
 
-}, {});
+}, {
+    live: function() {
+        this.liveInitOnBlockInsideEvent('searched', 'b-search', function(e, data) {
+            this
+                .clearTracks()
+                .appendTracks(data);
+        })
+    }
+});
 
 })();
