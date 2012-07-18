@@ -47,11 +47,17 @@ BEM.DOM.decl('b-playlist', {
 
             'playing' : function() {
 
-                console.log('playing');
+                var playing = this.__self._playing;
+
+                /* Stop playing what is now playing */
+                playing && playing.setMod('action', 'none');
 
                 this.play();
 
                 this.setMod(this.elem('play'), 'action', 'playing');
+
+                /* Remember the list which is playing now */
+                this.__self._playing = this;
 
             },
             'none' : function() {
