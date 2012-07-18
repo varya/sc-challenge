@@ -4,6 +4,11 @@ table.b-dashboard /* type selector here is for making heavier */
     margin: auto;
 }
 
+.b-dashboard__suggest_visibility_hidden
+{
+    display: none;
+}
+
 .b-dashboard__playlists
 {
     border: orange 1px solid;

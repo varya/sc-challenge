@@ -36,7 +36,7 @@ block b-dashboard {
                                     },
                                     {
                                         block: 'b-text',
-                                        mix: [{ block: 'b-dashboard', elem: 'suggest' }],
+                                        mix: [{ block: 'b-dashboard', elem: 'suggest', mods: { visibility: 'hidden' } }],
                                         content: [
                                             {
                                                 elem: 'p',

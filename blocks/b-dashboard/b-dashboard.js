@@ -26,6 +26,8 @@ BEM.DOM.decl('b-dashboard', {
                 this._save();
             }, this);
 
+            (_storage.getItem('suggest') == true) || this.setMod(this.elem('suggest'), 'visibility', 'visible');
+
             var lists = _storage.getItem('playlists');
             lists && lists.forEach(function(id){
                 BEM.blocks['b-playlist'].createNew(id);
@@ -91,6 +93,10 @@ BEM.DOM.decl('b-dashboard', {
             .liveBindTo('pl-add', 'click', function(){
                 BEM.blocks['b-playlist'].createNew().setMod('state', 'current');
             })
+            .liveBindTo('suggest', 'click', function(){
+                this.setMod(this.elem('suggest'), 'visibility', 'hidden');
+                _storage.setItem('suggest', true);
+            });
 
         return false; /* Init anyway */
 
