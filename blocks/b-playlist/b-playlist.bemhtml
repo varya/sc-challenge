@@ -7,13 +7,12 @@ block b-playlist {
             elem: 'trash-all'
         },
         {
-            elem: 'play',
-            mods: { state: 'silent' }
+            elem: 'play'
         },
         {
             elem: 'title',
             mods: {
-                'action' : 'none'
+                'state' : 'none'
             },
             content: this.ctx.title
         },

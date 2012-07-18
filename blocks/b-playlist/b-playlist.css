@@ -64,9 +64,9 @@
     background-position: -19px 0;
 }
 
-.b-playlist__play_state_silent
+.b-playlist_state_current .b-playlist__play_action_playing
 {
-    opacity: 0.5;
+    background-position: -19px -19px;
 }
 
 .b-playlist__track
