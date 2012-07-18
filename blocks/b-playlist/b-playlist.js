@@ -179,13 +179,14 @@ BEM.DOM.decl('b-playlist', {
     delTrack: function(id) {
 
         var track = this.getTrack(id),
-            prev = this.getTrack(track.prev),
-            next = this.getTrack(track.next);
+            prev = this.getTrack(track.prevId),
+            next = this.getTrack(track.nextId);
 
         prev && (prev.nextId = track.nextId);
         next && (next.prevId = track.prevId);
 
         track.html.remove();
+        this._save();
         delete this._tracksIndex[id];
 
     },
