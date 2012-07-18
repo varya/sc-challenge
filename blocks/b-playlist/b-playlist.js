@@ -43,6 +43,7 @@ BEM.DOM.decl('b-playlist', {
 
                 'current' : function(elem) {
 
+                    /* Only one 'current' track is possible */
                     var prev = this.elem('track', 'state', 'current');
                     this
                         .delMod(prev, 'state')
@@ -50,40 +51,63 @@ BEM.DOM.decl('b-playlist', {
                             prev    : prev,
                             current : elem
                         });
+
                 }
             }
         }
     },
 
+    /* Method to play the list */
     play: function(id) {
-        // starts from the first
+
+        /* Starts from the first */
         if (!id) {
-            // chosing for a first track in the list
+
+            /* Chosing for a first track in the list */
             this.play(this.findElem('track')[0].onclick()['trackId']);
+
             return;
+
         }
+
         var bPlaylist = this,
             track = this.getTrack(id),
             nextId = track.nextId;
+
         SC.stream("/tracks/" + id,
             {
+
                 onplay: function() {
+
+                    /* Marking current playing track */
                     bPlaylist.setMod(bPlaylist.findElem(track.html, 'track'), 'state', 'current');
+
                 },
+
                 onfinish: function() {
+
                     bPlaylist.play(nextId);
+
                 }
+
             },
+
             function(sound) {
+
                 sound.play();
+
             }
         );
     },
 
+    /* Setting a track to a Playlist */
     setTrack: function(track, html) {
-        this.getTrack();
-        var prev = this.findElem('track').last()[0];
-        var prevId = prev ? prev.onclick()['trackId'] : 0;
+
+        this.getTrack(); /* To be sure that track has exists */
+
+        var prev = this.findElem('track').last()[0],
+            prevId = prev ? prev.onclick()['trackId'] : 0;
+
         if (track !== undefined) {
             this._tracksIndex[track.id] = {
                 prevId : prevId,
@@ -96,23 +120,33 @@ BEM.DOM.decl('b-playlist', {
         }
     },
 
+    /* Getting a track object by id */
     getTrack: function(id) {
+
         this._tracksIndex = this._tracksIndex || {};
+
         return this._tracksIndex[id];
+
     },
 
+    /* Removing a track from hash */
     delTrack: function(id) {
-        // removing from Index
+
         var track = this.getTrack(id),
             prev = this.getTrack(track.prev),
             next = this.getTrack(track.next);
+
         prev && (prev.nextId = track.nextId);
         next && (next.prevId = track.prevId);
+
         track.html.remove();
         delete this._tracksIndex[id];
+
     },
 
+    /* Adding a new playlist */
     add: function(track) {
+
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
             js: false,
@@ -120,8 +154,10 @@ BEM.DOM.decl('b-playlist', {
             attrs: { 'onclick' : 'return {"trackId" : ' + track.id + '}'},
             title: track.title
         }));
+
         this.getTrack(track.id) || this.setTrack(track, html) && BEM.DOM.append(this.elem('songs'), html);
         this.setMod(this.elem('play'), 'state', 'ready');
+
     },
 
     /* Method for removing the current playlist */
