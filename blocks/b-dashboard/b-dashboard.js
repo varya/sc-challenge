@@ -18,9 +18,16 @@ BEM.DOM.decl('b-dashboard', {
             BEM.blocks['b-playlist'].on('birth', function(e, data){
                 BEM.DOM.append(this.elem('playlists'), data.html);
             }, this);
+
+            /* Saving when a new playlist occurs or is dead */
             BEM.blocks['b-playlist'].on('birth death', function(e, data){
                 this._save();
             }, this);
+
+            var lists = JSON.parse(window.localStorage.getItem('playlists'));
+            lists.forEach(function(id){
+                BEM.blocks['b-playlist'].createNew(id);
+            })
 
         }
 
@@ -52,8 +59,7 @@ BEM.DOM.decl('b-dashboard', {
 
     _save: function() {
 
-        window.localStorage.setItem('playlists', this._allLists());
-        console.log('from storage', window.localStorage.getItem('playlists'));
+        window.localStorage.setItem('playlists', JSON.stringify(this._allLists()));
 
     },
 
@@ -83,6 +89,8 @@ BEM.DOM.decl('b-dashboard', {
             .liveBindTo('pl-add', 'click', function(){
                 BEM.blocks['b-playlist'].createNew().setMod('state', 'current');
             })
+
+        return false; /* Init anyway */
 
     }
 
