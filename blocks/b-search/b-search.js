@@ -2,23 +2,28 @@
 
 (function() {
 
+/* A block to search tracks */
 BEM.DOM.decl('b-search', {
 
     val: function() {
         return this.elem('input').val();
     },
 
+    /* Searching with SC API */
     doSearch: function(e) {
-        // A method to search
-        var bSearch = this;
+
         e.preventDefault();
+
+        var bSearch = this;
         SC.get('/tracks', { q: this.val()}, function(tracks) {
             bSearch.trigger('searched', tracks)
         });
+
     }
 
 }, {
 
+    /* Init when necessary */
     live : function() {
 
         SC.initialize({
@@ -26,6 +31,7 @@ BEM.DOM.decl('b-search', {
             redirect_uri: 'http://sc.toivonen.veged.dev.yandex.ru/index.html'
         });
 
+        /* Init when a from is submitted */
         this.liveInitOnEvent('submit')
             .liveBindTo('submit', function(e){
                 this.doSearch(e);
