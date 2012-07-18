@@ -17,6 +17,6 @@ BEM.decl('i-soundcloud', {
 
 }
 
-});
+);
 
 })();
