@@ -16,6 +16,7 @@ all:: $(patsubst %.bemjson.js,%.html,$(wildcard *.bemjson.js))
 	bem build \
 		-l bem-bl/blocks-common \
 		-l bem-bl/blocks-desktop \
+		-l blocks-ya \
 		-l blocks \
 		-d $*.deps.js \
 		-t bem-bl/blocks-common/i-bem/bem/techs/bemhtml.js \
@@ -26,6 +27,7 @@ all:: $(patsubst %.bemjson.js,%.html,$(wildcard *.bemjson.js))
 	bem build \
 		-l bem-bl/blocks-common \
 		-l bem-bl/blocks-desktop \
+		-l blocks-ya \
 		-l blocks \
 		-d $*.bemdecl.js \
 		-t deps.js \
@@ -40,6 +42,7 @@ all:: $(patsubst %.bemjson.js,%.html,$(wildcard *.bemjson.js))
 	bem build \
 		-l bem-bl/blocks-common \
 		-l bem-bl/blocks-desktop \
+		-l blocks-ya \
 		-l blocks \
 		-d $*.deps.js \
 		-t css \
@@ -53,6 +56,7 @@ all:: $(patsubst %.bemjson.js,%.html,$(wildcard *.bemjson.js))
 	bem build \
 		-l bem-bl/blocks-common \
 		-l bem-bl/blocks-desktop \
+		-l blocks-ya \
 		-l blocks \
 		-d $*.deps.js \
 		-t ie.css \
@@ -66,6 +70,7 @@ all:: $(patsubst %.bemjson.js,%.html,$(wildcard *.bemjson.js))
 	bem build \
 		-l bem-bl/blocks-common \
 		-l bem-bl/blocks-desktop \
+		-l blocks-ya \
 		-l blocks \
 		-d $*.deps.js \
 		-t js \
