@@ -7,21 +7,12 @@ BEM.DOM.decl('b-playlist', {
     onSetMod : {
         'js' : function() {
             var bPlaylist = this;
-            this.bindTo('play', 'click', function(e) {
-                if (bPlaylist.hasMod(e.data.domElem, 'state', 'ready')) {
-                    this.play()
-                }
-            });
             BEM.blocks['b-form-input'].on(this.elem('title'), 'change', function() {
                 console.log('input changed');
             })
             BEM.blocks['b-form-input'].on(this.elem('title'), 'focus blur', function() {
                 bPlaylist.toggleMod(bPlaylist.elem('title'), 'action', 'editing', 'none')
             })
-            /*this.__self.liveBindTo('trash', 'click', function(e){
-                var trackId = e.data.domElem.closest(bPlaylist.buildSelector('track'))[0].onclick()['trackId'];
-                bPlaylist.delTrack(trackId);
-            })*/
             this.bindTo(this.findElem('trash-all'), 'click', function(e){
                 var de = this.domElem,
                     sel = bPlaylist.buildSelector(),
@@ -139,6 +130,12 @@ BEM.DOM.decl('b-playlist', {
             .liveBindTo('trash', 'click', function(e){
                 var trackId = e.data.domElem.closest(this.buildSelector('track'))[0].onclick()['trackId'];
                 this.delTrack(trackId);
+            })
+        /* Init if the play button is clicked */
+            .liveBindTo('play', 'click', function(e) {
+                if (this.hasMod(e.data.domElem, 'state', 'ready')) {
+                    this.play();
+                }
             });
 
     },
