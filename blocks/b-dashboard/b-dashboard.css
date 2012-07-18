@@ -1,6 +1,5 @@
 table.b-dashboard /* type selector here is for making heavier */
 {
-    background: orange;
     width: 800px;
     margin: auto;
 }
@@ -8,7 +7,6 @@ table.b-dashboard /* type selector here is for making heavier */
 .b-dashboard__playlists
 {
     border: orange 1px solid;
-    background: #fff;
 }
 .b-dashboard__pl-add
 {
