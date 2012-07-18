@@ -1,6 +1,4 @@
 node_modules/
 bem-bl
-index.*
-_index.*
 !index.bemjson.js
 !level.js
