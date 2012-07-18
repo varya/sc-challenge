@@ -23,12 +23,12 @@ BEM.DOM.decl('b-playlist', {
 
             'current' : function() {
 
+                var cur = this.__self._current;
+
                 /* Removing 'current' state from previous 'current' list */
+                cur && cur.delMod('state');
 
-                if (this.__self._current) {
-                    this.__self._current.delMod('state');
-                }
-
+                /* Saving which is 'current' now */
                 this.__self._current = this;
 
             }
