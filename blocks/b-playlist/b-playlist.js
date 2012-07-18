@@ -144,7 +144,7 @@ BEM.DOM.decl('b-playlist', {
 
     },
 
-    /* Adding a new playlist */
+    /* Adding a new track */
     add: function(track) {
 
         var html = $(BEMHTML.apply({
@@ -199,21 +199,26 @@ BEM.DOM.decl('b-playlist', {
 
     },
 
+    /* Return current Playlist */
     getCurrent: function() {
+
         var cl = BEM.blocks['b-playlist'];
         if (!cl._current) {
             cl.createNew().setMod('state', 'current');
         }
         return cl._current;
+
     },
 
+    /* Creating a new Playlist */
     createNew: function() {
-        // creating a list
+
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
             title: 'Untitled'
         }));
         BEM.blocks['b-playlist'].trigger('birth', { html: html });
+
         return html.bem('b-playlist');
     }
 
