@@ -13,15 +13,6 @@ BEM.DOM.decl('b-playlist', {
             BEM.blocks['b-form-input'].on(this.elem('title'), 'focus blur', function() {
                 bPlaylist.toggleMod(bPlaylist.elem('title'), 'action', 'editing', 'none')
             })
-            this.bindTo(this.findElem('trash-all'), 'click', function(e){
-                var de = this.domElem,
-                    sel = bPlaylist.buildSelector(),
-                    newCurrent = de.prev(sel).length ? de.prev(sel) : (de.next(sel).length ? de.next(sel) : undefined)
-                bPlaylist.afterCurrentEvent(function(){
-                    bPlaylist.domElem.remove();
-                    $(newCurrent).bem('b-playlist').setMod('state', 'current');
-                });
-            })
         },
         'state' : {
             'current' : function() {
@@ -136,6 +127,17 @@ BEM.DOM.decl('b-playlist', {
                 if (this.hasMod(e.data.domElem, 'state', 'ready')) {
                     this.play();
                 }
+            })
+        /* Init if trash-all button is presed */
+            .liveBindTo('trash-all', 'click', function(e){
+                var de = this.domElem,
+                    sel = this.buildSelector(),
+                    bPlaylist = this;
+                    newCurrent = de.prev(sel).length ? de.prev(sel) : (de.next(sel).length ? de.next(sel) : undefined)
+                this.afterCurrentEvent(function(){
+                    this.domElem.remove();
+                    $(newCurrent).bem('b-playlist').setMod('state', 'current');
+                });
             });
 
     },
