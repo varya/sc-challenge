@@ -12,9 +12,12 @@ BEM.DOM.decl('b-playlist', {
                     this.play()
                 }
             });
-            this.bindTo('title', 'click', function(){
-                bPlaylist.setMod(this.elem('title'), 'action', 'editing')
-            });
+            BEM.blocks['b-form-input'].on(this.elem('title'), 'change', function() {
+                console.log('input changed');
+            })
+            BEM.blocks['b-form-input'].on(this.elem('title'), 'focus blur', function() {
+                bPlaylist.toggleMod(bPlaylist.elem('title'), 'action', 'editing', 'none')
+            })
             this.__self.liveBindTo('trash', 'click', function(e){
                 var trackId = e.data.domElem.closest(bPlaylist.buildSelector('track'))[0].onclick()['trackId'];
                 bPlaylist.delTrack(trackId);
