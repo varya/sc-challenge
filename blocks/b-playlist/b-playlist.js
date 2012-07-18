@@ -54,6 +54,11 @@ BEM.DOM.decl('b-playlist', {
                 /* Stop playing what is now playing */
                 playing && playing.setMod('action', 'none');
 
+                /* Do not play empty lists */
+                if(!this._firstTrack()) {
+                    return false;
+                }
+
                 this.play();
 
                 this.setMod(this.elem('play'), 'action', 'playing');
@@ -82,7 +87,7 @@ BEM.DOM.decl('b-playlist', {
 
                     /* Provide action to the list */
                     if(modVal == 'playing' || modVal == 'none') {
-                        this.setMod('action', modVal);
+                        return this.setMod('action', modVal).hasMod('action', modVal);
                     }
                 }
 
