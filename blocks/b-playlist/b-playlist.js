@@ -65,6 +65,7 @@ BEM.DOM.decl('b-playlist', {
                 this.sound && this.sound.stop();
 
                 this.setMod(this.elem('play'), 'action', 'none');
+                this.delMod(this.elem('track'), 'state')
             }
         }
     },
