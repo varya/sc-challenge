@@ -64,7 +64,7 @@ BEM.DOM.decl('b-playlist', {
         if (!id) {
 
             /* Chosing for a first track in the list */
-            this.play(this.findElem('track')[0].onclick()['trackId']);
+            this.play(this._firstTrack());
 
             return;
 
@@ -110,9 +110,10 @@ BEM.DOM.decl('b-playlist', {
 
     _getShape: function() {
 
-        var shape = this._shape || {};
-
-        shape.title = this.findBlockInside(this.elem('title'), 'b-form-input').val();
+        var shape = {
+            title: this.findBlockInside(this.elem('title'), 'b-form-input').val(),
+            tracks: this.getTracks()
+        }
 
         return JSON.stringify(shape);
     },
@@ -144,6 +145,34 @@ BEM.DOM.decl('b-playlist', {
 
         return this._tracksIndex[id];
 
+    },
+
+    /* Getting the first track */
+    _firstTrack: function() {
+
+        var first = this.findElem('track')[0];
+
+        return first && first.onclick()['trackId'];
+
+    },
+
+    /* Getting all the tracks in a playlist */
+    getTracks: function() {
+        var id = this._firstTrack(),
+            tracks = [];
+        while(id != undefined) {
+            var track = this.getTrack(id);
+            tracks.push({
+                prevId : track.prevId,
+                track : {
+                    id: track.track.id,
+                    title: track.track.title
+                },
+                nextId: track.nextId
+            });
+            id = track.nextId;
+        }
+        return tracks;
     },
 
     /* Removing a track from hash */
