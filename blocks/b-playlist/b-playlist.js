@@ -42,10 +42,43 @@ BEM.DOM.decl('b-playlist', {
                     this._save();
                 })
             }
+        },
+        'action' : {
+
+            'playing' : function() {
+
+                console.log('playing');
+
+                this.play();
+
+                this.setMod(this.elem('play'), 'action', 'playing');
+
+            },
+            'none' : function() {
+
+                this.sound && this.sound.stop();
+
+                this.setMod(this.elem('play'), 'action', 'none');
+            }
         }
     },
 
     onElemSetMod : {
+
+        'play' : {
+
+            'action' : {
+
+                '*' : function(e, modName, modVal) {
+
+                    /* Provide action to the list */
+                    if(modVal == 'playing' || modVal == 'none') {
+                        this.setMod('action', modVal);
+                    }
+                }
+
+            }
+        },
 
         'track' : {
 
@@ -61,6 +94,9 @@ BEM.DOM.decl('b-playlist', {
                             prev    : prev,
                             current : elem
                         });
+
+                    /* Mark the current list playing */
+                    this.setMod('action', 'playing');
 
                 }
             }
@@ -243,7 +279,7 @@ BEM.DOM.decl('b-playlist', {
         }));
 
         this.getTrack(track.id) || this.setTrack(track, html) && BEM.DOM.append(this.elem('songs'), html);
-        this.setMod(this.elem('play'), 'state', 'ready');
+        this.setMod(this.elem('play'), 'action', 'none');
         this._save();
 
     },
@@ -255,7 +291,7 @@ BEM.DOM.decl('b-playlist', {
             prev = de.prev(sel),
             next = de.next(sel);
             newCurrent = prev.length ? prev : (next.length ? next : undefined);
-        this.sound.stop();
+        this.sound && this.sound.stop();
         this.afterCurrentEvent(function(){
             this.domElem.remove();
             newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
@@ -278,9 +314,7 @@ BEM.DOM.decl('b-playlist', {
             })
         /* Init if the play button is clicked */
             .liveBindTo('play', 'click', function(e) {
-                if (this.hasMod(e.data.domElem, 'state', 'ready')) {
-                    this.play();
-                }
+                this.toggleMod(e.data.domElem, 'action', 'none', 'playing');
             })
         /* Init if trash-all button is presed */
             .liveBindTo('trash-all', 'click', function(){
