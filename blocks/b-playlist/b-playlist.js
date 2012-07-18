@@ -227,10 +227,10 @@ BEM.DOM.decl('b-playlist', {
             sel = this.buildSelector(),
             prev = de.prev(sel),
             next = de.next(sel);
-            newCurrent = prev.length ? prev : (next.length ? next : undefined)
+            newCurrent = prev.length ? prev : (next.length ? next : undefined);
         this.afterCurrentEvent(function(){
             this.domElem.remove();
-            $(newCurrent).bem('b-playlist').setMod('state', 'current');
+            newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
             BEM.blocks['b-playlist'].trigger('death');
         });
     }
