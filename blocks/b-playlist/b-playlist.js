@@ -18,7 +18,8 @@ BEM.DOM.decl('b-playlist', {
             })
             this.bindTo(this.findElem('trash-all'), 'click', function(e){
                 var de = this.domElem,
-                    newCurrent = de.prev().length ? de.prev() : (de.next().length ? de.next() : undefined)
+                    sel = bPlaylist.buildSelector(),
+                    newCurrent = de.prev(sel).length ? de.prev(sel) : (de.next(sel).length ? de.next(sel) : undefined)
                 bPlaylist.afterCurrentEvent(function(){
                     bPlaylist.domElem.remove();
                     $(newCurrent).bem('b-playlist').setMod('state', 'current');
