@@ -33,6 +33,50 @@ block b-dashboard {
                                     {
                                         block: 'b-dashboard',
                                         elem: 'pl-add'
+                                    },
+                                    {
+                                        block: 'b-text',
+                                        mix: [{ block: 'b-dashboard', elem: 'suggest' }],
+                                        content: [
+                                            {
+                                                elem: 'p',
+                                                content: 'Hey! Try to search your favorite track right now!'
+                                            },
+                                            {
+                                                elem: 'p',
+                                                content: [
+                                                    'After getting the search result list, just click',
+                                                    ' the lovelest song and it will occur in your current playlist.'
+                                                ]
+                                            },
+                                            {
+                                                elem: 'p',
+                                                content: [
+                                                    'No, you don\'t have to create your fist playlist before.',
+                                                    ' Although you can.'
+                                                ]
+                                            },
+                                            {
+                                                elem: 'p',
+                                                content: [
+                                                    'When having several playlists choose the one you\'d like to work with',
+                                                    ' with a click.'
+                                                ]
+                                            },
+                                            {
+                                                elem: 'p',
+                                                content: [
+                                                    'As for renaming a playlist, it\'s also possible with a',
+                                                    'click at its title.'
+                                                ]
+                                            },
+                                            {
+                                                elem: 'p',
+                                                content: [
+                                                    'Ready to get rid of this text? Just click it.'
+                                                ]
+                                            }
+                                        ]
                                     }
                                 ]
                             }
