@@ -1,4 +1,7 @@
 ({
+    mustDeps: [
+        { block: 'i-soundcloud' }
+    ],
     shouldDeps: [
         {
             block: 'b-form-input',

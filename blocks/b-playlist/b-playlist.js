@@ -7,7 +7,10 @@ var _storage = BEM.create('i-storage');
 BEM.DOM.decl('b-playlist', {
 
     onSetMod : {
+
         'js' : function() {
+
+            BEM.create('i-soundcloud');
 
             /* Whatching for changes in input */
             BEM.blocks['b-form-input'].on(this.elem('title desc'), 'change', function() {

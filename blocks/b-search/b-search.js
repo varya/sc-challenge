@@ -5,6 +5,13 @@
 /* A block to search tracks */
 BEM.DOM.decl('b-search', {
 
+    onSetMod: {
+
+        'js' : function() {
+            BEM.create('i-soundcloud');
+        }
+    },
+
     val: function() {
         return this.elem('input').val();
     },
@@ -25,11 +32,6 @@ BEM.DOM.decl('b-search', {
 
     /* Init when necessary */
     live : function() {
-
-        SC.initialize({
-            client_id: '2ffbaf9479281e4b80bd1e929162dcea',
-            redirect_uri: 'http://sc.toivonen.veged.dev.yandex.ru/index.html'
-        });
 
         /* Init when a from is submitted */
         this.liveInitOnEvent('submit')
