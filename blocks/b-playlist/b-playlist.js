@@ -9,8 +9,8 @@ BEM.DOM.decl('b-playlist', {
 
             /* Whatching for changes in input */
             BEM.blocks['b-form-input'].on(this.elem('title'), 'change', function() {
-                console.log('input changed');
-            });
+                this._save();
+            }, this);
 
             /* Toggling input editable/none */
             BEM.blocks['b-form-input'].on(this.elem('title'), 'focus blur', function() {
@@ -98,6 +98,23 @@ BEM.DOM.decl('b-playlist', {
 
             }
         );
+    },
+
+    /* Saving a Playlist */
+    _save: function() {
+
+        window.localStorage.setItem('playlist-' + this._uniqId, this._getShape());
+        console.log('from storage', window.localStorage.getItem('playlist-' + this._uniqId));
+
+    },
+
+    _getShape: function() {
+
+        var shape = this._shape || {};
+
+        shape.title = this.findBlockInside(this.elem('title'), 'b-form-input').val();
+
+        return JSON.stringify(shape);
     },
 
     /* Setting a track to a Playlist */
@@ -219,7 +236,11 @@ BEM.DOM.decl('b-playlist', {
         }));
         BEM.blocks['b-playlist'].trigger('birth', { html: html });
 
-        return html.bem('b-playlist');
+        var list = html.bem('b-playlist');
+
+        list._save();
+
+        return list;
     }
 
 });
