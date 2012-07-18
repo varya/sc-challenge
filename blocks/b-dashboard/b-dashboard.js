@@ -25,15 +25,21 @@ BEM.DOM.decl('b-dashboard', {
 
     },
 
+    /* Clears searchfield */
     _clearTracks: function() {
+
         $.each(this.findBlocksInside('searchfield', 'b-serp-item'), function(i, item) {
             item.remove();
         })
         return this;
+
     },
 
-    appendTracks: function(tracks) {
+    /* Appends new tracks to the result */
+    _appendTracks: function(tracks) {
+
         var bDashboard = this;
+
         $.each(tracks, function(i, track){
             var html = $(BEM.blocks['b-serp-item'].buildFromSearchResult(track));
             html.bem('b-serp-item').track(track);
@@ -44,13 +50,15 @@ BEM.DOM.decl('b-dashboard', {
     }
 
 }, {
+
+    /* init only when necessaty */
     live: function() {
 
         /* init Dashboard when searched */
         this.liveInitOnBlockInsideEvent('searched', 'b-search', function(e, data) {
                 this
                     ._clearTracks()
-                    .appendTracks(data);
+                    ._appendTracks(data);
             })
         /* init Dashboard when playlist added */
             .liveBindTo('pl-add', 'click', function(){
