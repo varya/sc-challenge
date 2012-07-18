@@ -32,14 +32,18 @@ block b-playlist {
         }
     ]
 
-    elem title {
-        tag: 'input'
+    elem title, default: {
+        apply(
+            this._mode = '',
+            this.ctx = {
+                block: 'b-form-input',
+                mods: { theme: 'grey'},
+                mix: [ { block : 'b-playlist', elem: 'title', mods: { action: 'none' } }],
+                value: this.ctx.content,
+                content: { elem: 'input'}
+            }
+        )
 
-
-        attrs: {
-            type: 'text',
-            value: this.ctx.content
-        }
 
     }
 
