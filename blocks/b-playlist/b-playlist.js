@@ -18,10 +18,10 @@ BEM.DOM.decl('b-playlist', {
             BEM.blocks['b-form-input'].on(this.elem('title'), 'focus blur', function() {
                 bPlaylist.toggleMod(bPlaylist.elem('title'), 'action', 'editing', 'none')
             })
-            this.__self.liveBindTo('trash', 'click', function(e){
+            /*this.__self.liveBindTo('trash', 'click', function(e){
                 var trackId = e.data.domElem.closest(bPlaylist.buildSelector('track'))[0].onclick()['trackId'];
                 bPlaylist.delTrack(trackId);
-            })
+            })*/
             this.bindTo(this.findElem('trash-all'), 'click', function(e){
                 var de = this.domElem,
                     sel = bPlaylist.buildSelector(),
@@ -130,9 +130,17 @@ BEM.DOM.decl('b-playlist', {
 }, {
 
     live: function() {
+
+        /* Init if a user clicks */
         this.liveBindTo('click', function(){
-            this.setMod('state', 'current');
-        });
+                this.setMod('state', 'current');
+            })
+        /* Init if the trash button is used */
+            .liveBindTo('trash', 'click', function(e){
+                var trackId = e.data.domElem.closest(this.buildSelector('track'))[0].onclick()['trackId'];
+                this.delTrack(trackId);
+            });
+
     },
 
     getCurrent: function() {
