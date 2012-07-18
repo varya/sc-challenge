@@ -18,6 +18,10 @@ block b-playlist {
             content: this.ctx.title
         },
         {
+            elem: 'desc',
+            content: this.ctx.desc
+        },
+        {
             elem: 'songs'
         }
     ]
@@ -39,6 +43,21 @@ block b-playlist {
                 block: 'b-form-input',
                 mods: { theme: 'grey'},
                 mix: [ { block : 'b-playlist', elem: 'title', mods: { action: 'none' } }],
+                value: this.ctx.content,
+                content: { elem: 'input'}
+            }
+        )
+
+
+    }
+
+    elem desc, default: {
+        apply(
+            this._mode = '',
+            this.ctx = {
+                block: 'b-form-input',
+                mods: { theme: 'grey', type: 'textarea'},
+                mix: [ { block : 'b-playlist', elem: 'desc', mods: { action: 'none' } }],
                 value: this.ctx.content,
                 content: { elem: 'input'}
             }
