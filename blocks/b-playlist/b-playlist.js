@@ -16,13 +16,12 @@ BEM.DOM.decl('b-playlist', {
                 var trackId = e.data.domElem.closest(bPlaylist.buildSelector('track'))[0].onclick()['trackId'];
                 bPlaylist.delTrack(trackId);
             })
-            this.__self.liveBindTo(this.findElem('trash-all'), 'click', function(e){
-                console.log('event', e);
-                var newCurrent = this.domElem.prev()[0] || this.domElem.next()[0];
-                $(newCurrent).bem('b-playlist').setMod('state', 'current');
+            this.bindTo(this.findElem('trash-all'), 'click', function(e){
+                var de = this.domElem,
+                    newCurrent = de.prev().length ? de.prev() : (de.next().length ? de.next() : undefined)
                 bPlaylist.afterCurrentEvent(function(){
-                    console.log(bPlaylist.domElem);
-                    //bPlaylist.domElem.remove();
+                    bPlaylist.domElem.remove();
+                    $(newCurrent).bem('b-playlist').setMod('state', 'current');
                 });
             })
         },
