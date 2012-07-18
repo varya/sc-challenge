@@ -100,12 +100,15 @@ BEM.DOM.decl('b-playlist', {
             track = this.getTrack(id),
             nextId = track.nextId;
 
+        this._nowPlaying && this.sound.stop();
+
         SC.stream("/tracks/" + id,
             {
 
                 onplay: function() {
 
                     /* Marking current playing track */
+                    bPlaylist._nowPlaying = id;
                     bPlaylist.setMod(bPlaylist.findElem(track.html, 'track'), 'state', 'current');
 
                 },
@@ -213,6 +216,10 @@ BEM.DOM.decl('b-playlist', {
 
         prev && (prev.nextId = track.nextId);
         next && (next.prevId = track.prevId);
+
+        if(id == this._nowPlaying) {
+            this.play(track.nextId);
+        }
 
         track.html.remove();
         this._save();
