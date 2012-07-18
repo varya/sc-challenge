@@ -31,6 +31,13 @@ BEM.DOM.decl('b-playlist', {
                 /* Saving which is 'current' now */
                 this.__self._current = this;
 
+            },
+
+            /* Saving state when 'current' is changed */
+            '*' : function() {
+                this.afterCurrentEvent(function(){
+                    this._save();
+                })
             }
         }
     },
@@ -55,6 +62,12 @@ BEM.DOM.decl('b-playlist', {
                 }
             }
         }
+    },
+
+    setTitle: function(title) {
+
+        this.findBlockInside(this.elem('title'), 'b-form-input').val(title);
+
     },
 
     /* Method to play the list */
@@ -104,7 +117,6 @@ BEM.DOM.decl('b-playlist', {
     _save: function() {
 
         window.localStorage.setItem('playlist-' + this._uniqId, this._getShape());
-        console.log('from storage', window.localStorage.getItem('playlist-' + this._uniqId));
 
     },
 
@@ -112,7 +124,8 @@ BEM.DOM.decl('b-playlist', {
 
         var shape = {
             title: this.findBlockInside(this.elem('title'), 'b-form-input').val(),
-            tracks: this.getTracks()
+            tracks: this.getTracks(),
+            current: this.hasMod('state', 'current')
         }
 
         return JSON.stringify(shape);
@@ -260,7 +273,7 @@ BEM.DOM.decl('b-playlist', {
     },
 
     /* Creating a new Playlist */
-    createNew: function() {
+    createNew: function(id) {
 
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
@@ -269,6 +282,16 @@ BEM.DOM.decl('b-playlist', {
         BEM.blocks['b-playlist'].trigger('birth', { html: html });
 
         var list = html.bem('b-playlist');
+
+        if (id) {
+            var data = JSON.parse(window.localStorage.getItem('playlist-' + id));
+            list.setTitle(data.title);
+            data.tracks.forEach(function(track){
+                list.add(track.track)
+            });
+            data.current && list.setMod('state', 'current');
+
+        }
 
         list._save();
 
