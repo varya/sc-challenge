@@ -11,7 +11,7 @@ BEM.DOM.decl('b-dashboard', {
 
             /* Adding selected track to a current playlist */
             BEM.blocks['b-serp-item'].on('selected', function(e){
-                BEM.blocks['b-playlist'].getCurrent().add(e.block.track());
+                BEM.blocks['b-playlist'].getCurrent().addTrack(e.block.track());
             })
 
             /* Appening a new playlist when it's born */

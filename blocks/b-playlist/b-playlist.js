@@ -268,7 +268,7 @@ BEM.DOM.decl('b-playlist', {
     },
 
     /* Adding a new track */
-    add: function(track) {
+    addTrack: function(track) {
 
         var html = $(BEMHTML.apply({
             block: 'b-playlist',
@@ -351,7 +351,7 @@ BEM.DOM.decl('b-playlist', {
             list.setTitle(data.title)
                 .setDesc(data.desc);
             data.tracks.forEach(function(track){
-                list.add(track.track)
+                list.addTrack(track.track)
             });
             data.current && list.setMod('state', 'current');
 
