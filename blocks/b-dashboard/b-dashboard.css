@@ -17,3 +17,8 @@ table.b-dashboard /* type selector here is for making heavier */
     background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
     background-position: 0 0;
 }
+
+.b-dashboard__suggest .b-text__p
+{
+    margin: 0.5em 0;
+}
