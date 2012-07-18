@@ -2,6 +2,8 @@
 
 (function() {
 
+var _storage = BEM.create('i-storage');
+
 BEM.DOM.decl('b-playlist', {
 
     onSetMod : {
@@ -180,20 +182,19 @@ BEM.DOM.decl('b-playlist', {
     /* Saving a Playlist */
     _save: function() {
 
-        window.localStorage.setItem('playlist-' + this._uniqId, this._getShape());
+        _storage.setItem('playlist-' + this._uniqId, this._getShape());
 
     },
 
     _getShape: function() {
 
-        var shape = {
+        return {
             title: this.findBlockInside(this.elem('title'), 'b-form-input').val(),
             desc: this.findBlockInside(this.elem('desc'), 'b-form-input').val(),
             tracks: this.getTracks(),
             current: this.hasMod('state', 'current')
         }
 
-        return JSON.stringify(shape);
     },
 
     /* Setting a track to a Playlist */
@@ -353,7 +354,7 @@ BEM.DOM.decl('b-playlist', {
         var list = html.bem('b-playlist');
 
         if (id) {
-            var data = JSON.parse(window.localStorage.getItem('playlist-' + id));
+            var data = _storage.getItem('playlist-' + id);
             list.setTitle(data.title)
                 .setDesc(data.desc);
             data.tracks.forEach(function(track){

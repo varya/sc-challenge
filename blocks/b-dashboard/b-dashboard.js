@@ -2,6 +2,8 @@
 
 (function() {
 
+var _storage = BEM.create('i-storage');
+
 /* Block-container for the application */
 BEM.DOM.decl('b-dashboard', {
 
@@ -24,8 +26,8 @@ BEM.DOM.decl('b-dashboard', {
                 this._save();
             }, this);
 
-            var lists = JSON.parse(window.localStorage.getItem('playlists'));
-            lists.forEach(function(id){
+            var lists = _storage.getItem('playlists');
+            lists && lists.forEach(function(id){
                 BEM.blocks['b-playlist'].createNew(id);
             })
 
@@ -59,7 +61,7 @@ BEM.DOM.decl('b-dashboard', {
 
     _save: function() {
 
-        window.localStorage.setItem('playlists', JSON.stringify(this._allLists()));
+        _storage.setItem('playlists', this._allLists());
 
     },
 
