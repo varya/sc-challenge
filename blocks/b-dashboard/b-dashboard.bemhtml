@@ -43,7 +43,7 @@ block b-dashboard {
         )
     }
 
-    elem 'pl-add', content: 'add playlist'
+    elem 'pl-add', tag: 'span'
 
 }
 

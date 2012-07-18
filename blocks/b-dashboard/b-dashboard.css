@@ -10,3 +10,12 @@ table.b-dashboard /* type selector here is for making heavier */
     border: orange 1px solid;
     background: #fff;
 }
+.b-dashboard__pl-add
+{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 5px;
+    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
+    background-position: 0 0;
+}
