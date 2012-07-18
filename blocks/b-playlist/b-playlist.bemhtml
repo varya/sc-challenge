@@ -12,6 +12,9 @@ block b-playlist {
         },
         {
             elem: 'title',
+            mods: {
+                'action' : 'none'
+            },
             content: this.ctx.title
         },
         {
@@ -24,10 +27,21 @@ block b-playlist {
             elem: 'trash'
         },
         {
-            elem: 'title',
+            elem: 'track-title',
             content: this.ctx.title
         }
     ]
+
+    elem title {
+        tag: 'input'
+
+
+        attrs: {
+            type: 'text',
+            value: this.ctx.content
+        }
+
+    }
 
     {'trash' : '', 'play' : '', 'trash-all' : ''}[this.elem], tag: 'span'
 

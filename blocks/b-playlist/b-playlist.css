@@ -26,6 +26,11 @@
     color: black;
 }
 
+.b-playlist__title_action_none
+{
+    border: 0;
+}
+
 .b-playlist__play
 {
     dispaly: none;

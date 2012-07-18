@@ -12,6 +12,9 @@ BEM.DOM.decl('b-playlist', {
                     this.play()
                 }
             });
+            this.bindTo('title', 'click', function(){
+                bPlaylist.setMod(this.elem('title'), 'action', 'editing')
+            });
             this.__self.liveBindTo('trash', 'click', function(e){
                 var trackId = e.data.domElem.closest(bPlaylist.buildSelector('track'))[0].onclick()['trackId'];
                 bPlaylist.delTrack(trackId);
