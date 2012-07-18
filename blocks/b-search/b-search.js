@@ -10,7 +10,7 @@ BEM.DOM.decl('b-search', {
     },
 
     /* Searching with SC API */
-    doSearch: function(e) {
+    _doSearch: function(e) {
 
         e.preventDefault();
 
@@ -34,7 +34,7 @@ BEM.DOM.decl('b-search', {
         /* Init when a from is submitted */
         this.liveInitOnEvent('submit')
             .liveBindTo('submit', function(e){
-                this.doSearch(e);
+                this._doSearch(e);
             })
     }
 
