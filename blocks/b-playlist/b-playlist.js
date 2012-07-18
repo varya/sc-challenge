@@ -107,6 +107,19 @@ BEM.DOM.decl('b-playlist', {
         }));
         this.getTrack(track.id) || this.setTrack(track, html) && BEM.DOM.append(this.elem('songs'), html);
         this.setMod(this.elem('play'), 'state', 'ready');
+    },
+
+    /* Method for removing the current playlist */
+    remove: function() {
+        var de = this.domElem,
+            sel = this.buildSelector(),
+            prev = de.prev(sel),
+            next = de.next(sel);
+            newCurrent = prev.length ? prev : (next.length ? next : undefined)
+        this.afterCurrentEvent(function(){
+            this.domElem.remove();
+            $(newCurrent).bem('b-playlist').setMod('state', 'current');
+        });
     }
 
 }, {
@@ -129,15 +142,8 @@ BEM.DOM.decl('b-playlist', {
                 }
             })
         /* Init if trash-all button is presed */
-            .liveBindTo('trash-all', 'click', function(e){
-                var de = this.domElem,
-                    sel = this.buildSelector(),
-                    bPlaylist = this;
-                    newCurrent = de.prev(sel).length ? de.prev(sel) : (de.next(sel).length ? de.next(sel) : undefined)
-                this.afterCurrentEvent(function(){
-                    this.domElem.remove();
-                    $(newCurrent).bem('b-playlist').setMod('state', 'current');
-                });
+            .liveBindTo('trash-all', 'click', function(){
+                this.remove();
             });
 
     },
