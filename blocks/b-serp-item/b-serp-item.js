@@ -8,10 +8,7 @@ BEM.DOM.decl('b-serp-item', {
     /* Sets or get a track to/from property */
     track: function(track) {
 
-        if (track !== undefined) {
-            this._track = track;
-        }
-        return this._track;
+        return (track && (this._track = track), this._track);
 
     },
 
