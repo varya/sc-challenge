@@ -218,6 +218,7 @@ BEM.DOM.decl('b-playlist', {
         this.afterCurrentEvent(function(){
             this.domElem.remove();
             $(newCurrent).bem('b-playlist').setMod('state', 'current');
+            BEM.blocks['b-playlist'].trigger('death');
         });
     }
 
@@ -273,6 +274,7 @@ BEM.DOM.decl('b-playlist', {
 
         return list;
     }
+
 
 });
 

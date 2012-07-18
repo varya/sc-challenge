@@ -9,8 +9,6 @@ BEM.DOM.decl('b-dashboard', {
 
         'js' : function() {
 
-            var bDashboard = this;
-
             /* Adding selected track to a current playlist */
             BEM.blocks['b-serp-item'].on('selected', function(e){
                 BEM.blocks['b-playlist'].getCurrent().add(e.block.track());
@@ -18,8 +16,11 @@ BEM.DOM.decl('b-dashboard', {
 
             /* Appening a new playlist when it's born */
             BEM.blocks['b-playlist'].on('birth', function(e, data){
-                BEM.DOM.append(bDashboard.elem('playlists'), data.html);
-            })
+                BEM.DOM.append(this.elem('playlists'), data.html);
+            }, this);
+            BEM.blocks['b-playlist'].on('birth death', function(e, data){
+                this._save();
+            }, this);
 
         }
 
@@ -47,6 +48,24 @@ BEM.DOM.decl('b-dashboard', {
         })
 
         return this;
+    },
+
+    _save: function() {
+
+        window.localStorage.setItem('playlists', this._allLists());
+        console.log('from storage', window.localStorage.getItem('playlists'));
+
+    },
+
+    _allLists: function() {
+
+        var lists = [];
+        $.each(this.findBlocksInside('b-playlist'), function(i, block){
+            lists.push(block.params['uniqId']);
+        });
+
+        return lists;
+
     }
 
 }, {
