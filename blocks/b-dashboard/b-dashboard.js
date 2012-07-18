@@ -7,11 +7,6 @@ BEM.DOM.decl('b-dashboard', {
     onSetMod : {
         'js' : function() {
             var bDashboard = this;
-            /*this.findBlockInside('b-search').on('searched', function(e, data){
-                bDashboard
-                    .clearTracks()
-                    .appendTracks(data);
-            })*/
 
             BEM.blocks['b-serp-item'].on('selected', function(e){
                 BEM.blocks['b-playlist'].getCurrent().add(e.block.track());
@@ -21,9 +16,6 @@ BEM.DOM.decl('b-dashboard', {
                 BEM.DOM.append(bDashboard.elem('playlists'), data.html);
             })
 
-            this.bindTo('pl-add', 'click', function(){
-                BEM.blocks['b-playlist'].createNew().setMod('state', 'current');
-            })
         }
     },
     clearTracks: function() {
@@ -45,12 +37,20 @@ BEM.DOM.decl('b-dashboard', {
 
 }, {
     live: function() {
+
+        /* init Dashboard when searched */
         this.liveInitOnBlockInsideEvent('searched', 'b-search', function(e, data) {
-            this
-                .clearTracks()
-                .appendTracks(data);
-        })
+                this
+                    .clearTracks()
+                    .appendTracks(data);
+            })
+        /* init Dashboard when playlist added */
+            .liveBindTo('pl-add', 'click', function(){
+                BEM.blocks['b-playlist'].createNew().setMod('state', 'current');
+            })
+
     }
+
 });
 
 })();
