@@ -1,0 +1,14 @@
+@import url(blocks/b-page/b-page.css);
+@import url(blocks/b-dashboard/b-dashboard.css);
+@import url(bem-bl/blocks-desktop/b-layout-table/b-layout-table.css);
+@import url(blocks/b-layout-table/_layout/b-layout-table_layout_50-50.css);
+@import url(bem-bl/blocks-desktop/b-search/b-search.css);
+@import url(blocks/b-search/b-search.css);
+@import url(bem-bl/blocks-desktop/b-search/__layout/b-search__layout.css);
+@import url(blocks/b-serp-item/b-serp-item.css);
+@import url(blocks/b-playlist/b-playlist.css);
+@import url(blocks-ya/b-form-input/b-form-input.css);
+@import url(blocks-ya/b-form-input/_disabled/b-form-input_disabled_yes.css);
+@import url(blocks-ya/b-form-input/_theme/b-form-input_theme_grey.css);
+@import url(blocks-ya/b-form-input/_size/b-form-input_size_s.css);
+@import url(blocks-ya/b-form-input/_type/b-form-input_type_textarea.css);

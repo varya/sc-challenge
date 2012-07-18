@@ -1,0 +1,395 @@
+.b-page
+{
+    font-family: Verdana;
+    font-size: 12px;
+    color: black;
+    background-color: #FCF2EA;
+}
+
+table.b-dashboard /* type selector here is for making heavier */
+{
+    width: 800px;
+    margin: auto;
+}
+
+.b-dashboard__playlists
+{
+    border: orange 1px solid;
+}
+.b-dashboard__pl-add
+{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 5px;
+    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
+    background-position: 0 0;
+}
+
+.b-dashboard__suggest .b-text__p
+{
+    margin: 0.5em 0;
+}
+
+.b-layout-table
+{
+    font-size: 100%;
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.b-layout-table__gap,
+.b-layout-table__cell
+{
+    padding: 0;
+
+    vertical-align: top;
+}
+
+.b-layout-table_layout_50-50 > tbody > .b-layout-table__row > .b-layout-table__cell
+{
+    width: 50%;
+    padding: 0.4em;
+}
+
+.b-layout-table_layout_50-50 > tbody > .b-layout-table__row > .b-layout-table__cell_position_r
+{
+    width: 50%;
+}
+
+.b-layout-table_layout_50-50 > tbody > .b-layout-table__row > .b-layout-table__inner
+{
+    margin-right: 20px;
+}
+
+.b-search__input
+{
+    width: 100%;
+    margin: 0;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.b-search__button
+{
+    margin: 0;
+}
+.b-search
+{
+
+    background-color: #F15572;
+    padding: 10px;
+
+}
+
+.b-search__layout-input
+{
+    width: 100%;
+
+    vertical-align: middle;
+}
+
+.b-search__layout-button
+{
+    padding-left: 6px;
+
+    vertical-align: middle;
+}
+
+.b-serp-item
+{
+    margin: 0.4em 0;
+    padding: 0.2em;
+
+    border: #ccc solid;
+    border-width: 0 0 1px;
+
+    background: #fee0e6;
+
+}
+.b-serp-item__title
+{
+    font-weight: bold;
+}
+
+.b-playlist
+{
+    margin: 0.4em;
+    padding: 0.4em;
+    border: #f15572 1px solid;
+    opacity: 0.7;
+    position: relative;
+
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.b-playlist__title_action_none .b-form-input__box,
+.b-playlist__desc_action_none .b-form-input__box
+{
+    border: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    background: #FCF2EA;
+}
+
+.b-playlist__title
+{
+    width: 200px;
+    height: 23px;
+}
+
+.b-playlist_state_current
+{
+    opacity: 1;
+}
+
+.b-playlist__songs
+{
+    display: none;
+}
+
+.b-playlist_state_current .b-playlist__songs
+{
+    display: block;
+}
+
+.b-playlist__play, .b-playlist__trash-all
+{
+    position: absolute;
+    right: 5px;
+}
+
+.b-playlist__play
+{
+    dispaly: none;
+    right: 29px;
+}
+
+.b-playlist_state_current .b-playlist__play
+{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 2px;
+    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
+    background-position: -19px 0;
+}
+
+.b-playlist_state_current .b-playlist__play_action_playing
+{
+    background-position: -19px -19px;
+}
+
+.b-playlist__track
+{
+    height: 23px;
+    padding: 5px 0;
+    border: #ccc 0 solid;
+    border-width: 0 0 1px;
+}
+
+.b-playlist__trash-all,
+.b-playlist__trash
+{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 2px;
+    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
+    background-position: 19px 0;
+
+    position: absolute;
+    right: 0;
+
+}
+
+.b-playlist__track_state_current .b-playlist__track-title
+{
+    font-weight: bold;
+}
+
+.b-form-input
+{
+    display: block;
+}
+
+.b-form-input__box
+{
+    display: block;
+
+    border: 1px solid;
+
+    border-collapse: separate; /* Стиль нужен для отображения box-shadow в IE9, а из focused вынесено из-за LEGO-5937 */
+    background: #fff;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    -webkit-box-shadow: inset 0 1px 1px #cfcfcf;
+    -moz-box-shadow: inset 0 1px 1px #cfcfcf;
+    box-shadow: inset 0 1px 1px #cfcfcf;
+
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.b-form-input__input
+{
+    font: 100% Arial, sans-serif;
+
+    width: 100%;
+    margin: 0;
+    padding-left: 0.3em;
+
+    outline: 0;
+
+    border: 0;
+    background: none;
+
+    color: #000;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.b-form-input_disabled_yes .b-form-input__input,
+.b-form-input_disabled_yes .b-form-input__label,
+.b-form-input_disabled_yes .b-form-input__hint
+{
+    opacity: 0.5;
+}
+
+.b-form-input_disabled_yes .b-form-input__clear
+{
+    display: none;
+}
+
+.b-form-input_disabled_yes .b-form-input__input
+{
+    resize: none;
+}
+
+.b-form-input_theme_grey .b-form-input__box
+{
+    border-color: #a3a3a3 #c6c6c6 #e5e5e5;
+}
+
+.b-form-input_theme_grey.b-form-input_focused_yes .b-form-input__box
+{
+    -webkit-box-shadow: inset 0 1px 1px #cfcfcf, 0 0 1px #ffd94f, 0 0 1px #ffd94f, 0 0 2px #ffd94f;
+    -moz-box-shadow: inset 0 1px 1px #cfcfcf,  0 0 1px #ffd94f, 0 0 1px #ffd94f, 0 0 2px #ffd94f;
+    box-shadow: inset 0 1px 1px #cfcfcf, 0 0 1px #ffd94f, 0 0 1px #ffd94f, 0 0 2px #ffd94f;
+}
+
+.b-form-input_theme_grey.b-form-input_disabled_yes .b-form-input__box
+{
+    border-color: #e9e9e9 #f2f2f2 #f9f9f9;
+
+    -webkit-box-shadow: inset 0px 1px 1px #f4f4f4;
+    -moz-box-shadow: inset 0px 1px 1px #f4f4f4;
+    box-shadow: inset 0px 1px 1px #f4f4f4;
+}
+
+.b-form-input_size_s .b-form-input__hint,
+.b-form-input_size_s .b-form-input__input
+{
+    font: 11px Verdana, Arial, sans-serif;
+}
+
+.b-form-input_size_s .b-form-input__input
+{
+    line-height: 137%;
+}
+
+.b-form-input_size_s .b-form-input__box
+{
+    height: 19px;
+}
+
+.b-form-input_size_s .b-form-input__hint-wrap
+{
+    height: 19px;
+    margin-bottom: -19px;
+}
+
+.b-form-input_type_textarea .b-form-input__input
+{
+    resize: vertical;
+}
+
+body .b-form-input_type_textarea .b-form-input__hint
+{
+    padding-top: 0.4em;
+}
+
+.b-form-input
+{
+    zoom: 1;
+}
+
+.b-form-input__box
+{
+    zoom: 1;  /* необходимо для инпута без size */ /**/
+
+    padding-left: 0.3em;
+
+    background: #fff url("blocks-ya/b-form-input/b-form-input.png") repeat-x;
+}
+
+.b-form-input__input
+{
+    float: left;
+
+    padding: 0;
+}
+
+.i-ua_css_quirks .b-form-input__box
+{
+    height: auto !important;
+    padding-left: 0;
+}
+
+.i-ua_css_quirks .b-form-input__input
+{
+    margin-left: 0;
+}
+
+.b-form-input_disabled_yes .b-form-input__label,
+.b-form-input_disabled_yes .b-form-input__hint
+{
+    color: #ccc;
+}
+
+.b-form-input_disabled_yes .b-form-input__box
+{
+    background-image: url("blocks-ya/b-form-input/_disabled/b-form-input_disabled_yes.png");
+}
+
+.b-form-input_size_s .b-form-input__box,
+.i-ua_css.i-ua_css_quirks .b-form-input_size_s .b-form-input__input
+{
+    height: 17px;
+}
+
+.b-form-input_size_s .b-form-input__input
+{
+    height: 15px;
+
+    line-height: 16px;
+}
+
+.i-ua_css.i-ua_css_quirks .b-form-input_type_textarea .b-form-input__input
+{
+    height: auto;
+}
