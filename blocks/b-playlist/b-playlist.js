@@ -6,13 +6,16 @@ BEM.DOM.decl('b-playlist', {
 
     onSetMod : {
         'js' : function() {
-            var bPlaylist = this;
+
+            /* Whatching for changes in input */
             BEM.blocks['b-form-input'].on(this.elem('title'), 'change', function() {
                 console.log('input changed');
-            })
+            });
+
+            /* Toggling input editable/none */
             BEM.blocks['b-form-input'].on(this.elem('title'), 'focus blur', function() {
-                bPlaylist.toggleMod(bPlaylist.elem('title'), 'action', 'editing', 'none')
-            })
+                this.toggleMod(this.elem('title'), 'action', 'editing', 'none')
+            }, this);
         },
         'state' : {
             'current' : function() {
