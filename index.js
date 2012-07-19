@@ -3269,14 +3269,11 @@ BEM.DOM.decl('b-dashboard', {
             })
 
             BEM.blocks['b-playlist'].on('birth death', function(e, data){
-                if (e.type == 'death') {
-                    //data.domElem.remove();
-                    BEM.DOM.destruct(data.domElem);
-                    /* Saving when a new playlist occurs or is dead */
-                } else {
+                if (e.type == 'birth') {
                     /* Appening a new playlist when it's born */
                     BEM.DOM.append(this.elem('playlists'), data.html);
                 }
+                /* Saving when a new playlist occurs or is dead */
                 this._save();
             }, this);
 
@@ -3852,10 +3849,14 @@ BEM.DOM.decl('b-playlist', {
 
             'current' : function() {
 
+                if (this.params == null) {
+                    return;
+                }
+
                 var cur = this.__self._current;
 
                 /* Removing 'current' state from previous 'current' list */
-                cur &&  cur.delMod('state');
+                cur && cur.delMod('state');
 
                 /* Saving which is 'current' now */
                 this.__self._current = this;
@@ -3899,7 +3900,6 @@ BEM.DOM.decl('b-playlist', {
 
                 this.afterCurrentEvent(function(){
                     this.setMod(this.elem('play'), 'action', 'none');
-                    console.log('sel je');
                     this.delMod(this.elem('track'), 'state');
                 })
 
@@ -4134,8 +4134,11 @@ BEM.DOM.decl('b-playlist', {
             next = de.next(sel);
             newCurrent = prev.length ? prev : (next.length ? next : undefined);
         this.sound && this.sound.stop();
-        newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
-        BEM.blocks['b-playlist'].trigger('death', { domElem: de });
+        this.afterCurrentEvent(function(){
+            de.remove();
+            newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
+            BEM.blocks['b-playlist'].trigger('death');
+        })
     }
 
 }, {
