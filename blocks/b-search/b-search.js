@@ -22,8 +22,14 @@ BEM.DOM.decl('b-search', {
         e.preventDefault();
 
         var bSearch = this;
-        SC.get('/tracks', { q: this.val()}, function(tracks) {
-            bSearch.trigger('searched', tracks)
+        SC.get('/tracks', { q: this.val()}, function(data) {
+            if (data.errors) {
+                data.errors.forEach(function(err){
+                    alert(err.error_message)
+                })
+                return;
+            }
+            bSearch.trigger('searched', data)
         });
 
     }
