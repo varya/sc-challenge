@@ -40,9 +40,9 @@ BEM.DOM.decl('b-dashboard', {
     /* Clears searchfield */
     _clearTracks: function() {
 
-        BEM.DOM.destruct(this.findBlocksInside('searchfield', 'b-serp-item').reduce(function(res, block) {
-            res = res.add(block.domElem);
-        }, $()));
+        this.findBlocksInside('searchfield', 'b-serp-item').forEach(function(item){
+            BEM.DOM.destruct(item.domElem)
+        });
 
         return this;
 
