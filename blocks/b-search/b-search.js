@@ -13,7 +13,7 @@ BEM.DOM.decl('b-search', {
     },
 
     val: function() {
-        return this.elem('input').val();
+        return this.findBlockInside('b-form-input').val();
     },
 
     /* Searching with SC API */
@@ -22,6 +22,9 @@ BEM.DOM.decl('b-search', {
         e.preventDefault();
 
         var bSearch = this;
+        if (!this.val()) {
+            return;
+        }
         SC.get('/tracks', { q: this.val()}, function(data) {
             if (data.errors) {
                 data.errors.forEach(function(err){

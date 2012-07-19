@@ -10,12 +10,6 @@ BEM.DOM.decl('b-serp-item', {
 
         return (track && (this._track = track), this._track);
 
-    },
-
-    /* Removes 'this' block */
-    remove: function() {
-        this.domElem.remove();
-        delete this;
     }
 
 }, {

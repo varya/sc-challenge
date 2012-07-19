@@ -22,11 +22,11 @@ BEM.DOM.decl('b-dashboard', {
             }, this);
 
             /* Saving when a new playlist occurs or is dead */
-            BEM.blocks['b-playlist'].on('birth death', function(e, data){
+            BEM.blocks['b-playlist'].on('birth death', function(e){
                 this._save();
             }, this);
 
-            (_storage.getItem('suggest') == true) || this.setMod(this.elem('suggest'), 'visibility', 'visible');
+            _storage.getItem('suggest') || this.setMod(this.elem('suggest'), 'visibility', 'visible');
 
             var lists = _storage.getItem('playlists');
             lists && lists.forEach(function(id){
@@ -40,9 +40,10 @@ BEM.DOM.decl('b-dashboard', {
     /* Clears searchfield */
     _clearTracks: function() {
 
-        $.each(this.findBlocksInside('searchfield', 'b-serp-item'), function(i, item) {
-            item.remove();
-        })
+        BEM.DOM.destruct(this.findBlocksInside('searchfield', 'b-serp-item').reduce(function(res, block) {
+            res = res.add(block.domElem);
+        }, $()));
+
         return this;
 
     },
@@ -52,7 +53,7 @@ BEM.DOM.decl('b-dashboard', {
 
         var bDashboard = this;
 
-        $.each(tracks, function(i, track){
+        tracks.forEach(function(track){
             var html = $(BEM.blocks['b-serp-item'].buildFromSearchResult(track));
             html.bem('b-serp-item').track(track);
             BEM.DOM.append(bDashboard.elem('searchfield'), html)
@@ -70,7 +71,7 @@ BEM.DOM.decl('b-dashboard', {
     _allLists: function() {
 
         var lists = [];
-        $.each(this.findBlocksInside('b-playlist'), function(i, block){
+        this.findBlocksInside('b-playlist').forEach(function(block){
             lists.push(block.params['uniqId']);
         });
 
