@@ -3137,6 +3137,70 @@ $(function() {
 });
 /* bem-bl/blocks-common/i-bem/__dom/_init/i-bem__dom_init_auto.js: end */ /**/
 
+/* bem-bl/blocks-common/i-ecma/__json/i-ecma__json.js: begin */ /**/
+(function(undefined) {
+
+if(window.JSON) return;
+
+var _toString = Object.prototype.toString,
+    escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+    meta = {
+        '\b' : '\\b',
+        '\t' : '\\t',
+        '\n' : '\\n',
+        '\f' : '\\f',
+        '\r' : '\\r',
+        '"'  : '\\"',
+        '\\' : '\\\\'
+    },
+    stringify;
+
+window.JSON = {
+    stringify : stringify = function(val) {
+        if(val === null) {
+            return 'null';
+        }
+        if(typeof val === 'undefined') {
+            return undefined;
+        }
+        switch(_toString.call(val)) {
+            case '[object String]':
+                return '"' +
+                    (escapable.test(val)?
+                        val.replace(escapable, function(a) {
+                            var c = meta[a];
+                            return typeof c === 'string'? c : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+                        }) :
+                        val) +
+                    '"';
+            case '[object Number]':
+            case '[object Boolean]':
+                return '' + val;
+            case '[object Array]':
+                var res = '[', i = 0, len = val.length, strVal;
+                while(i < len) {
+                    strVal = stringify(val[i]);
+                    res += (i++? ',' : '') + (typeof strVal === 'undefined'? 'null' : strVal);
+                }
+                return res + ']';
+            case '[object Object]':
+                var res = '{', i = 0, strVal;
+                for(var key in val) {
+                    if(val.hasOwnProperty(key)) {
+                        strVal = stringify(val[key]);
+                        typeof strVal !== 'undefined' && (res += (i++? ',' : '') + '"' + key + '":' + strVal);
+                    }
+                }
+                return res + '}';
+            default:
+                return undefined;
+        }
+    }
+};
+})();
+
+/* bem-bl/blocks-common/i-ecma/__json/i-ecma__json.js: end */ /**/
+
 /* blocks/i-storage/_type/i-storage_type_local.js: begin */ /**/
 /** @requires BEM */
 
@@ -3144,18 +3208,7 @@ $(function() {
 
 var storage = window.localStorage;
 
-BEM.decl('i-storage', {
-
-    onSetMod : {
-
-        'js' : function() {
-
-            /* BEM Singleton :-) */
-            return this.__self._single || (this.__self._single = this, this);
-
-        }
-
-    },
+BEM.decl('i-storage', {}, {
 
     setItem: function(key, data) {
         storage.setItem(key, JSON.stringify(data));
@@ -3201,7 +3254,7 @@ BEM.DOM.decl('b-page', {
 
 (function() {
 
-var _storage = BEM.create('i-storage');
+var _storage = BEM.blocks['i-storage'];
 
 /* Block-container for the application */
 BEM.DOM.decl('b-dashboard', {
@@ -3312,28 +3365,23 @@ BEM.DOM.decl('b-dashboard', {
 
 (function() {
 
-BEM.decl('i-soundcloud', {
-
-    onSetMod : {
-        'js' : function() {
-
-            /* BEM Singleton :-) */
-            return this.__self._single || (this.__self._single = this, this.initialize(), this);
-
-        }
-    },
+BEM.decl('i-soundcloud', {}, {
 
     initialize: function() {
 
+        /* Init only once */
+        if(this._inited) {
+            return;
+        }
+
         SC.initialize({
-            client_id: '2ffbaf9479281e4b80bd1e929162dcea',
+            client_id: '2ffbaf9479281e4b80bd1e929162dcea'
         });
+        this._inited = true;
 
     }
 
-}
-
-);
+});
 
 })();
 
@@ -3350,7 +3398,7 @@ BEM.DOM.decl('b-search', {
     onSetMod: {
 
         'js' : function() {
-            BEM.create('i-soundcloud');
+            BEM.blocks['i-soundcloud'].initialize();
         }
     },
 
@@ -3387,6 +3435,296 @@ BEM.DOM.decl('b-search', {
 })();
 
 /* blocks/b-search/b-search.js: end */ /**/
+
+/* bem-bl/blocks-common/i-jquery/__leftclick/i-jquery__leftclick.js: begin */ /**/
+/**
+ * leftClick event plugin
+ *
+ * Copyright (c) 2010 Filatov Dmitry (alpha@zforms.ru)
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ * @version 1.0.0
+ */
+
+(function($) {
+
+var leftClick = $.event.special.leftclick = {
+
+    setup : function() {
+
+        $(this).bind('click', leftClick.handler);
+
+    },
+
+    teardown : function() {
+
+        $(this).unbind('click', leftClick.handler);
+
+    },
+
+    handler : function(e) {
+
+        if(!e.button) {
+            e.type = 'leftclick';
+            $.event.handle.apply(this, arguments);
+            e.type = 'click';
+        }
+
+    }
+
+};
+
+})(jQuery);
+/* bem-bl/blocks-common/i-jquery/__leftclick/i-jquery__leftclick.js: end */ /**/
+
+/* blocks-ya/b-form-input/b-form-input.js: begin */ /**/
+(function() {
+
+var instances,
+    sysChannel;
+
+function update() {
+    var instance, i = 0;
+    while(instance = instances[i++]) instance.val(instance.elem('input').val());
+}
+
+BEM.DOM.decl('b-form-input', {
+
+    onSetMod : {
+
+        'js' : function() {
+
+            var _this = this,
+                input = _this.elem('input');
+
+            try {
+                // В iframe в IE9 происходит "Error: Unspecified error."
+                var activeNode = _this.__self.doc[0].activeElement;
+            } catch(e) {}
+
+            _this._val = input.val();
+            _this._focused = activeNode === input[0];
+
+            // факт подписки
+            if(!sysChannel) {
+                instances = [];
+                sysChannel = _this.channel('sys')
+                    .on({
+                        'tick' : update,
+                        'idle' : function() {
+                            sysChannel.un('tick', update);
+                        },
+                        'wakeup' : function() {
+                            sysChannel.on('tick', update);
+                        }});
+            }
+
+            // синхронизируем состояние фокуса
+            _this._focused && _this.setMod('focused', 'yes');
+
+            if(_this.params.autoFocus && !_this._focused &&
+                !(activeNode && 'input textarea'.indexOf(activeNode.tagName.toLowerCase()) > -1)) {
+                _this
+                    .setMod('focused', 'yes')
+                    ._focused = true;
+            }
+
+            // сохраняем индекс в массиве инстансов чтобы потом быстро из него удалять
+            _this._instanceIndex = instances.push(
+                _this
+                    .bindTo(input, {
+                        focus : _this._onFocus,
+                        blur  : _this._onBlur
+                    })) - 1;
+
+            // шорткат для перехода в инпут - crtl+стрелка вверх
+            _this.params.shortcut && _this.bindToDoc('keydown', function(e) {
+                if(e.ctrlKey && e.keyCode == 38 && !$(e.target).is('input, textarea')) {
+                    _this.setMod('focused', 'yes');
+                }
+            });
+        },
+
+        'disabled' : function(modName, modVal) {
+
+            this.elem('input').attr('disabled', modVal == 'yes');
+
+        },
+
+        'focused' : function(modName, modVal) {
+
+            if(this.hasMod('disabled', 'yes'))
+                return false;
+
+            var focused = modVal == 'yes';
+
+            focused?
+                this._focused || this._focus() :
+                this._focused && this._blur();
+
+            this.afterCurrentEvent(function() {
+                this.trigger(focused? 'focus' : 'blur');
+            });
+
+        }
+
+    },
+
+    onElemSetMod : {
+
+        'message' : {
+
+            'visibility' : function(elem, modName, modVal) {
+
+                var _this = this,
+                    type = _this.getMod(elem, 'type');
+
+                if(type) {
+                    var needSetMod = true;
+                    modVal || _this.elem('message', 'type', type).each(function() {
+                        this != elem[0] && _this.hasMod($(this), 'visibility', 'visible') && (needSetMod = false);
+                    });
+                    needSetMod && _this.toggleMod('message-' + type, 'yes', '', modVal === 'visible');
+                }
+
+            }
+
+        }
+
+    },
+
+    /**
+     * Возвращает/устанавливает текущее значение
+     * @param {String} [val] значение
+     * @param {Object} [data] дополнительные данные
+     * @returns {String|BEM} если передан параметр val, то возвращается сам блок, если не передан -- текущее значение
+     */
+    val : function(val, data) {
+
+        if(typeof val == 'undefined') return this._val;
+
+        if(this._val != val) {
+            var input = this.elem('input');
+            input.val() != val && input.val(val);
+            this._val = val;
+            this.trigger('change', data);
+        }
+
+        return this;
+
+    },
+
+    name : function(name) {
+        return this.elem('input').attr('name');
+    },
+
+    _onFocus : function() {
+
+        this._focused = true;
+        return this.setMod('focused', 'yes');
+
+    },
+
+    _onBlur : function() {
+
+        this._focused = false;
+        return this.delMod('focused');
+
+    },
+
+    /**
+     * Нормализует установку фокуса для IE
+     * @private
+     */
+    _focus : function() {
+
+        var input = this.elem('input')[0];
+        if(input.createTextRange && !input.selectionStart) {
+            var range = input.createTextRange();
+            range.move('character', input.value.length);
+            range.select();
+        } else {
+            input.focus();
+        }
+
+    },
+
+    _blur : function() {
+
+        this.elem('input').blur();
+
+    },
+
+    destruct : function() {
+
+        this.__base.apply(this, arguments);
+
+        this.params.shortcut && this.unbindFromDoc('keydown');
+        instances.splice(this._instanceIndex, 1);
+
+        var i = this._instanceIndex,
+            instance;
+
+        while(instance = instances[i++]) --instance._instanceIndex;
+
+    }
+
+});
+
+
+})();
+
+/* blocks-ya/b-form-input/b-form-input.js: end */ /**/
+
+/* blocks-ya/i-system/i-system.js: begin */ /**/
+(function() {
+
+var timer,
+    counter = 0,
+    isIdle = false,
+    idleInterval = 0,
+    channel = BEM.channel('sys'),
+    TICK_INTERVAL = 50;
+
+BEM.decl('i-system', {}, {
+
+    start : function() {
+
+        $(document).bind('mousemove keydown', function() {
+            idleInterval = 0;
+            if(isIdle) {
+                isIdle = false;
+                channel.trigger('wakeup');
+            }
+        });
+
+        this._tick();
+
+    },
+
+    _tick : function() {
+
+        var _this = this;
+
+        channel.trigger('tick', { counter : counter++ });
+
+        if(!isIdle && (idleInterval += TICK_INTERVAL) > 3000) {
+            isIdle = true;
+            channel.trigger('idle');
+        }
+
+        timer = setTimeout(function() {
+            _this._tick();
+        }, TICK_INTERVAL);
+
+    }
+
+}).start();
+
+})();
+/* blocks-ya/i-system/i-system.js: end */ /**/
 
 /* blocks/b-serp-item/b-serp-item.js: begin */ /**/
 /** @requires BEM.DOM */
@@ -3441,7 +3779,7 @@ BEM.DOM.decl('b-serp-item', {
 
 (function() {
 
-var _storage = BEM.create('i-storage');
+var _storage = BEM.blocks['i-storage'];
 
 BEM.DOM.decl('b-playlist', {
 
@@ -3449,7 +3787,7 @@ BEM.DOM.decl('b-playlist', {
 
         'js' : function() {
 
-            BEM.create('i-soundcloud');
+            BEM.blocks['i-soundcloud'].initialize();
 
             /* Whatching for changes in input */
             BEM.blocks['b-form-input'].on(this.elem('title desc'), 'change', function() {
@@ -3822,294 +4160,4 @@ BEM.DOM.decl('b-playlist', {
 })();
 
 /* blocks/b-playlist/b-playlist.js: end */ /**/
-
-/* bem-bl/blocks-common/i-jquery/__leftclick/i-jquery__leftclick.js: begin */ /**/
-/**
- * leftClick event plugin
- *
- * Copyright (c) 2010 Filatov Dmitry (alpha@zforms.ru)
- * Dual licensed under the MIT and GPL licenses:
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
- *
- * @version 1.0.0
- */
-
-(function($) {
-
-var leftClick = $.event.special.leftclick = {
-
-    setup : function() {
-
-        $(this).bind('click', leftClick.handler);
-
-    },
-
-    teardown : function() {
-
-        $(this).unbind('click', leftClick.handler);
-
-    },
-
-    handler : function(e) {
-
-        if(!e.button) {
-            e.type = 'leftclick';
-            $.event.handle.apply(this, arguments);
-            e.type = 'click';
-        }
-
-    }
-
-};
-
-})(jQuery);
-/* bem-bl/blocks-common/i-jquery/__leftclick/i-jquery__leftclick.js: end */ /**/
-
-/* blocks-ya/b-form-input/b-form-input.js: begin */ /**/
-(function() {
-
-var instances,
-    sysChannel;
-
-function update() {
-    var instance, i = 0;
-    while(instance = instances[i++]) instance.val(instance.elem('input').val());
-}
-
-BEM.DOM.decl('b-form-input', {
-
-    onSetMod : {
-
-        'js' : function() {
-
-            var _this = this,
-                input = _this.elem('input');
-
-            try {
-                // В iframe в IE9 происходит "Error: Unspecified error."
-                var activeNode = _this.__self.doc[0].activeElement;
-            } catch(e) {}
-
-            _this._val = input.val();
-            _this._focused = activeNode === input[0];
-
-            // факт подписки
-            if(!sysChannel) {
-                instances = [];
-                sysChannel = _this.channel('sys')
-                    .on({
-                        'tick' : update,
-                        'idle' : function() {
-                            sysChannel.un('tick', update);
-                        },
-                        'wakeup' : function() {
-                            sysChannel.on('tick', update);
-                        }});
-            }
-
-            // синхронизируем состояние фокуса
-            _this._focused && _this.setMod('focused', 'yes');
-
-            if(_this.params.autoFocus && !_this._focused &&
-                !(activeNode && 'input textarea'.indexOf(activeNode.tagName.toLowerCase()) > -1)) {
-                _this
-                    .setMod('focused', 'yes')
-                    ._focused = true;
-            }
-
-            // сохраняем индекс в массиве инстансов чтобы потом быстро из него удалять
-            _this._instanceIndex = instances.push(
-                _this
-                    .bindTo(input, {
-                        focus : _this._onFocus,
-                        blur  : _this._onBlur
-                    })) - 1;
-
-            // шорткат для перехода в инпут - crtl+стрелка вверх
-            _this.params.shortcut && _this.bindToDoc('keydown', function(e) {
-                if(e.ctrlKey && e.keyCode == 38 && !$(e.target).is('input, textarea')) {
-                    _this.setMod('focused', 'yes');
-                }
-            });
-        },
-
-        'disabled' : function(modName, modVal) {
-
-            this.elem('input').attr('disabled', modVal == 'yes');
-
-        },
-
-        'focused' : function(modName, modVal) {
-
-            if(this.hasMod('disabled', 'yes'))
-                return false;
-
-            var focused = modVal == 'yes';
-
-            focused?
-                this._focused || this._focus() :
-                this._focused && this._blur();
-
-            this.afterCurrentEvent(function() {
-                this.trigger(focused? 'focus' : 'blur');
-            });
-
-        }
-
-    },
-
-    onElemSetMod : {
-
-        'message' : {
-
-            'visibility' : function(elem, modName, modVal) {
-
-                var _this = this,
-                    type = _this.getMod(elem, 'type');
-
-                if(type) {
-                    var needSetMod = true;
-                    modVal || _this.elem('message', 'type', type).each(function() {
-                        this != elem[0] && _this.hasMod($(this), 'visibility', 'visible') && (needSetMod = false);
-                    });
-                    needSetMod && _this.toggleMod('message-' + type, 'yes', '', modVal === 'visible');
-                }
-
-            }
-
-        }
-
-    },
-
-    /**
-     * Возвращает/устанавливает текущее значение
-     * @param {String} [val] значение
-     * @param {Object} [data] дополнительные данные
-     * @returns {String|BEM} если передан параметр val, то возвращается сам блок, если не передан -- текущее значение
-     */
-    val : function(val, data) {
-
-        if(typeof val == 'undefined') return this._val;
-
-        if(this._val != val) {
-            var input = this.elem('input');
-            input.val() != val && input.val(val);
-            this._val = val;
-            this.trigger('change', data);
-        }
-
-        return this;
-
-    },
-
-    name : function(name) {
-        return this.elem('input').attr('name');
-    },
-
-    _onFocus : function() {
-
-        this._focused = true;
-        return this.setMod('focused', 'yes');
-
-    },
-
-    _onBlur : function() {
-
-        this._focused = false;
-        return this.delMod('focused');
-
-    },
-
-    /**
-     * Нормализует установку фокуса для IE
-     * @private
-     */
-    _focus : function() {
-
-        var input = this.elem('input')[0];
-        if(input.createTextRange && !input.selectionStart) {
-            var range = input.createTextRange();
-            range.move('character', input.value.length);
-            range.select();
-        } else {
-            input.focus();
-        }
-
-    },
-
-    _blur : function() {
-
-        this.elem('input').blur();
-
-    },
-
-    destruct : function() {
-
-        this.__base.apply(this, arguments);
-
-        this.params.shortcut && this.unbindFromDoc('keydown');
-        instances.splice(this._instanceIndex, 1);
-
-        var i = this._instanceIndex,
-            instance;
-
-        while(instance = instances[i++]) --instance._instanceIndex;
-
-    }
-
-});
-
-
-})();
-
-/* blocks-ya/b-form-input/b-form-input.js: end */ /**/
-
-/* blocks-ya/i-system/i-system.js: begin */ /**/
-(function() {
-
-var timer,
-    counter = 0,
-    isIdle = false,
-    idleInterval = 0,
-    channel = BEM.channel('sys'),
-    TICK_INTERVAL = 50;
-
-BEM.decl('i-system', {}, {
-
-    start : function() {
-
-        $(document).bind('mousemove keydown', function() {
-            idleInterval = 0;
-            if(isIdle) {
-                isIdle = false;
-                channel.trigger('wakeup');
-            }
-        });
-
-        this._tick();
-
-    },
-
-    _tick : function() {
-
-        var _this = this;
-
-        channel.trigger('tick', { counter : counter++ });
-
-        if(!isIdle && (idleInterval += TICK_INTERVAL) > 3000) {
-            isIdle = true;
-            channel.trigger('idle');
-        }
-
-        timer = setTimeout(function() {
-            _this._tick();
-        }, TICK_INTERVAL);
-
-    }
-
-}).start();
-
-})();
-/* blocks-ya/i-system/i-system.js: end */ /**/
 

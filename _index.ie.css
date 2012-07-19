@@ -12,10 +12,11 @@ table.b-dashboard /* type selector here is for making heavier */
     margin: auto;
 }
 
-.b-dashboard__playlists
+.b-dashboard__suggest_visibility_hidden
 {
-    border: orange 1px solid;
+    display: none;
 }
+
 .b-dashboard__pl-add
 {
     display: inline-block;
@@ -98,121 +99,6 @@ table.b-dashboard /* type selector here is for making heavier */
     padding-left: 6px;
 
     vertical-align: middle;
-}
-
-.b-serp-item
-{
-    margin: 0.4em 0;
-    padding: 0.2em;
-
-    border: #ccc solid;
-    border-width: 0 0 1px;
-
-    background: #fee0e6;
-
-}
-.b-serp-item__title
-{
-    font-weight: bold;
-}
-
-.b-playlist
-{
-    margin: 0.4em;
-    padding: 0.4em;
-    border: #f15572 1px solid;
-    opacity: 0.7;
-    position: relative;
-
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-}
-.b-playlist__title_action_none .b-form-input__box,
-.b-playlist__desc_action_none .b-form-input__box
-{
-    border: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-
-    background: #FCF2EA;
-}
-
-.b-playlist__title
-{
-    width: 200px;
-    height: 23px;
-}
-
-.b-playlist_state_current
-{
-    opacity: 1;
-}
-
-.b-playlist__songs
-{
-    display: none;
-}
-
-.b-playlist_state_current .b-playlist__songs
-{
-    display: block;
-}
-
-.b-playlist__play, .b-playlist__trash-all
-{
-    position: absolute;
-    right: 5px;
-}
-
-.b-playlist__play
-{
-    dispaly: none;
-    right: 29px;
-}
-
-.b-playlist_state_current .b-playlist__play
-{
-    display: inline-block;
-    width: 19px;
-    height: 19px;
-    margin: 2px;
-    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: -19px 0;
-}
-
-.b-playlist_state_current .b-playlist__play_action_playing
-{
-    background-position: -19px -19px;
-}
-
-.b-playlist__track
-{
-    height: 23px;
-    padding: 5px 0;
-    border: #ccc 0 solid;
-    border-width: 0 0 1px;
-}
-
-.b-playlist__trash-all,
-.b-playlist__trash
-{
-    display: inline-block;
-    width: 19px;
-    height: 19px;
-    margin: 2px;
-    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: 19px 0;
-
-    position: absolute;
-    right: 0;
-
-}
-
-.b-playlist__track_state_current .b-playlist__track-title
-{
-    font-weight: bold;
 }
 
 .b-form-input
@@ -332,6 +218,121 @@ body .b-form-input_type_textarea .b-form-input__hint
 {
     padding-top: 0.4em;
 }
+.b-serp-item
+{
+    margin: 0.4em 0;
+    padding: 0.2em;
+
+    border: #ccc solid;
+    border-width: 0 0 1px;
+
+    background: #fee0e6;
+
+}
+.b-serp-item__title
+{
+    font-weight: bold;
+}
+
+.b-playlist
+{
+    margin: 0.4em;
+    padding: 0.4em;
+    border: #f15572 1px solid;
+    opacity: 0.7;
+    position: relative;
+
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.b-playlist__title_action_none .b-form-input__box,
+.b-playlist__desc_action_none .b-form-input__box
+{
+    border: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    background: #FCF2EA;
+}
+
+.b-playlist__title
+{
+    width: 200px;
+    height: 23px;
+}
+
+.b-playlist_state_current
+{
+    opacity: 1;
+}
+
+.b-playlist__songs
+{
+    display: none;
+}
+
+.b-playlist_state_current .b-playlist__songs
+{
+    display: block;
+}
+
+.b-playlist__play, .b-playlist__trash-all
+{
+    position: absolute;
+    right: 5px;
+}
+
+.b-playlist__play
+{
+    dispaly: none;
+    right: 29px;
+}
+
+.b-playlist_state_current .b-playlist__play
+{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 2px;
+    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
+    background-position: -19px 0;
+}
+
+.b-playlist_state_current .b-playlist__play_action_playing
+{
+    background-position: -19px -19px;
+}
+
+.b-playlist__track
+{
+    height: 23px;
+    padding: 5px 0;
+    border: #ccc 0 solid;
+    border-width: 0 0 1px;
+}
+
+.b-playlist__trash-all,
+.b-playlist__trash
+{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 2px;
+    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
+    background-position: 19px 0;
+
+    position: absolute;
+    right: 0;
+
+}
+
+.b-playlist__track_state_current .b-playlist__track-title
+{
+    font-weight: bold;
+}
+
 
 .b-form-input
 {
