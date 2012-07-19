@@ -64,7 +64,9 @@ BEM.DOM.decl('b-playlist', {
 
                 this.play();
 
-                this.setMod(this.elem('play'), 'action', 'playing');
+                this.afterCurrentEvent(function(){
+                    this.setMod(this.elem('play'), 'action', 'playing');
+                })
 
                 /* Remember the list which is playing now */
                 this.__self._playing = this;
@@ -74,8 +76,12 @@ BEM.DOM.decl('b-playlist', {
 
                 this.sound && this.sound.stop();
 
-                this.setMod(this.elem('play'), 'action', 'none');
-                this.delMod(this.elem('track'), 'state')
+                this.afterCurrentEvent(function(){
+                    this.setMod(this.elem('play'), 'action', 'none');
+                    console.log('sel je');
+                    this.delMod(this.elem('track'), 'state');
+                })
+
             }
         }
     },
@@ -151,6 +157,7 @@ BEM.DOM.decl('b-playlist', {
 
         }
         if(id === null) {
+            this.setMod('action', 'none');
             return;
         }
 
