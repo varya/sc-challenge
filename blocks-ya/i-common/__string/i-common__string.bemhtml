@@ -2,6 +2,8 @@ this._, !this._.cleverSubstring: {
 
     local(this._.cleverSubstring = function(str, maxLength, maxLengthRelative) {
 
+        if (!str) return '';
+
         return (str.length > maxLength + maxLengthRelative) ?
             str.substring(0, maxLength - 1) + '…' : str;
 
