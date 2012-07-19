@@ -4134,6 +4134,7 @@ BEM.DOM.decl('b-playlist', {
             next = de.next(sel);
             newCurrent = prev.length ? prev : (next.length ? next : undefined);
         this.sound && this.sound.stop();
+        this.__self._current = false;
         this.afterCurrentEvent(function(){
             de.remove();
             newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
