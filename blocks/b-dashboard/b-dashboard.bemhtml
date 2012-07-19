@@ -60,14 +60,14 @@ block b-dashboard {
                                                 elem: 'p',
                                                 content: [
                                                     'When having several playlists choose the one you\'d like to work with',
-                                                    ' with a click.'
+                                                    ' clicking on it.'
                                                 ]
                                             },
                                             {
                                                 elem: 'p',
                                                 content: [
-                                                    'As for renaming a playlist, it\'s also possible with a',
-                                                    'click at its title.'
+                                                    'As for renaming a playlist, it\'s also possible with a ',
+                                                    'click at its title. And the same for descritions.'
                                                 ]
                                             },
                                             {
