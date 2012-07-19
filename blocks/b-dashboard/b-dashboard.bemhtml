@@ -18,7 +18,7 @@ block b-dashboard {
                                     block: 'b-search',
                                     input: {
                                         elem: 'input',
-                                        attrs: { value: 'Love song' }
+                                        content: 'About love'
                                     },
                                     button: {
                                         elem: 'button'

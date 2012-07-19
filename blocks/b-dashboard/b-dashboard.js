@@ -2,7 +2,7 @@
 
 (function() {
 
-var _storage = BEM.create('i-storage');
+var _storage = BEM.blocks['i-storage'];
 
 /* Block-container for the application */
 BEM.DOM.decl('b-dashboard', {
