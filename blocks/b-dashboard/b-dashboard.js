@@ -26,7 +26,7 @@ BEM.DOM.decl('b-dashboard', {
                 this._save();
             }, this);
 
-            (_storage.getItem('suggest') == true) || this.setMod(this.elem('suggest'), 'visibility', 'visible');
+            _storage.getItem('suggest') || this.setMod(this.elem('suggest'), 'visibility', 'visible');
 
             var lists = _storage.getItem('playlists');
             lists && lists.forEach(function(id){
