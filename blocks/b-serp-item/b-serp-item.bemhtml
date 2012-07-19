@@ -12,6 +12,6 @@ block b-serp-item {
         return this._.xmlEscape(this.ctx.content)
     }
     elem description, content: {
-        return this._.xmlEscape(this.ctx.content)
+        return this._.xmlEscape(this._.cleverSubstring(this.ctx.content, 100, 5))
     }
 }
