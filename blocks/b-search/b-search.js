@@ -8,7 +8,7 @@ BEM.DOM.decl('b-search', {
     onSetMod: {
 
         'js' : function() {
-            BEM.create('i-soundcloud');
+            BEM.blocks['i-soundcloud'].initialize();
         }
     },
 

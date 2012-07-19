@@ -2,7 +2,7 @@
 
 (function() {
 
-var _storage = BEM.create('i-storage');
+var _storage = BEM.blocks['i-storage'];
 
 BEM.DOM.decl('b-playlist', {
 
@@ -10,7 +10,7 @@ BEM.DOM.decl('b-playlist', {
 
         'js' : function() {
 
-            BEM.create('i-soundcloud');
+            BEM.blocks['i-soundcloud'].initialize();
 
             /* Whatching for changes in input */
             BEM.blocks['b-form-input'].on(this.elem('title desc'), 'change', function() {
