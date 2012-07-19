@@ -80,3 +80,12 @@ when compiling the project.
 It is possible to be run on both client and server side. For this application ``BEMHTML`` is
 run on server under Node.js for building a pure HTML page with only ``b-page`` block
 representing. And then, all other blocks are the result of running templates on client.
+
+## How it works
+The source data of the page is ``index.bemjson.js`` file.
+
+There are building instructions in
+``GNUmakefile`` to build ``*.html``, ``*.css``, ``*.js`` and ``*.bemhtml.js`` files.
+It is defining which levels are to be used when building. A ``bem build`` command from [bem-tools](https://github.com/bem/bem-tools)
+compiles page technologies. Important that it picks up not only
+the declared block but also the ones which are mentioned in ``dependencies`` (look for ``*.deps.js`` files for blocks).
