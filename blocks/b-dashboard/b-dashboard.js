@@ -53,7 +53,7 @@ BEM.DOM.decl('b-dashboard', {
 
         var bDashboard = this;
 
-        $.each(tracks, function(i, track){
+        tracks.forEach(function(track){
             var html = $(BEM.blocks['b-serp-item'].buildFromSearchResult(track));
             html.bem('b-serp-item').track(track);
             BEM.DOM.append(bDashboard.elem('searchfield'), html)
@@ -71,7 +71,7 @@ BEM.DOM.decl('b-dashboard', {
     _allLists: function() {
 
         var lists = [];
-        $.each(this.findBlocksInside('b-playlist'), function(i, block){
+        this.findBlocksInside('b-playlist').forEach(function(block){
             lists.push(block.params['uniqId']);
         });
 
