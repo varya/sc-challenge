@@ -22,7 +22,7 @@ BEM.DOM.decl('b-dashboard', {
             }, this);
 
             /* Saving when a new playlist occurs or is dead */
-            BEM.blocks['b-playlist'].on('birth death', function(e, data){
+            BEM.blocks['b-playlist'].on('birth death', function(e){
                 this._save();
             }, this);
 
@@ -41,7 +41,7 @@ BEM.DOM.decl('b-dashboard', {
     _clearTracks: function() {
 
         $.each(this.findBlocksInside('searchfield', 'b-serp-item'), function(i, item) {
-            item.remove();
+            BEM.DOM.destruct(item.domElem);
         })
         return this;
 
