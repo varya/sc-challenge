@@ -17,8 +17,7 @@ block b-dashboard {
                                 content: {
                                     block: 'b-search',
                                     input: {
-                                        elem: 'input',
-                                        content: 'About love'
+                                        elem: 'input'
                                     },
                                     button: {
                                         elem: 'button'

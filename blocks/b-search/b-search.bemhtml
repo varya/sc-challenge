@@ -9,8 +9,10 @@ block b-search {
                 block: 'b-form-input',
                 mods: { theme: 'grey'},
                 mix: [ { block : 'b-search', elem: 'input', mods: { action: 'none' } }],
-                value: this.ctx.content,
-                content: { elem: 'input'}
+                content: [
+                    { elem: 'hint', content: 'Searching phrase here' },
+                    { elem: 'input'}
+                ]
             }
         )
 
