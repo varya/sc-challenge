@@ -3268,13 +3268,15 @@ BEM.DOM.decl('b-dashboard', {
                 BEM.blocks['b-playlist'].getCurrent().addTrack(e.block.track());
             })
 
-            /* Appening a new playlist when it's born */
-            BEM.blocks['b-playlist'].on('birth', function(e, data){
-                BEM.DOM.append(this.elem('playlists'), data.html);
-            }, this);
-
-            /* Saving when a new playlist occurs or is dead */
-            BEM.blocks['b-playlist'].on('birth death', function(e){
+            BEM.blocks['b-playlist'].on('birth death', function(e, data){
+                if (e.type == 'death') {
+                    //data.domElem.remove();
+                    BEM.DOM.destruct(data.domElem);
+                    /* Saving when a new playlist occurs or is dead */
+                } else {
+                    /* Appening a new playlist when it's born */
+                    BEM.DOM.append(this.elem('playlists'), data.html);
+                }
                 this._save();
             }, this);
 
@@ -3292,9 +3294,9 @@ BEM.DOM.decl('b-dashboard', {
     /* Clears searchfield */
     _clearTracks: function() {
 
-        BEM.DOM.destruct(this.findBlocksInside('searchfield', 'b-serp-item').reduce(function(res, block) {
-            res = res.add(block.domElem);
-        }, $()));
+        this.findBlocksInside('searchfield', 'b-serp-item').forEach(function(item){
+            BEM.DOM.destruct(item.domElem)
+        });
 
         return this;
 
@@ -3853,7 +3855,7 @@ BEM.DOM.decl('b-playlist', {
                 var cur = this.__self._current;
 
                 /* Removing 'current' state from previous 'current' list */
-                cur && cur.delMod('state');
+                cur &&  cur.delMod('state');
 
                 /* Saving which is 'current' now */
                 this.__self._current = this;
@@ -3883,7 +3885,9 @@ BEM.DOM.decl('b-playlist', {
 
                 this.play();
 
-                this.setMod(this.elem('play'), 'action', 'playing');
+                this.afterCurrentEvent(function(){
+                    this.setMod(this.elem('play'), 'action', 'playing');
+                })
 
                 /* Remember the list which is playing now */
                 this.__self._playing = this;
@@ -3893,8 +3897,12 @@ BEM.DOM.decl('b-playlist', {
 
                 this.sound && this.sound.stop();
 
-                this.setMod(this.elem('play'), 'action', 'none');
-                this.delMod(this.elem('track'), 'state')
+                this.afterCurrentEvent(function(){
+                    this.setMod(this.elem('play'), 'action', 'none');
+                    console.log('sel je');
+                    this.delMod(this.elem('track'), 'state');
+                })
+
             }
         }
     },
@@ -3970,12 +3978,12 @@ BEM.DOM.decl('b-playlist', {
 
         }
         if(id === null) {
+            this.setMod('action', 'none');
             return;
         }
 
         var bPlaylist = this,
-            track = this.getTrack(id),
-            nextId = track.nextId;
+            track = this.getTrack(id);
 
         SC.stream("/tracks/" + id,
             {
@@ -3990,7 +3998,7 @@ BEM.DOM.decl('b-playlist', {
 
                 onfinish: function() {
 
-                    bPlaylist.play(nextId);
+                    bPlaylist.play(track.nextId);
 
                 }
 
@@ -4126,11 +4134,8 @@ BEM.DOM.decl('b-playlist', {
             next = de.next(sel);
             newCurrent = prev.length ? prev : (next.length ? next : undefined);
         this.sound && this.sound.stop();
-        BEM.DOM.destruct(this.domElem);
-        this.afterCurrentEvent(function(){
-            newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
-            BEM.blocks['b-playlist'].trigger('death');
-        });
+        newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
+        BEM.blocks['b-playlist'].trigger('death', { domElem: de });
     }
 
 }, {
