@@ -3726,6 +3726,44 @@ BEM.decl('i-system', {}, {
 })();
 /* blocks-ya/i-system/i-system.js: end */ /**/
 
+/* blocks-ya/b-form-input/__hint/b-form-input__hint.js: begin */ /**/
+BEM.DOM.decl('b-form-input', {
+
+    onSetMod : {
+
+        'js' : function() {
+
+            this.__base.apply(this, arguments);
+            (this._hasHint = !!this.elem('hint')[0]) &&
+                this
+                    .on('change', this._updateHint)
+                    ._updateHint();
+
+        },
+
+        'focused' : function() {
+
+            this.__base.apply(this, arguments);
+            this._hasHint && this._updateHint();
+
+        }
+
+    },
+
+    /**
+     * Показывает/скрывает хинт
+     * @private
+     */
+    _updateHint : function() {
+
+        this.toggleMod(this.elem('hint-wrap'), 'visibility', 'visible', !(this._focused || this.val()));
+
+    }
+
+});
+
+/* blocks-ya/b-form-input/__hint/b-form-input__hint.js: end */ /**/
+
 /* blocks/b-serp-item/b-serp-item.js: begin */ /**/
 /** @requires BEM.DOM */
 

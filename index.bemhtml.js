@@ -1,8 +1,8 @@
 var BEMHTML = (function(exports) {
-    var __r7, __r9, __r11, __r13, __r15, __r17, __r19, __r21, __r28, __r29, __r50, __r51;
+    var __r7, __r9, __r11, __r13, __r15, __r17, __r19, __r21, __r28, __r29, __r54, __r55;
     exports.apply = apply;
     function apply() {
-        return $133.call(this);
+        return $138.call(this);
     }
     function $1() {
         return "span";
@@ -10,9 +10,9 @@ var BEMHTML = (function(exports) {
     }
     function $2() {
         "";
-        var __r55 = this["_mode"];
+        var __r59 = this["_mode"];
         this["_mode"] = "";
-        var __r56 = this["ctx"];
+        var __r60 = this["ctx"];
         this["ctx"] = {
             block: "b-form-input",
             mods: {
@@ -31,18 +31,18 @@ var BEMHTML = (function(exports) {
                 elem: "input"
             }
         };
-        $133.call(this);
-        this["_mode"] = __r55;
-        this["ctx"] = __r56;
+        $138.call(this);
+        this["_mode"] = __r59;
+        this["ctx"] = __r60;
         "";
         undefined;
         return;
     }
     function $3() {
         "";
-        var __r53 = this["_mode"];
+        var __r57 = this["_mode"];
         this["_mode"] = "";
-        var __r54 = this["ctx"];
+        var __r58 = this["ctx"];
         this["ctx"] = {
             block: "b-form-input",
             mods: {
@@ -60,9 +60,9 @@ var BEMHTML = (function(exports) {
                 elem: "input"
             }
         };
-        $133.call(this);
-        this["_mode"] = __r53;
-        this["ctx"] = __r54;
+        $138.call(this);
+        this["_mode"] = __r57;
+        this["ctx"] = __r58;
         "";
         undefined;
         return;
@@ -257,13 +257,13 @@ var BEMHTML = (function(exports) {
     }
     function $5() {
         var _this = this, BEM_ = _this["BEM"], v = this["ctx"], buf = this["_buf"], tag;
-        tag = ("", __r7 = this["_mode"], this["_mode"] = "tag", __r8 = $133.call(this), this["_mode"] = __r7, "", __r8);
+        tag = ("", __r7 = this["_mode"], this["_mode"] = "tag", __r8 = $138.call(this), this["_mode"] = __r7, "", __r8);
         typeof tag != "undefined" || (tag = v["tag"]);
         typeof tag != "undefined" || (tag = "div");
         if (tag) {
             var jsParams, js;
             if (this["block"] && v["js"] !== false) {
-                js = ("", __r9 = this["_mode"], this["_mode"] = "js", __r10 = $133.call(this), this["_mode"] = __r9, "", __r10);
+                js = ("", __r9 = this["_mode"], this["_mode"] = "js", __r10 = $138.call(this), this["_mode"] = __r9, "", __r10);
                 js = js ? this["_"]["extend"](v["js"], js === true ? {} : js) : v["js"] === true ? {} : v["js"];
                 js && ((jsParams = {})[BEM_["INTERNAL"]["buildClass"](this["block"], v["elem"])] = js);
             } else {
@@ -271,16 +271,16 @@ var BEMHTML = (function(exports) {
             }
             undefined;
             buf["push"]("<", tag);
-            var isBEM = ("", __r11 = this["_mode"], this["_mode"] = "bem", __r12 = $133.call(this), this["_mode"] = __r11, "", __r12);
+            var isBEM = ("", __r11 = this["_mode"], this["_mode"] = "bem", __r12 = $138.call(this), this["_mode"] = __r11, "", __r12);
             typeof isBEM != "undefined" || (isBEM = typeof v["bem"] != "undefined" ? v["bem"] : v["block"] || v["elem"]);
-            var cls = ("", __r13 = this["_mode"], this["_mode"] = "cls", __r14 = $133.call(this), this["_mode"] = __r13, "", __r14);
+            var cls = ("", __r13 = this["_mode"], this["_mode"] = "cls", __r14 = $138.call(this), this["_mode"] = __r13, "", __r14);
             cls || (cls = v["cls"]);
             var addJSInitClass = v["block"] && jsParams;
             if (isBEM || cls) {
                 buf["push"](' class="');
                 if (isBEM) {
                     BEM_["INTERNAL"]["buildClasses"](this["block"], v["elem"], v["elemMods"] || v["mods"], buf);
-                    var mix = ("", __r15 = this["_mode"], this["_mode"] = "mix", __r16 = $133.call(this), this["_mode"] = __r15, "", __r16);
+                    var mix = ("", __r15 = this["_mode"], this["_mode"] = "mix", __r16 = $138.call(this), this["_mode"] = __r15, "", __r16);
                     v["mix"] && (mix = mix ? mix["concat"](v["mix"]) : v["mix"]);
                     if (mix) {
                         var i = 0, l = mix["length"], mixItem, hasItem, block;
@@ -311,13 +311,13 @@ var BEMHTML = (function(exports) {
             }
             undefined;
             if (jsParams) {
-                var jsAttr = ("", __r17 = this["_mode"], this["_mode"] = "jsAttr", __r18 = $133.call(this), this["_mode"] = __r17, "", __r18);
+                var jsAttr = ("", __r17 = this["_mode"], this["_mode"] = "jsAttr", __r18 = $138.call(this), this["_mode"] = __r17, "", __r18);
                 buf["push"](" ", jsAttr || "onclick", '="return ', this["_"]["attrEscape"](JSON["stringify"](jsParams)), '"');
             } else {
                 undefined;
             }
             undefined;
-            var attrs = ("", __r19 = this["_mode"], this["_mode"] = "attrs", __r20 = $133.call(this), this["_mode"] = __r19, "", __r20);
+            var attrs = ("", __r19 = this["_mode"], this["_mode"] = "attrs", __r20 = $138.call(this), this["_mode"] = __r19, "", __r20);
             attrs = this["_"]["extend"](attrs, v["attrs"]);
             if (attrs) {
                 var name;
@@ -334,7 +334,7 @@ var BEMHTML = (function(exports) {
             buf["push"]("/>");
         } else {
             tag && buf["push"](">");
-            var content = ("", __r21 = this["_mode"], this["_mode"] = "content", __r22 = $133.call(this), this["_mode"] = __r21, "", __r22);
+            var content = ("", __r21 = this["_mode"], this["_mode"] = "content", __r22 = $138.call(this), this["_mode"] = __r21, "", __r22);
             if (content || content === 0) {
                 var isBEM = this["block"] || this["elem"];
                 {
@@ -349,7 +349,7 @@ var BEMHTML = (function(exports) {
                     this["ctx"] = content;
                     var __r27 = this["_mode"];
                     this["_mode"] = "";
-                    $133.call(this);
+                    $138.call(this);
                     this["_notNewList"] = __r23;
                     this["position"] = __r24;
                     this["_listLength"] = __r25;
@@ -482,7 +482,7 @@ var BEMHTML = (function(exports) {
                                 "";
                                 var __r6 = this["ctx"];
                                 this["ctx"] = v[i++];
-                                $133.call(this);
+                                $138.call(this);
                                 this["ctx"] = __r6;
                                 "";
                             }
@@ -509,7 +509,7 @@ var BEMHTML = (function(exports) {
                             var __r5 = this["elemMods"];
                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                            $133.call(this);
+                            $138.call(this);
                             undefined;
                             undefined;
                             this["_mode"] = __r0;
@@ -594,7 +594,7 @@ var BEMHTML = (function(exports) {
                                         "";
                                         var __r6 = this["ctx"];
                                         this["ctx"] = v[i++];
-                                        $133.call(this);
+                                        $138.call(this);
                                         this["ctx"] = __r6;
                                         "";
                                     }
@@ -621,7 +621,7 @@ var BEMHTML = (function(exports) {
                                     var __r5 = this["elemMods"];
                                     this["elemMods"] = this["ctx"]["elemMods"] || {};
                                     this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                    $133.call(this);
+                                    $138.call(this);
                                     undefined;
                                     undefined;
                                     this["_mode"] = __r0;
@@ -748,7 +748,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -775,7 +775,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -854,7 +854,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -881,7 +881,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -1007,7 +1007,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -1034,7 +1034,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -1113,7 +1113,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -1140,7 +1140,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -1276,7 +1276,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -1303,7 +1303,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -1414,7 +1414,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -1441,7 +1441,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -1538,7 +1538,7 @@ var BEMHTML = (function(exports) {
     }
     function $60() {
         if (!!this["_baseAttrsApplyed"] === false) {
-            var a = ("", __r50 = this["_value"], this["_value"] = null, __r51 = this["_baseAttrsApplyed"], this["_baseAttrsApplyed"] = true, __r52 = $60.call(this), this["_value"] = __r50, this["_baseAttrsApplyed"] = __r51, "", __r52);
+            var a = ("", __r54 = this["_value"], this["_value"] = null, __r55 = this["_baseAttrsApplyed"], this["_baseAttrsApplyed"] = true, __r56 = $60.call(this), this["_value"] = __r54, this["_baseAttrsApplyed"] = __r55, "", __r56);
             return this["_"]["extend"](a, {
                 row: 10,
                 cols: 10
@@ -1548,11 +1548,193 @@ var BEMHTML = (function(exports) {
             return $59.call(this);
         }
     }
-    function $63() {
+    function $66() {
+        var __t = this["_mode"];
+        if (__t === "tag") {
+            return "label";
+            return;
+        } else if (__t === "default") {
+            if (!!this["ctx"]["_wrap"] === false) {
+                "";
+                var __r50 = this["_mode"];
+                this["_mode"] = "";
+                var __r51 = this["ctx"], __r52 = __r51["_wrap"];
+                __r51["_wrap"] = true;
+                var __r53 = this["ctx"];
+                this["ctx"] = {
+                    elem: "hint-wrap",
+                    tag: "span",
+                    content: this["ctx"]
+                };
+                this["apply"]();
+                this["_mode"] = __r50;
+                __r51["_wrap"] = __r52;
+                this["ctx"] = __r53;
+                "";
+                return;
+            } else {
+                if (!!this["_inputId"] === false) {
+                    "";
+                    var __r43 = this["_inputId"];
+                    this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
+                    var __r44 = this["_name"];
+                    this["_name"] = this["ctx"]["name"] || "";
+                    var __r45 = this["_value"];
+                    this["_value"] = this["ctx"]["value"] || "";
+                    this["apply"]();
+                    this["_inputId"] = __r43;
+                    this["_name"] = __r44;
+                    this["_value"] = __r45;
+                    "";
+                    return;
+                } else {
+                    if (!!this["_start"] === false) {
+                        return $4.call(this);
+                    } else {
+                        return $5.call(this);
+                    }
+                }
+            }
+        } else if (__t === "content") {
+            if (!!this["_start"] === false) {
+                return $4.call(this);
+            } else {
+                return this["ctx"]["content"];
+                return;
+            }
+        } else if (__t === "js") {
+            if (!!this["elem"] === false) {
+                return this["mods"]["popup"] == "gradient" ? {
+                    popupMods: {
+                        gradient: "yes"
+                    }
+                } : true;
+                return;
+            } else {
+                if (!!this["_start"] === false) {
+                    return $4.call(this);
+                } else {
+                    return undefined;
+                    return;
+                }
+            }
+        } else if (__t === "attrs") {
+            return {
+                "for": this["_inputId"]
+            };
+            return;
+        } else if (__t === "bem") {
+            if (!!this["_start"] === false) {
+                return $4.call(this);
+            } else {
+                return undefined;
+                return;
+            }
+        } else if (__t === "mix") {
+            if (!!this["_start"] === false) {
+                return $4.call(this);
+            } else {
+                return undefined;
+                return;
+            }
+        } else if (__t === "jsAttr") {
+            if (!!this["_start"] === false) {
+                return $4.call(this);
+            } else {
+                return undefined;
+                return;
+            }
+        } else if (__t === "cls") {
+            if (!!this["_start"] === false) {
+                return $4.call(this);
+            } else {
+                return undefined;
+                return;
+            }
+        } else {
+            if (!!this["_start"] === false) {
+                return $4.call(this);
+            } else {
+                if (!!this["_mode"] === false) {
+                    if (!this["_"]["isSimple"](this["ctx"]) === false) {
+                        this["_listLength"]--;
+                        this["_buf"]["push"](this["ctx"]);
+                        return;
+                    } else {
+                        if (!!this["ctx"] === false) {
+                            this["_listLength"]--;
+                            return;
+                        } else {
+                            if (!this["_"]["isArray"](this["ctx"]) === false) {
+                                var v = this["ctx"], l = v["length"], i = 0, prevPos = this["position"], prevNotNewList = this["_notNewList"];
+                                if (prevNotNewList) {
+                                    this["_listLength"] += l - 1;
+                                } else {
+                                    this["position"] = 0;
+                                    this["_listLength"] = l;
+                                }
+                                this["_notNewList"] = true;
+                                while (i < l) {
+                                    {
+                                        "";
+                                        var __r6 = this["ctx"];
+                                        this["ctx"] = v[i++];
+                                        $138.call(this);
+                                        this["ctx"] = __r6;
+                                        "";
+                                    }
+                                    undefined;
+                                }
+                                undefined;
+                                prevNotNewList || (this["position"] = prevPos);
+                                return;
+                            } else {
+                                if (!true === false) {
+                                    var vBlock = this["ctx"]["block"], vElem = this["ctx"]["elem"], block = this["_currBlock"] || this["block"];
+                                    this["ctx"] || (this["ctx"] = {});
+                                    "";
+                                    var __r0 = this["_mode"];
+                                    this["_mode"] = "default";
+                                    var __r1 = this["block"];
+                                    this["block"] = vBlock || (vElem ? block : undefined);
+                                    var __r2 = this["_currBlock"];
+                                    this["_currBlock"] = vBlock || vElem ? undefined : block;
+                                    var __r3 = this["elem"];
+                                    this["elem"] = this["ctx"]["elem"];
+                                    var __r4 = this["mods"];
+                                    this["mods"] = (vBlock ? this["ctx"]["mods"] : this["mods"]) || {};
+                                    var __r5 = this["elemMods"];
+                                    this["elemMods"] = this["ctx"]["elemMods"] || {};
+                                    this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
+                                    $138.call(this);
+                                    undefined;
+                                    undefined;
+                                    this["_mode"] = __r0;
+                                    this["block"] = __r1;
+                                    this["_currBlock"] = __r2;
+                                    this["elem"] = __r3;
+                                    this["mods"] = __r4;
+                                    this["elemMods"] = __r5;
+                                    "";
+                                    undefined;
+                                    return;
+                                } else {
+                                    return $e.call(this, []);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    return $e.call(this, []);
+                }
+            }
+        }
+    }
+    function $68() {
         return "input";
         return;
     }
-    function $65() {
+    function $70() {
         var __t = this["elem"];
         if (__t === "desc") {
             if (!!this["elem"] === false) {
@@ -1659,7 +1841,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -1686,7 +1868,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -1817,7 +1999,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -1844,7 +2026,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -1973,7 +2155,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -2000,7 +2182,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -2131,7 +2313,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -2158,7 +2340,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -2287,7 +2469,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -2314,7 +2496,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -2445,7 +2627,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -2472,7 +2654,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -2601,7 +2783,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -2628,7 +2810,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -2759,7 +2941,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -2786,7 +2968,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -2945,7 +3127,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -2972,7 +3154,188 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
+                                        undefined;
+                                        undefined;
+                                        this["_mode"] = __r0;
+                                        this["block"] = __r1;
+                                        this["_currBlock"] = __r2;
+                                        this["elem"] = __r3;
+                                        this["mods"] = __r4;
+                                        this["elemMods"] = __r5;
+                                        "";
+                                        undefined;
+                                        return;
+                                    } else {
+                                        return $e.call(this, []);
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        return $e.call(this, []);
+                    }
+                }
+            }
+        } else if (__t === "hint") {
+            var __t = this["_mode"];
+            if (__t === "tag") {
+                return "label";
+                return;
+            } else if (__t === "default") {
+                if (!!this["ctx"]["_wrap"] === false) {
+                    "";
+                    var __r50 = this["_mode"];
+                    this["_mode"] = "";
+                    var __r51 = this["ctx"], __r52 = __r51["_wrap"];
+                    __r51["_wrap"] = true;
+                    var __r53 = this["ctx"];
+                    this["ctx"] = {
+                        elem: "hint-wrap",
+                        tag: "span",
+                        content: this["ctx"]
+                    };
+                    this["apply"]();
+                    this["_mode"] = __r50;
+                    __r51["_wrap"] = __r52;
+                    this["ctx"] = __r53;
+                    "";
+                    return;
+                } else {
+                    if (!!this["_inputId"] === false) {
+                        "";
+                        var __r43 = this["_inputId"];
+                        this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
+                        var __r44 = this["_name"];
+                        this["_name"] = this["ctx"]["name"] || "";
+                        var __r45 = this["_value"];
+                        this["_value"] = this["ctx"]["value"] || "";
+                        this["apply"]();
+                        this["_inputId"] = __r43;
+                        this["_name"] = __r44;
+                        this["_value"] = __r45;
+                        "";
+                        return;
+                    } else {
+                        if (!!this["_start"] === false) {
+                            return $4.call(this);
+                        } else {
+                            return $5.call(this);
+                        }
+                    }
+                }
+            } else if (__t === "content") {
+                if (!!this["_start"] === false) {
+                    return $4.call(this);
+                } else {
+                    return this["ctx"]["content"];
+                    return;
+                }
+            } else if (__t === "js") {
+                if (!!this["elem"] === false) {
+                    return this["mods"]["popup"] == "gradient" ? {
+                        popupMods: {
+                            gradient: "yes"
+                        }
+                    } : true;
+                    return;
+                } else {
+                    if (!!this["_start"] === false) {
+                        return $4.call(this);
+                    } else {
+                        return undefined;
+                        return;
+                    }
+                }
+            } else if (__t === "attrs") {
+                return {
+                    "for": this["_inputId"]
+                };
+                return;
+            } else if (__t === "bem") {
+                if (!!this["_start"] === false) {
+                    return $4.call(this);
+                } else {
+                    return undefined;
+                    return;
+                }
+            } else if (__t === "mix") {
+                if (!!this["_start"] === false) {
+                    return $4.call(this);
+                } else {
+                    return undefined;
+                    return;
+                }
+            } else if (__t === "jsAttr") {
+                if (!!this["_start"] === false) {
+                    return $4.call(this);
+                } else {
+                    return undefined;
+                    return;
+                }
+            } else if (__t === "cls") {
+                if (!!this["_start"] === false) {
+                    return $4.call(this);
+                } else {
+                    return undefined;
+                    return;
+                }
+            } else {
+                if (!!this["_start"] === false) {
+                    return $4.call(this);
+                } else {
+                    if (!!this["_mode"] === false) {
+                        if (!this["_"]["isSimple"](this["ctx"]) === false) {
+                            this["_listLength"]--;
+                            this["_buf"]["push"](this["ctx"]);
+                            return;
+                        } else {
+                            if (!!this["ctx"] === false) {
+                                this["_listLength"]--;
+                                return;
+                            } else {
+                                if (!this["_"]["isArray"](this["ctx"]) === false) {
+                                    var v = this["ctx"], l = v["length"], i = 0, prevPos = this["position"], prevNotNewList = this["_notNewList"];
+                                    if (prevNotNewList) {
+                                        this["_listLength"] += l - 1;
+                                    } else {
+                                        this["position"] = 0;
+                                        this["_listLength"] = l;
+                                    }
+                                    this["_notNewList"] = true;
+                                    while (i < l) {
+                                        {
+                                            "";
+                                            var __r6 = this["ctx"];
+                                            this["ctx"] = v[i++];
+                                            $138.call(this);
+                                            this["ctx"] = __r6;
+                                            "";
+                                        }
+                                        undefined;
+                                    }
+                                    undefined;
+                                    prevNotNewList || (this["position"] = prevPos);
+                                    return;
+                                } else {
+                                    if (!true === false) {
+                                        var vBlock = this["ctx"]["block"], vElem = this["ctx"]["elem"], block = this["_currBlock"] || this["block"];
+                                        this["ctx"] || (this["ctx"] = {});
+                                        "";
+                                        var __r0 = this["_mode"];
+                                        this["_mode"] = "default";
+                                        var __r1 = this["block"];
+                                        this["block"] = vBlock || (vElem ? block : undefined);
+                                        var __r2 = this["_currBlock"];
+                                        this["_currBlock"] = vBlock || vElem ? undefined : block;
+                                        var __r3 = this["elem"];
+                                        this["elem"] = this["ctx"]["elem"];
+                                        var __r4 = this["mods"];
+                                        this["mods"] = (vBlock ? this["ctx"]["mods"] : this["mods"]) || {};
+                                        var __r5 = this["elemMods"];
+                                        this["elemMods"] = this["ctx"]["elemMods"] || {};
+                                        this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -3100,7 +3463,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -3127,7 +3490,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -3258,7 +3621,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -3285,7 +3648,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -3414,7 +3777,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -3441,7 +3804,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -3572,7 +3935,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -3599,7 +3962,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -3728,7 +4091,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -3755,7 +4118,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -3886,7 +4249,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -3913,7 +4276,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -4042,7 +4405,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -4069,7 +4432,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -4200,7 +4563,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -4227,7 +4590,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -4356,7 +4719,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -4383,7 +4746,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -4514,7 +4877,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -4541,7 +4904,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -4670,7 +5033,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -4697,7 +5060,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -4828,7 +5191,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -4855,7 +5218,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -4984,7 +5347,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -5011,7 +5374,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -5142,7 +5505,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -5169,7 +5532,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -5298,7 +5661,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -5325,7 +5688,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -5456,7 +5819,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -5483,7 +5846,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -5612,7 +5975,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -5639,7 +6002,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -5770,7 +6133,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -5797,7 +6160,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -5926,7 +6289,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -5953,7 +6316,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -6084,7 +6447,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -6111,7 +6474,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -6240,7 +6603,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -6267,7 +6630,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -6398,7 +6761,7 @@ var BEMHTML = (function(exports) {
                                                 "";
                                                 var __r6 = this["ctx"];
                                                 this["ctx"] = v[i++];
-                                                $133.call(this);
+                                                $138.call(this);
                                                 this["ctx"] = __r6;
                                                 "";
                                             }
@@ -6425,7 +6788,7 @@ var BEMHTML = (function(exports) {
                                             var __r5 = this["elemMods"];
                                             this["elemMods"] = this["ctx"]["elemMods"] || {};
                                             this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                            $133.call(this);
+                                            $138.call(this);
                                             undefined;
                                             undefined;
                                             this["_mode"] = __r0;
@@ -6451,7 +6814,7 @@ var BEMHTML = (function(exports) {
             }
         }
     }
-    function $71() {
+    function $76() {
         if (!this["ctx"]["input"] === false) {
             if (!this["ctx"]["button"] === false) {
                 this["ctx"]["input"]["block"] = "b-search";
@@ -6512,7 +6875,7 @@ var BEMHTML = (function(exports) {
             }
         }
     }
-    function $74() {
+    function $79() {
         if (!!this["elem"] === false) {
             var __t = this["_mode"];
             if (__t === "tag") {
@@ -6650,7 +7013,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -6677,7 +7040,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -6845,7 +7208,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -6872,7 +7235,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -6897,10 +7260,10 @@ var BEMHTML = (function(exports) {
             }
         }
     }
-    function $77() {
+    function $82() {
         var __t = this["_mode"];
         if (__t === "tag") {
-            return $63.call(this);
+            return $68.call(this);
         } else if (__t === "default") {
             "";
             var __r41 = this["_mode"];
@@ -6918,19 +7281,21 @@ var BEMHTML = (function(exports) {
                         action: "none"
                     }
                 } ],
-                value: this["ctx"]["content"],
-                content: {
+                content: [ {
+                    elem: "hint",
+                    content: "Searching phrase here"
+                }, {
                     elem: "input"
-                }
+                } ]
             };
-            $77.call(this);
+            $82.call(this);
             this["_mode"] = __r41;
             this["ctx"] = __r42;
             "";
             undefined;
             return;
         } else if (__t === "content") {
-            return $71.call(this);
+            return $76.call(this);
         } else if (__t === "js") {
             return $17.call(this);
         } else if (__t === "attrs") {
@@ -6950,14 +7315,14 @@ var BEMHTML = (function(exports) {
             return $28.call(this);
         }
     }
-    function $78() {
+    function $83() {
         return {
             type: "submit",
             value: "Search"
         };
         return;
     }
-    function $88() {
+    function $93() {
         if (!!this["elem"] === false) {
             var __t = this["_mode"];
             if (__t === "tag") {
@@ -7046,7 +7411,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -7073,7 +7438,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -7152,7 +7517,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -7179,7 +7544,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -7204,7 +7569,7 @@ var BEMHTML = (function(exports) {
             }
         }
     }
-    function $93() {
+    function $98() {
         "";
         var __r39 = this["_mode"];
         this["_mode"] = "";
@@ -7229,8 +7594,7 @@ var BEMHTML = (function(exports) {
                     content: {
                         block: "b-search",
                         input: {
-                            elem: "input",
-                            content: "About love"
+                            elem: "input"
                         },
                         button: {
                             elem: "button"
@@ -7280,14 +7644,14 @@ var BEMHTML = (function(exports) {
                 } ]
             } ]
         };
-        $133.call(this);
+        $138.call(this);
         this["_mode"] = __r39;
         this["ctx"] = __r40;
         "";
         undefined;
         return;
     }
-    function $95() {
+    function $100() {
         if (!!this["elem"] === false) {
             var __t = this["_mode"];
             if (__t === "tag") {
@@ -7322,8 +7686,7 @@ var BEMHTML = (function(exports) {
                             content: {
                                 block: "b-search",
                                 input: {
-                                    elem: "input",
-                                    content: "About love"
+                                    elem: "input"
                                 },
                                 button: {
                                     elem: "button"
@@ -7373,7 +7736,7 @@ var BEMHTML = (function(exports) {
                         } ]
                     } ]
                 };
-                $133.call(this);
+                $138.call(this);
                 this["_mode"] = __r39;
                 this["ctx"] = __r40;
                 "";
@@ -7456,7 +7819,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -7483,7 +7846,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -7562,7 +7925,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -7589,7 +7952,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -7614,7 +7977,7 @@ var BEMHTML = (function(exports) {
             }
         }
     }
-    function $99() {
+    function $104() {
         this["_buf"]["push"]("<!DOCTYPE html>");
         "";
         var __r31 = this["_mode"];
@@ -7657,7 +8020,7 @@ var BEMHTML = (function(exports) {
         "";
         return;
     }
-    function $101() {
+    function $106() {
         if (!!this["elem"] === false) {
             var __t = this["_mode"];
             if (__t === "tag") {
@@ -7668,7 +8031,7 @@ var BEMHTML = (function(exports) {
                     return;
                 }
             } else if (__t === "default") {
-                return $99.call(this);
+                return $104.call(this);
             } else if (__t === "content") {
                 if (!!this["_start"] === false) {
                     return $4.call(this);
@@ -7746,7 +8109,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -7773,7 +8136,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -7852,7 +8215,7 @@ var BEMHTML = (function(exports) {
                                             "";
                                             var __r6 = this["ctx"];
                                             this["ctx"] = v[i++];
-                                            $133.call(this);
+                                            $138.call(this);
                                             this["ctx"] = __r6;
                                             "";
                                         }
@@ -7879,7 +8242,7 @@ var BEMHTML = (function(exports) {
                                         var __r5 = this["elemMods"];
                                         this["elemMods"] = this["ctx"]["elemMods"] || {};
                                         this["block"] || this["elem"] ? this["position"] = (this["position"] || 0) + 1 : this["_listLength"]--;
-                                        $133.call(this);
+                                        $138.call(this);
                                         undefined;
                                         undefined;
                                         this["_mode"] = __r0;
@@ -7904,11 +8267,11 @@ var BEMHTML = (function(exports) {
             }
         }
     }
-    function $102() {
+    function $107() {
         return "link";
         return;
     }
-    function $103() {
+    function $108() {
         if (!!this["elem"] === false) {
             this["_buf"]["push"]("<!DOCTYPE html>");
             "";
@@ -7959,15 +8322,15 @@ var BEMHTML = (function(exports) {
             }
         }
     }
-    function $105() {
+    function $110() {
         return false;
         return;
     }
-    function $107() {
+    function $112() {
         return "script";
         return;
     }
-    function $113() {
+    function $118() {
         if (!this["ctx"]["hasOwnProperty"]("ie") === false) {
             if (!!this["ctx"]["_ieCommented"] === false) {
                 var ie = this["ctx"]["ie"];
@@ -8108,7 +8471,7 @@ var BEMHTML = (function(exports) {
             }
         }
     }
-    function $128() {
+    function $133() {
         var __t = this["_mode"];
         if (__t === "tag") {
             return $16.call(this);
@@ -8117,7 +8480,7 @@ var BEMHTML = (function(exports) {
                 block: "b-page",
                 elem: "js",
                 url: "//yandex.st/jquery/1.7.2/jquery.min.js"
-            }, __r30 = $128.call(this), this["_mode"] = __r28, this["ctx"] = __r29, "", __r30;
+            }, __r30 = $133.call(this), this["_mode"] = __r28, this["ctx"] = __r29, "", __r30;
             return;
         } else if (__t === "content") {
             return $10.call(this);
@@ -8137,7 +8500,7 @@ var BEMHTML = (function(exports) {
             return $28.call(this);
         }
     }
-    function $133() {
+    function $138() {
         var __t = this["block"];
         if (__t === "b-playlist") {
             if (!{
@@ -8159,6 +8522,8 @@ var BEMHTML = (function(exports) {
                     } else if (__t === "description") {
                         return $6.call(this);
                     } else if (__t === "input") {
+                        return $6.call(this);
+                    } else if (__t === "hint") {
                         return $6.call(this);
                     } else if (__t === "button") {
                         return $6.call(this);
@@ -8194,6 +8559,8 @@ var BEMHTML = (function(exports) {
                     } else if (__t === "description") {
                         return $11.call(this);
                     } else if (__t === "input") {
+                        return $11.call(this);
+                    } else if (__t === "hint") {
                         return $11.call(this);
                     } else if (__t === "button") {
                         return $11.call(this);
@@ -8307,6 +8674,8 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "description") {
                     return $36.call(this);
                 } else if (__t === "input") {
+                    return $36.call(this);
+                } else if (__t === "hint") {
                     return $36.call(this);
                 } else if (__t === "button") {
                     return $36.call(this);
@@ -8374,6 +8743,8 @@ var BEMHTML = (function(exports) {
                 }
             } else if (__t === "input") {
                 return $41.call(this);
+            } else if (__t === "hint") {
+                return $41.call(this);
             } else if (__t === "button") {
                 return $41.call(this);
             } else if (__t === "row") {
@@ -8434,6 +8805,8 @@ var BEMHTML = (function(exports) {
                         } else {
                             return $28.call(this);
                         }
+                    } else if (__t === "hint") {
+                        return $66.call(this);
                     } else if (__t === "button") {
                         return $52.call(this);
                     } else if (__t === "row") {
@@ -8458,36 +8831,38 @@ var BEMHTML = (function(exports) {
                         return $52.call(this);
                     }
                 } else {
-                    return $65.call(this);
+                    return $70.call(this);
                 }
             } else {
-                return $65.call(this);
+                return $70.call(this);
             }
         } else if (__t === "b-search") {
             var __t = this["elem"];
             if (__t === "desc") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "title") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "track") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "description") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "input") {
-                return $77.call(this);
+                return $82.call(this);
+            } else if (__t === "hint") {
+                return $79.call(this);
             } else if (__t === "button") {
                 if (!!this["elem"] === false) {
                     var __t = this["_mode"];
                     if (__t === "tag") {
-                        return $63.call(this);
+                        return $68.call(this);
                     } else if (__t === "default") {
                         return $6.call(this);
                     } else if (__t === "content") {
-                        return $71.call(this);
+                        return $76.call(this);
                     } else if (__t === "js") {
                         return $14.call(this);
                     } else if (__t === "attrs") {
-                        return $78.call(this);
+                        return $83.call(this);
                     } else if (__t === "bem") {
                         return $16.call(this);
                     } else if (__t === "mix") {
@@ -8502,15 +8877,15 @@ var BEMHTML = (function(exports) {
                 } else {
                     var __t = this["_mode"];
                     if (__t === "tag") {
-                        return $63.call(this);
+                        return $68.call(this);
                     } else if (__t === "default") {
                         return $6.call(this);
                     } else if (__t === "content") {
-                        return $71.call(this);
+                        return $76.call(this);
                     } else if (__t === "js") {
                         return $16.call(this);
                     } else if (__t === "attrs") {
-                        return $78.call(this);
+                        return $83.call(this);
                     } else if (__t === "bem") {
                         return $16.call(this);
                     } else if (__t === "mix") {
@@ -8524,25 +8899,25 @@ var BEMHTML = (function(exports) {
                     }
                 }
             } else if (__t === "row") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "pl-add") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "favicon") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "js") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "css") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "meta") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "body") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "head") {
-                return $74.call(this);
+                return $79.call(this);
             } else if (__t === "core") {
-                return $74.call(this);
+                return $79.call(this);
             } else {
-                return $74.call(this);
+                return $79.call(this);
             }
         } else if (__t === "b-layout-table") {
             if (!(this["elem"] === "cell" || this["elem"] === "gap") === false) {
@@ -8577,17 +8952,19 @@ var BEMHTML = (function(exports) {
             } else {
                 var __t = this["elem"];
                 if (__t === "desc") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "title") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "track") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "description") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "input") {
-                    return $88.call(this);
+                    return $93.call(this);
+                } else if (__t === "hint") {
+                    return $93.call(this);
                 } else if (__t === "button") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "row") {
                     var __t = this["_mode"];
                     if (__t === "tag") {
@@ -8613,48 +8990,50 @@ var BEMHTML = (function(exports) {
                         return $28.call(this);
                     }
                 } else if (__t === "pl-add") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "favicon") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "js") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "css") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "meta") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "body") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "head") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else if (__t === "core") {
-                    return $88.call(this);
+                    return $93.call(this);
                 } else {
-                    return $88.call(this);
+                    return $93.call(this);
                 }
             }
         } else if (__t === "b-dashboard") {
             var __t = this["elem"];
             if (__t === "desc") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "title") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "track") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "description") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "input") {
-                return $95.call(this);
+                return $100.call(this);
+            } else if (__t === "hint") {
+                return $100.call(this);
             } else if (__t === "button") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "row") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "pl-add") {
                 var __t = this["_mode"];
                 if (__t === "tag") {
                     return $1.call(this);
                 } else if (__t === "default") {
                     if (!!this["elem"] === false) {
-                        return $93.call(this);
+                        return $98.call(this);
                     } else {
                         return $6.call(this);
                     }
@@ -8676,46 +9055,48 @@ var BEMHTML = (function(exports) {
                     return $28.call(this);
                 }
             } else if (__t === "favicon") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "js") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "css") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "meta") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "body") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "head") {
-                return $95.call(this);
+                return $100.call(this);
             } else if (__t === "core") {
-                return $95.call(this);
+                return $100.call(this);
             } else {
-                return $95.call(this);
+                return $100.call(this);
             }
         } else if (__t === "b-page") {
             var __t = this["elem"];
             if (__t === "desc") {
-                return $101.call(this);
+                return $106.call(this);
             } else if (__t === "title") {
-                return $101.call(this);
+                return $106.call(this);
             } else if (__t === "track") {
-                return $101.call(this);
+                return $106.call(this);
             } else if (__t === "description") {
-                return $101.call(this);
+                return $106.call(this);
             } else if (__t === "input") {
-                return $101.call(this);
+                return $106.call(this);
+            } else if (__t === "hint") {
+                return $106.call(this);
             } else if (__t === "button") {
-                return $101.call(this);
+                return $106.call(this);
             } else if (__t === "row") {
-                return $101.call(this);
+                return $106.call(this);
             } else if (__t === "pl-add") {
-                return $101.call(this);
+                return $106.call(this);
             } else if (__t === "favicon") {
                 var __t = this["_mode"];
                 if (__t === "tag") {
-                    return $102.call(this);
+                    return $107.call(this);
                 } else if (__t === "default") {
-                    return $103.call(this);
+                    return $108.call(this);
                 } else if (__t === "content") {
                     return $10.call(this);
                 } else if (__t === "js") {
@@ -8727,7 +9108,7 @@ var BEMHTML = (function(exports) {
                     };
                     return;
                 } else if (__t === "bem") {
-                    return $105.call(this);
+                    return $110.call(this);
                 } else if (__t === "mix") {
                     return $16.call(this);
                 } else if (__t === "jsAttr") {
@@ -8740,9 +9121,9 @@ var BEMHTML = (function(exports) {
             } else if (__t === "js") {
                 var __t = this["_mode"];
                 if (__t === "tag") {
-                    return $107.call(this);
+                    return $112.call(this);
                 } else if (__t === "default") {
-                    return $103.call(this);
+                    return $108.call(this);
                 } else if (__t === "content") {
                     return $10.call(this);
                 } else if (__t === "js") {
@@ -8757,7 +9138,7 @@ var BEMHTML = (function(exports) {
                         return $16.call(this);
                     }
                 } else if (__t === "bem") {
-                    return $105.call(this);
+                    return $110.call(this);
                 } else if (__t === "mix") {
                     return $16.call(this);
                 } else if (__t === "jsAttr") {
@@ -8771,9 +9152,9 @@ var BEMHTML = (function(exports) {
                 if (!this["ctx"]["url"] === false) {
                     var __t = this["_mode"];
                     if (__t === "tag") {
-                        return $102.call(this);
+                        return $107.call(this);
                     } else if (__t === "default") {
-                        return $113.call(this);
+                        return $118.call(this);
                     } else if (__t === "content") {
                         return $10.call(this);
                     } else if (__t === "js") {
@@ -8785,7 +9166,7 @@ var BEMHTML = (function(exports) {
                         };
                         return;
                     } else if (__t === "bem") {
-                        return $105.call(this);
+                        return $110.call(this);
                     } else if (__t === "mix") {
                         return $16.call(this);
                     } else if (__t === "jsAttr") {
@@ -8801,7 +9182,7 @@ var BEMHTML = (function(exports) {
                         return "style";
                         return;
                     } else if (__t === "default") {
-                        return $113.call(this);
+                        return $118.call(this);
                     } else if (__t === "content") {
                         return $10.call(this);
                     } else if (__t === "js") {
@@ -8809,7 +9190,7 @@ var BEMHTML = (function(exports) {
                     } else if (__t === "attrs") {
                         return $16.call(this);
                     } else if (__t === "bem") {
-                        return $105.call(this);
+                        return $110.call(this);
                     } else if (__t === "mix") {
                         return $16.call(this);
                     } else if (__t === "jsAttr") {
@@ -8826,7 +9207,7 @@ var BEMHTML = (function(exports) {
                     return "meta";
                     return;
                 } else if (__t === "default") {
-                    return $103.call(this);
+                    return $108.call(this);
                 } else if (__t === "content") {
                     return $10.call(this);
                 } else if (__t === "js") {
@@ -8835,7 +9216,7 @@ var BEMHTML = (function(exports) {
                     return this["ctx"]["attrs"];
                     return;
                 } else if (__t === "bem") {
-                    return $105.call(this);
+                    return $110.call(this);
                 } else if (__t === "mix") {
                     return $16.call(this);
                 } else if (__t === "jsAttr") {
@@ -8851,7 +9232,7 @@ var BEMHTML = (function(exports) {
                     return "body";
                     return;
                 } else if (__t === "default") {
-                    return $103.call(this);
+                    return $108.call(this);
                 } else if (__t === "content") {
                     return $10.call(this);
                 } else if (__t === "js") {
@@ -8875,7 +9256,7 @@ var BEMHTML = (function(exports) {
                     return "head";
                     return;
                 } else if (__t === "default") {
-                    return $103.call(this);
+                    return $108.call(this);
                 } else if (__t === "content") {
                     return $10.call(this);
                 } else if (__t === "js") {
@@ -8883,7 +9264,7 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "attrs") {
                     return $16.call(this);
                 } else if (__t === "bem") {
-                    return $105.call(this);
+                    return $110.call(this);
                 } else if (__t === "mix") {
                     return $16.call(this);
                 } else if (__t === "jsAttr") {
@@ -8894,9 +9275,9 @@ var BEMHTML = (function(exports) {
                     return $28.call(this);
                 }
             } else if (__t === "core") {
-                return $101.call(this);
+                return $106.call(this);
             } else {
-                return $101.call(this);
+                return $106.call(this);
             }
         } else if (__t === "i-jquery") {
             var __t = this["elem"];
@@ -8909,6 +9290,8 @@ var BEMHTML = (function(exports) {
             } else if (__t === "description") {
                 return $35.call(this);
             } else if (__t === "input") {
+                return $35.call(this);
+            } else if (__t === "hint") {
                 return $35.call(this);
             } else if (__t === "button") {
                 return $35.call(this);
@@ -8929,7 +9312,7 @@ var BEMHTML = (function(exports) {
             } else if (__t === "head") {
                 return $35.call(this);
             } else if (__t === "core") {
-                return $128.call(this);
+                return $133.call(this);
             } else {
                 return $35.call(this);
             }
@@ -8937,7 +9320,7 @@ var BEMHTML = (function(exports) {
             if (!!this["elem"] === false) {
                 var __t = this["_mode"];
                 if (__t === "tag") {
-                    return $107.call(this);
+                    return $112.call(this);
                 } else if (__t === "default") {
                     return $6.call(this);
                 } else if (__t === "content") {
@@ -8948,7 +9331,7 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "attrs") {
                     return $16.call(this);
                 } else if (__t === "bem") {
-                    return $105.call(this);
+                    return $110.call(this);
                 } else if (__t === "mix") {
                     return $16.call(this);
                 } else if (__t === "jsAttr") {
