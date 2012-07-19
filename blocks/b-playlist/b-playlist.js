@@ -34,7 +34,7 @@ BEM.DOM.decl('b-playlist', {
                 var cur = this.__self._current;
 
                 /* Removing 'current' state from previous 'current' list */
-                cur && cur.delMod('state');
+                cur &&  cur.delMod('state');
 
                 /* Saving which is 'current' now */
                 this.__self._current = this;
@@ -64,7 +64,9 @@ BEM.DOM.decl('b-playlist', {
 
                 this.play();
 
-                this.setMod(this.elem('play'), 'action', 'playing');
+                this.afterCurrentEvent(function(){
+                    this.setMod(this.elem('play'), 'action', 'playing');
+                })
 
                 /* Remember the list which is playing now */
                 this.__self._playing = this;
@@ -74,8 +76,12 @@ BEM.DOM.decl('b-playlist', {
 
                 this.sound && this.sound.stop();
 
-                this.setMod(this.elem('play'), 'action', 'none');
-                this.delMod(this.elem('track'), 'state')
+                this.afterCurrentEvent(function(){
+                    this.setMod(this.elem('play'), 'action', 'none');
+                    console.log('sel je');
+                    this.delMod(this.elem('track'), 'state');
+                })
+
             }
         }
     },
@@ -151,12 +157,12 @@ BEM.DOM.decl('b-playlist', {
 
         }
         if(id === null) {
+            this.setMod('action', 'none');
             return;
         }
 
         var bPlaylist = this,
-            track = this.getTrack(id),
-            nextId = track.nextId;
+            track = this.getTrack(id);
 
         SC.stream("/tracks/" + id,
             {
@@ -171,7 +177,7 @@ BEM.DOM.decl('b-playlist', {
 
                 onfinish: function() {
 
-                    bPlaylist.play(nextId);
+                    bPlaylist.play(track.nextId);
 
                 }
 
@@ -307,11 +313,8 @@ BEM.DOM.decl('b-playlist', {
             next = de.next(sel);
             newCurrent = prev.length ? prev : (next.length ? next : undefined);
         this.sound && this.sound.stop();
-        BEM.DOM.destruct(this.domElem);
-        this.afterCurrentEvent(function(){
-            newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
-            BEM.blocks['b-playlist'].trigger('death');
-        });
+        newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
+        BEM.blocks['b-playlist'].trigger('death', { domElem: de });
     }
 
 }, {

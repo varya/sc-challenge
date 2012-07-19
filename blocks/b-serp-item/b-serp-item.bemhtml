@@ -7,4 +7,11 @@ block b-serp-item {
     ]
 
     elem description, default, this.ctx.content == '': ''
+
+    elem title, content: {
+        return this._.xmlEscape(this.ctx.content)
+    }
+    elem description, content: {
+        return this._.xmlEscape(this._.cleverSubstring(this.ctx.content, 100, 5))
+    }
 }
