@@ -155,8 +155,7 @@ BEM.DOM.decl('b-playlist', {
         }
 
         var bPlaylist = this,
-            track = this.getTrack(id),
-            nextId = track.nextId;
+            track = this.getTrack(id);
 
         SC.stream("/tracks/" + id,
             {
@@ -171,7 +170,7 @@ BEM.DOM.decl('b-playlist', {
 
                 onfinish: function() {
 
-                    bPlaylist.play(nextId);
+                    bPlaylist.play(track.nextId);
 
                 }
 
