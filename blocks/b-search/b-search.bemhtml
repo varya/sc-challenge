@@ -1,1 +1,19 @@
-block b-search, js: true
+block b-search {
+
+    js: true
+
+    elem input, default: {
+        apply(
+            this._mode = '',
+            this.ctx = {
+                block: 'b-form-input',
+                mods: { theme: 'grey'},
+                mix: [ { block : 'b-search', elem: 'input', mods: { action: 'none' } }],
+                value: this.ctx.content,
+                content: { elem: 'input'}
+            }
+        )
+
+
+    }
+}
