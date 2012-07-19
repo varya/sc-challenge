@@ -44,6 +44,8 @@ BEM.DOM.decl('b-dashboard', {
             res = res.add(block.domElem);
         }, $()));
 
+        return this;
+
     },
 
     /* Appends new tracks to the result */
