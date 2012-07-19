@@ -7268,10 +7268,10 @@ var BEMHTML = (function(exports) {
                             content: [ "No, you don't have to create your fist playlist before.", " Although you can." ]
                         }, {
                             elem: "p",
-                            content: [ "When having several playlists choose the one you'd like to work with", " with a click." ]
+                            content: [ "When having several playlists choose the one you'd like to work with", " clicking on it." ]
                         }, {
                             elem: "p",
-                            content: [ "As for renaming a playlist, it's also possible with a", "click at its title." ]
+                            content: [ "As for renaming a playlist, it's also possible with a ", "click at its title. And the same for descritions." ]
                         }, {
                             elem: "p",
                             content: [ "Ready to get rid of this text? Just click it." ]
@@ -7361,10 +7361,10 @@ var BEMHTML = (function(exports) {
                                     content: [ "No, you don't have to create your fist playlist before.", " Although you can." ]
                                 }, {
                                     elem: "p",
-                                    content: [ "When having several playlists choose the one you'd like to work with", " with a click." ]
+                                    content: [ "When having several playlists choose the one you'd like to work with", " clicking on it." ]
                                 }, {
                                     elem: "p",
-                                    content: [ "As for renaming a playlist, it's also possible with a", "click at its title." ]
+                                    content: [ "As for renaming a playlist, it's also possible with a ", "click at its title. And the same for descritions." ]
                                 }, {
                                     elem: "p",
                                     content: [ "Ready to get rid of this text? Just click it." ]
