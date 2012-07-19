@@ -27,6 +27,10 @@ The application does not allow (yet):
  * to change track position in its playlist
  * to change playlist position
 
+But it:
+  * works in Opera
+  * works in IE7 (not tested user IE6)
+
 All these features are not very complicated but just take time to implement. As for this application, it is
 mostly to represent the architectural ideas. With such a design structure any further refactoring should not be a problem.
 Read the explanation below.
