@@ -89,3 +89,31 @@ There are building instructions in
 It is defining which levels are to be used when building. A ``bem build`` command from [bem-tools](https://github.com/bem/bem-tools)
 compiles page technologies. Important that it picks up not only
 the declared block but also the ones which are mentioned in ``dependencies`` (look for ``*.deps.js`` files for blocks).
+
+## Advantages
+Speaking about advantages of usung BEM for this application I would like to say:
+
+#### Code reuse
+Every technology in BEM has its sort of inheritance. So, it is posible to reuse code from libraries tuning it
+for a particular project.
+
+#### Encapsulation
+The application is divided into independent parts (which are blocks). It makes possible to keep the code in order.
+
+The example of encapsulation is ``i-storage`` block. It provides an interface to set and get data. In this case it is
+``window.localStorage``. But having this interface encapsulated into a
+detached block makes it possible to redefine this piece in the future without changing a bite
+in the functioning blocks.
+
+### Event delegation
+All the event are watched using the idea of delegation. DOM event handlers are for ``document`` object, and BEM
+events are delegated from an instance to its class.
+
+### Declarative approach
+Defining ##onSetMod## and ##onElemSetMod## properties makes it possible to describe a block reaction
+at setting a modifier to a block or its element. With this it is quite easy to make the block consistece.
+The advantage is well-designed application and less bugs.
+
+### Live (lazy) initialization
+Special methods are used to ensure that instance (block) JavaScript object occurs in
+the browser memory only when it is neeed. For example, when a user clicks a particular block element.
