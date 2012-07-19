@@ -12,7 +12,7 @@ BEM.decl('i-soundcloud', {}, {
         }
 
         SC.initialize({
-            client_id: '2ffbaf9479281e4b80bd1e929162dcea',
+            client_id: '2ffbaf9479281e4b80bd1e929162dcea'
         });
         this._inited = true;
 
