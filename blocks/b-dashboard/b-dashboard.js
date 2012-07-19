@@ -17,14 +17,11 @@ BEM.DOM.decl('b-dashboard', {
             })
 
             BEM.blocks['b-playlist'].on('birth death', function(e, data){
-                if (e.type == 'death') {
-                    //data.domElem.remove();
-                    BEM.DOM.destruct(data.domElem);
-                    /* Saving when a new playlist occurs or is dead */
-                } else {
+                if (e.type == 'birth') {
                     /* Appening a new playlist when it's born */
                     BEM.DOM.append(this.elem('playlists'), data.html);
                 }
+                /* Saving when a new playlist occurs or is dead */
                 this._save();
             }, this);
 

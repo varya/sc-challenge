@@ -31,10 +31,14 @@ BEM.DOM.decl('b-playlist', {
 
             'current' : function() {
 
+                if (this.params == null) {
+                    return;
+                }
+
                 var cur = this.__self._current;
 
                 /* Removing 'current' state from previous 'current' list */
-                cur &&  cur.delMod('state');
+                cur && cur.delMod('state');
 
                 /* Saving which is 'current' now */
                 this.__self._current = this;
@@ -78,7 +82,6 @@ BEM.DOM.decl('b-playlist', {
 
                 this.afterCurrentEvent(function(){
                     this.setMod(this.elem('play'), 'action', 'none');
-                    console.log('sel je');
                     this.delMod(this.elem('track'), 'state');
                 })
 
@@ -313,8 +316,11 @@ BEM.DOM.decl('b-playlist', {
             next = de.next(sel);
             newCurrent = prev.length ? prev : (next.length ? next : undefined);
         this.sound && this.sound.stop();
-        newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
-        BEM.blocks['b-playlist'].trigger('death', { domElem: de });
+        this.afterCurrentEvent(function(){
+            de.remove();
+            newCurrent && $(newCurrent).bem('b-playlist').setMod('state', 'current');
+            BEM.blocks['b-playlist'].trigger('death');
+        })
     }
 
 }, {
