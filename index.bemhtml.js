@@ -1,5 +1,5 @@
 var BEMHTML = (function(exports) {
-    var __r7, __r9, __r11, __r13, __r15, __r17, __r19, __r21, __r28, __r29, __r56, __r57;
+    var __r7, __r9, __r11, __r13, __r15, __r17, __r19, __r21, __r28, __r29, __r59, __r60;
     exports.apply = apply;
     function apply() {
         return $161.call(this);
@@ -10,9 +10,9 @@ var BEMHTML = (function(exports) {
     }
     function $2() {
         "";
-        var __r61 = this["_mode"];
+        var __r64 = this["_mode"];
         this["_mode"] = "";
-        var __r62 = this["ctx"];
+        var __r65 = this["ctx"];
         this["ctx"] = {
             block: "b-form-input",
             mods: {
@@ -32,17 +32,17 @@ var BEMHTML = (function(exports) {
             }
         };
         $161.call(this);
-        this["_mode"] = __r61;
-        this["ctx"] = __r62;
+        this["_mode"] = __r64;
+        this["ctx"] = __r65;
         "";
         undefined;
         return;
     }
     function $3() {
         "";
-        var __r59 = this["_mode"];
+        var __r62 = this["_mode"];
         this["_mode"] = "";
-        var __r60 = this["ctx"];
+        var __r63 = this["ctx"];
         this["ctx"] = {
             block: "b-form-input",
             mods: {
@@ -61,8 +61,8 @@ var BEMHTML = (function(exports) {
             }
         };
         $161.call(this);
-        this["_mode"] = __r59;
-        this["ctx"] = __r60;
+        this["_mode"] = __r62;
+        this["ctx"] = __r63;
         "";
         undefined;
         return;
@@ -565,8 +565,7 @@ var BEMHTML = (function(exports) {
     }
     function $24() {
         if (!!this["elem"] === false) {
-            return true;
-            return;
+            return $19.call(this);
         } else {
             if (!this["_"] === false) {
                 if (!!this["_"]["cleverSubstring"] === false) {
@@ -2680,16 +2679,16 @@ var BEMHTML = (function(exports) {
     function $65() {
         if (!!this["_inputId"] === false) {
             "";
-            var __r45 = this["_inputId"];
+            var __r48 = this["_inputId"];
             this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-            var __r46 = this["_name"];
+            var __r49 = this["_name"];
             this["_name"] = this["ctx"]["name"] || "";
-            var __r47 = this["_value"];
+            var __r50 = this["_value"];
             this["_value"] = this["ctx"]["value"] || "";
             this["apply"]();
-            this["_inputId"] = __r45;
-            this["_name"] = __r46;
-            this["_value"] = __r47;
+            this["_inputId"] = __r48;
+            this["_name"] = __r49;
+            this["_value"] = __r50;
             "";
             return;
         } else {
@@ -3579,35 +3578,35 @@ var BEMHTML = (function(exports) {
     function $72() {
         if (!!this["ctx"]["_wrap"] === false) {
             "";
-            var __r48 = this["_mode"];
+            var __r51 = this["_mode"];
             this["_mode"] = "";
-            var __r49 = this["ctx"], __r50 = __r49["_wrap"];
-            __r49["_wrap"] = true;
-            var __r51 = this["ctx"];
+            var __r52 = this["ctx"], __r53 = __r52["_wrap"];
+            __r52["_wrap"] = true;
+            var __r54 = this["ctx"];
             this["ctx"] = {
                 elem: "box",
                 tag: "span",
                 content: [ this["ctx"], this["ctx"]["clear"] ]
             };
             this["apply"]();
-            this["_mode"] = __r48;
-            __r49["_wrap"] = __r50;
-            this["ctx"] = __r51;
+            this["_mode"] = __r51;
+            __r52["_wrap"] = __r53;
+            this["ctx"] = __r54;
             "";
             return;
         } else {
             if (!!this["_inputId"] === false) {
                 "";
-                var __r45 = this["_inputId"];
+                var __r48 = this["_inputId"];
                 this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                var __r46 = this["_name"];
+                var __r49 = this["_name"];
                 this["_name"] = this["ctx"]["name"] || "";
-                var __r47 = this["_value"];
+                var __r50 = this["_value"];
                 this["_value"] = this["ctx"]["value"] || "";
                 this["apply"]();
-                this["_inputId"] = __r45;
-                this["_name"] = __r46;
-                this["_value"] = __r47;
+                this["_inputId"] = __r48;
+                this["_name"] = __r49;
+                this["_value"] = __r50;
                 "";
                 return;
             } else {
@@ -3701,7 +3700,7 @@ var BEMHTML = (function(exports) {
     }
     function $77() {
         if (!!this["_baseAttrsApplyed"] === false) {
-            var a = ("", __r56 = this["_value"], this["_value"] = null, __r57 = this["_baseAttrsApplyed"], this["_baseAttrsApplyed"] = true, __r58 = $77.call(this), this["_value"] = __r56, this["_baseAttrsApplyed"] = __r57, "", __r58);
+            var a = ("", __r59 = this["_value"], this["_value"] = null, __r60 = this["_baseAttrsApplyed"], this["_baseAttrsApplyed"] = true, __r61 = $77.call(this), this["_value"] = __r59, this["_baseAttrsApplyed"] = __r60, "", __r61);
             return this["_"]["extend"](a, {
                 row: 10,
                 cols: 10
@@ -3719,35 +3718,35 @@ var BEMHTML = (function(exports) {
         } else if (__t === "default") {
             if (!!this["ctx"]["_wrap"] === false) {
                 "";
-                var __r52 = this["_mode"];
+                var __r55 = this["_mode"];
                 this["_mode"] = "";
-                var __r53 = this["ctx"], __r54 = __r53["_wrap"];
-                __r53["_wrap"] = true;
-                var __r55 = this["ctx"];
+                var __r56 = this["ctx"], __r57 = __r56["_wrap"];
+                __r56["_wrap"] = true;
+                var __r58 = this["ctx"];
                 this["ctx"] = {
                     elem: "hint-wrap",
                     tag: "span",
                     content: this["ctx"]
                 };
                 this["apply"]();
-                this["_mode"] = __r52;
-                __r53["_wrap"] = __r54;
-                this["ctx"] = __r55;
+                this["_mode"] = __r55;
+                __r56["_wrap"] = __r57;
+                this["ctx"] = __r58;
                 "";
                 return;
             } else {
                 if (!!this["_inputId"] === false) {
                     "";
-                    var __r45 = this["_inputId"];
+                    var __r48 = this["_inputId"];
                     this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                    var __r46 = this["_name"];
+                    var __r49 = this["_name"];
                     this["_name"] = this["ctx"]["name"] || "";
-                    var __r47 = this["_value"];
+                    var __r50 = this["_value"];
                     this["_value"] = this["ctx"]["value"] || "";
                     this["apply"]();
-                    this["_inputId"] = __r45;
-                    this["_name"] = __r46;
-                    this["_value"] = __r47;
+                    this["_inputId"] = __r48;
+                    this["_name"] = __r49;
+                    this["_value"] = __r50;
                     "";
                     return;
                 } else {
@@ -4193,16 +4192,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -4663,16 +4662,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -5131,16 +5130,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -5601,16 +5600,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -6069,16 +6068,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -6539,16 +6538,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -7007,16 +7006,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -7477,16 +7476,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -7944,35 +7943,35 @@ var BEMHTML = (function(exports) {
             } else if (__t === "default") {
                 if (!!this["ctx"]["_wrap"] === false) {
                     "";
-                    var __r48 = this["_mode"];
+                    var __r51 = this["_mode"];
                     this["_mode"] = "";
-                    var __r49 = this["ctx"], __r50 = __r49["_wrap"];
-                    __r49["_wrap"] = true;
-                    var __r51 = this["ctx"];
+                    var __r52 = this["ctx"], __r53 = __r52["_wrap"];
+                    __r52["_wrap"] = true;
+                    var __r54 = this["ctx"];
                     this["ctx"] = {
                         elem: "box",
                         tag: "span",
                         content: [ this["ctx"], this["ctx"]["clear"] ]
                     };
                     this["apply"]();
-                    this["_mode"] = __r48;
-                    __r49["_wrap"] = __r50;
-                    this["ctx"] = __r51;
+                    this["_mode"] = __r51;
+                    __r52["_wrap"] = __r53;
+                    this["ctx"] = __r54;
                     "";
                     return;
                 } else {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -8414,35 +8413,35 @@ var BEMHTML = (function(exports) {
             } else if (__t === "default") {
                 if (!!this["ctx"]["_wrap"] === false) {
                     "";
-                    var __r52 = this["_mode"];
+                    var __r55 = this["_mode"];
                     this["_mode"] = "";
-                    var __r53 = this["ctx"], __r54 = __r53["_wrap"];
-                    __r53["_wrap"] = true;
-                    var __r55 = this["ctx"];
+                    var __r56 = this["ctx"], __r57 = __r56["_wrap"];
+                    __r56["_wrap"] = true;
+                    var __r58 = this["ctx"];
                     this["ctx"] = {
                         elem: "hint-wrap",
                         tag: "span",
                         content: this["ctx"]
                     };
                     this["apply"]();
-                    this["_mode"] = __r52;
-                    __r53["_wrap"] = __r54;
-                    this["ctx"] = __r55;
+                    this["_mode"] = __r55;
+                    __r56["_wrap"] = __r57;
+                    this["ctx"] = __r58;
                     "";
                     return;
                 } else {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -8881,16 +8880,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -9351,16 +9350,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -9819,16 +9818,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -10289,16 +10288,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -10757,16 +10756,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -11227,16 +11226,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -11695,16 +11694,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -12165,16 +12164,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -12633,16 +12632,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -13103,16 +13102,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -13571,16 +13570,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -14041,16 +14040,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -14509,16 +14508,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -14979,16 +14978,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -15447,16 +15446,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -15917,16 +15916,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -16385,16 +16384,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -16855,16 +16854,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -17323,16 +17322,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -17793,16 +17792,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -18261,16 +18260,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -18731,16 +18730,16 @@ var BEMHTML = (function(exports) {
                 } else if (__t === "default") {
                     if (!!this["_inputId"] === false) {
                         "";
-                        var __r45 = this["_inputId"];
+                        var __r48 = this["_inputId"];
                         this["_inputId"] = this["ctx"]["id"] || this["generateId"]();
-                        var __r46 = this["_name"];
+                        var __r49 = this["_name"];
                         this["_name"] = this["ctx"]["name"] || "";
-                        var __r47 = this["_value"];
+                        var __r50 = this["_value"];
                         this["_value"] = this["ctx"]["value"] || "";
                         this["apply"]();
-                        this["_inputId"] = __r45;
-                        this["_name"] = __r46;
-                        this["_value"] = __r47;
+                        this["_inputId"] = __r48;
+                        this["_name"] = __r49;
+                        this["_value"] = __r50;
                         "";
                         return;
                     } else {
@@ -20382,7 +20381,8 @@ var BEMHTML = (function(exports) {
             this["ctx"] = {
                 block: "b-form-input",
                 mods: {
-                    theme: "grey"
+                    theme: "blue",
+                    size: "m"
                 },
                 mix: [ {
                     block: "b-search",
@@ -20425,12 +20425,64 @@ var BEMHTML = (function(exports) {
             return $37.call(this);
         }
     }
-    function $100() {
-        return {
-            type: "submit",
-            value: "Search"
-        };
-        return;
+    function $103() {
+        var __t = this["_mode"];
+        if (__t === "tag") {
+            return $85.call(this);
+        } else if (__t === "default") {
+            if (!!this["ctx"]["_wrap"] === false) {
+                var button = this["ctx"];
+                button["mix"] = button["mix"] || [];
+                button["mix"]["push"]({
+                    block: "b-cloud",
+                    elem: "input"
+                });
+                "";
+                var __r45 = this["_mode"];
+                this["_mode"] = "";
+                var __r46 = button["_wrap"];
+                button["_wrap"] = true;
+                var __r47 = this["ctx"];
+                this["ctx"] = {
+                    block: "b-cloud",
+                    content: [ {
+                        elem: "shadow"
+                    }, button, {
+                        elem: "text",
+                        content: "Search"
+                    } ]
+                };
+                $103.call(this);
+                this["_mode"] = __r45;
+                button["_wrap"] = __r46;
+                this["ctx"] = __r47;
+                "";
+                undefined;
+                return;
+            } else {
+                return $9.call(this);
+            }
+        } else if (__t === "content") {
+            return $93.call(this);
+        } else if (__t === "js") {
+            return $24.call(this);
+        } else if (__t === "attrs") {
+            return {
+                type: "submit",
+                value: "Search"
+            };
+            return;
+        } else if (__t === "bem") {
+            return $23.call(this);
+        } else if (__t === "mix") {
+            return $23.call(this);
+        } else if (__t === "jsAttr") {
+            return $23.call(this);
+        } else if (__t === "cls") {
+            return $23.call(this);
+        } else {
+            return $37.call(this);
+        }
     }
     function $110() {
         if (!!this["elem"] === false) {
@@ -25844,53 +25896,7 @@ var BEMHTML = (function(exports) {
             } else if (__t === "hint") {
                 return $96.call(this);
             } else if (__t === "button") {
-                if (!!this["elem"] === false) {
-                    var __t = this["_mode"];
-                    if (__t === "tag") {
-                        return $85.call(this);
-                    } else if (__t === "default") {
-                        return $9.call(this);
-                    } else if (__t === "content") {
-                        return $93.call(this);
-                    } else if (__t === "js") {
-                        return $19.call(this);
-                    } else if (__t === "attrs") {
-                        return $100.call(this);
-                    } else if (__t === "bem") {
-                        return $23.call(this);
-                    } else if (__t === "mix") {
-                        return $23.call(this);
-                    } else if (__t === "jsAttr") {
-                        return $23.call(this);
-                    } else if (__t === "cls") {
-                        return $23.call(this);
-                    } else {
-                        return $37.call(this);
-                    }
-                } else {
-                    var __t = this["_mode"];
-                    if (__t === "tag") {
-                        return $85.call(this);
-                    } else if (__t === "default") {
-                        return $9.call(this);
-                    } else if (__t === "content") {
-                        return $93.call(this);
-                    } else if (__t === "js") {
-                        return $23.call(this);
-                    } else if (__t === "attrs") {
-                        return $100.call(this);
-                    } else if (__t === "bem") {
-                        return $23.call(this);
-                    } else if (__t === "mix") {
-                        return $23.call(this);
-                    } else if (__t === "jsAttr") {
-                        return $23.call(this);
-                    } else if (__t === "cls") {
-                        return $23.call(this);
-                    } else {
-                        return $37.call(this);
-                    }
-                }
+                return $103.call(this);
             } else if (__t === "row") {
                 return $96.call(this);
             } else if (__t === "pl-add") {

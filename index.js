@@ -1296,6 +1296,42 @@ var ptp = Array.prototype,
 
             return res;
 
+        },
+
+        /**
+         * Проверяет, удовлетворяет ли хотя бы один элемент массива условию в callback
+         * @param {Function} callback
+         * @param {Object} [ctx=this] контекст callback
+         * @returns {Boolean}
+         */
+        some : function(callback, ctx) {
+
+            var i = -1, t = this, len = t.length;
+
+            while(++i < len)
+                if(i in t && (ctx ? callback.call(ctx, t[i], i, t) : callback(t[i], i, t)))
+                    return true;
+
+            return false;
+
+        },
+
+        /**
+         * Проверяет, удовлетворяет ли каждый элемент массива условию в callback
+         * @param {Function} callback
+         * @param {Object} [ctx=this] контекст вызова callback
+         * @returns {Boolean}
+         */
+        every : function(callback, ctx) {
+
+            var i = -1, t = this, len = t.length;
+
+            while(++i < len)
+                if(i in t && !(ctx ? callback.call(ctx, t[i], i, t) : callback(t[i], i, t)))
+                    return false;
+
+            return true;
+
         }
 
     };
@@ -1308,6 +1344,7 @@ Array.isArray || (Array.isArray = function(obj) {
 });
 
 })();
+
 /* bem-bl/blocks-common/i-ecma/__array/i-ecma__array.js: end */ /**/
 
 /* bem-bl/blocks-common/i-ecma/__function/i-ecma__function.js: begin */ /**/

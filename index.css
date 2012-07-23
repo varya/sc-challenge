@@ -9,8 +9,11 @@
 @import url(blocks-ya/b-form-input/_disabled/b-form-input_disabled_yes.css);
 @import url(blocks-ya/b-form-input/__hint/b-form-input__hint.css);
 @import url(blocks-ya/b-form-input/__hint/_visibility/b-form-input__hint_visibility_visible.css);
-@import url(blocks-ya/b-form-input/_theme/b-form-input_theme_grey.css);
-@import url(blocks-ya/b-form-input/_size/b-form-input_size_s.css);
+@import url(blocks/b-form-input/_theme/b-form-input_theme_blue.css);
+@import url(blocks-ya/b-form-input/_size/b-form-input_size_m.css);
 @import url(blocks-ya/b-form-input/_type/b-form-input_type_textarea.css);
+@import url(blocks/b-cloud/b-cloud.css);
 @import url(blocks/b-serp-item/b-serp-item.css);
 @import url(blocks/b-playlist/b-playlist.css);
+@import url(blocks-ya/b-form-input/_theme/b-form-input_theme_grey.css);
+@import url(blocks-ya/b-form-input/_size/b-form-input_size_s.css);
