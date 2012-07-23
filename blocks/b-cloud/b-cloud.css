@@ -1,0 +1,105 @@
+
+.b-cloud
+{
+    display: block;
+
+    width: 70px; height: 24px;
+    position: relative;
+    margin: 12px auto 4px;
+
+    background: #f2f9fe;
+    background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+    background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+    background: -moz-mozlinear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+    background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+    background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+
+    border-radius: 20px;
+    -webkit-borderder-radius: 20px;
+    -moz-border-radius: 20px;
+}
+
+.b-cloud:after,
+.b-cloud:before
+{
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+
+    background: #f2f9fe;
+}
+
+.b-cloud:after
+{
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    left: 10px;
+
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+}
+
+.b-cloud:before
+{
+    width: 36px;
+    height: 36px;
+    top: -18px;
+    right: 10px;
+
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+}
+
+.b-cloud__shadow
+{
+    width: 70px;
+    position: absolute;
+    bottom: -2px;
+    z-index: -1;
+
+    background: #00A1CB0;
+
+    box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+    -moz-25pxbox-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 25px5px 8px rgba(0, 0, 0, 0.4);
+
+    border-radius: 50%;
+    -moz-border-radius:moz 50%;
+    -webkit-border-radius: 50%;
+}
+
+.b-cloud__text
+{
+    margin: -20px auto;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #113F8C;
+    letter-spacing: 1px;
+}
+
+.b-cloud__input
+{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    vertical-align: top;
+
+    opacity: 0;
+    border: 0;
+    outline: 0;
+
+}
+
+/* FF > 2, overwise the input is more than 100%*//**/
+.b-cloud__input::-moz-focus-inner
+{
+    padding: 0;
+
+    border: 0;
+}

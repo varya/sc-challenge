@@ -1,7 +1,7 @@
 table.b-dashboard /* type selector here is for making heavier */
 {
     width: 800px;
-    margin: auto;
+    margin: 2em auto 0;
 }
 
 .b-dashboard__suggest_visibility_hidden
