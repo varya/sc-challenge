@@ -7,7 +7,7 @@ block b-search {
             this._mode = '',
             this.ctx = {
                 block: 'b-form-input',
-                mods: { theme: 'grey'},
+                mods: { theme: 'blue', size: 'm'},
                 mix: [ { block : 'b-search', elem: 'input', mods: { action: 'none' } }],
                 content: [
                     { elem: 'hint', content: 'Searching phrase here' },
@@ -18,4 +18,23 @@ block b-search {
 
 
     }
+
+    elem button, default, !this.ctx._wrap: {
+        var button = this.ctx;
+        button.mix = (button.mix || [])
+        button.mix.push({ block: 'b-cloud', elem: 'input'});
+        apply(
+            this._mode = '',
+            button._wrap = true,
+            this.ctx = {
+                block: 'b-cloud',
+                content: [
+                    { elem: 'shadow' },
+                    button,
+                    { elem: 'text', content: 'Search'}
+                ]
+            }
+        )
+    }
+
 }
