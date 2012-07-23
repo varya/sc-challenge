@@ -1,7 +1,16 @@
 .b-search
 {
 
-    background-color: #F15572;
-    padding: 10px;
+    background-color: #00A1CB;
+    padding: 1em;
 
+    position: relative;
+    z-index: 1;
+
+}
+
+td.b-search__layout-input
+{
+    vertical-align: bottom;
+    padding: 4px;
 }
