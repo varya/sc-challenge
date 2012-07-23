@@ -1,0 +1,62 @@
+.b-form-input_theme_blue
+{
+    position: relative;
+    z-index: 1;
+}
+
+.b-form-input_theme_blue:after {
+    content: '';
+    width: 282px;
+    position: absolute; bottom: -2px;
+    background: #00A1CB0;
+    z-index: -1;
+
+    box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+    -moz-25pxbox-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 25px5px 8px rgba(0, 0, 0, 0.4);
+
+    border-radius: 50%;
+    -moz-border-radius:moz 50%;
+    -webkit-border-radius: 50%;
+}
+
+.b-form-input_theme_blue .b-form-input__box
+{
+    background: #eff8fe;
+    background: linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    background: -webkit-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    background: -moz-mozlinear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    background: -ms-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    background: -o-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+
+    border-color: #a3a3a3 #c6c6c6 #e5e5e5;
+    border-radius: 4px;
+    -webkit-borderder-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.b-form-input_theme_blue.b-form-input_focused_yes .b-form-input__box
+{
+    -webkit-box-shadow: inset 0 1px 1px #cfcfcf, 0 0 1px #ffd94f, 0 0 1px #ffd94f, 0 0 2px #ffd94f;
+    -moz-box-shadow: inset 0 1px 1px #cfcfcf,  0 0 1px #ffd94f, 0 0 1px #ffd94f, 0 0 2px #ffd94f;
+    box-shadow: inset 0 1px 1px #cfcfcf, 0 0 1px #ffd94f, 0 0 1px #ffd94f, 0 0 2px #ffd94f;
+}
+
+.b-form-input_theme_blue.b-form-input_disabled_yes .b-form-input__box
+{
+    border-color: #e9e9e9 #f2f2f2 #f9f9f9;
+
+    -webkit-box-shadow: inset 0px 1px 1px #f4f4f4;
+    -moz-box-shadow: inset 0px 1px 1px #f4f4f4;
+    box-shadow: inset 0px 1px 1px #f4f4f4;
+}
+
+.b-form-input_theme_blue .b-form-input__hint
+{
+    color: #9babc5;
+}
+
+.b-form-input_theme_blue .b-form-input__input
+{
+    color: #113f8c;
+}
