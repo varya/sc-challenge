@@ -14,15 +14,21 @@ block b-dashboard {
                             {
                                 elem: 'cell',
                                 mix: [ { block: 'b-dashboard', elem: 'searchfield'} ],
-                                content: {
-                                    block: 'b-search',
-                                    input: {
-                                        elem: 'input'
+                                content: [
+                                    {
+                                        block: 'b-search',
+                                        input: {
+                                            elem: 'input'
+                                        },
+                                        button: {
+                                            elem: 'button'
+                                        }
                                     },
-                                    button: {
-                                        elem: 'button'
+                                    {
+                                        block: 'b-dashboard',
+                                        elem: 'searchresult'
                                     }
-                                }
+                                ]
                             },
                             {
                                 elem: 'cell',
