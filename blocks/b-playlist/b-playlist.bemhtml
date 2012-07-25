@@ -43,7 +43,7 @@ block b-playlist {
             this._mode = '',
             this.ctx = {
                 block: 'b-form-input',
-                mods: { theme: 'grey'},
+                mods: { theme: 'grey', size: 'm' },
                 mix: [ { block : 'b-playlist', elem: 'title', mods: { action: 'none' } }],
                 value: this.ctx.content,
                 content: { elem: 'input'}
