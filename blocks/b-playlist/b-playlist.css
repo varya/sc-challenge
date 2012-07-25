@@ -2,23 +2,32 @@
 {
     margin: 0.4em;
     padding: 0.4em;
-    border: #f15572 1px solid;
+    border: #E54028 solid;
+    border-width: 0 0 0 3px;
     opacity: 0.7;
     position: relative;
 
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
 }
-.b-playlist__title_action_none .b-form-input__box,
-.b-playlist__desc_action_none .b-form-input__box
-{
-    border: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
 
-    background: #FCF2EA;
+.b-playlist:nth-child(3n+1)
+{
+    border-color: #113F8C;
+}
+
+.b-playlist:nth-child(3n+2)
+{
+    border-color: #61AE24;
+}
+
+.b-playlist.b-playlist_state_current
+{
+    opacity: 1;
+    background: #eff8fe;
+    background: linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    background: -webkit-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    background: -moz-mozlinear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    background: -ms-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    background: -o-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
 }
 
 .b-playlist__title
@@ -27,9 +36,36 @@
     height: 23px;
 }
 
-.b-playlist_state_current
+.b-playlist__title_action_none .b-form-input__input
 {
-    opacity: 1;
+    padding-left: 0;
+}
+
+.b-playlist__desc
+{
+    display: none;
+}
+
+.b-playlist_state_current .b-playlist__desc
+{
+    display: block;
+}
+
+.b-playlist__title_action_none .b-form-input__box,
+.b-playlist__desc_action_none .b-form-input__box
+{
+    border: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    background: transparent;
+}
+
+.b-playlist__desc_action_none .b-form-input__box
+{
+    height: 13px;
+    margin: 0 0 0.4em;
 }
 
 .b-playlist__songs
@@ -42,6 +78,18 @@
     display: block;
 }
 
+.b-playlist__trash-all,
+.b-playlist__play
+{
+    display: none;
+}
+.b-playlist_state_current .b-playlist__trash-all,
+.b-playlist_state_current .b-playlist__play
+{
+    display: inline-block;
+}
+
+
 .b-playlist__play, .b-playlist__trash-all
 {
     position: absolute;
@@ -50,13 +98,11 @@
 
 .b-playlist__play
 {
-    dispaly: none;
     right: 29px;
 }
 
 .b-playlist_state_current .b-playlist__play
 {
-    display: inline-block;
     width: 19px;
     height: 19px;
     margin: 2px;
@@ -80,7 +126,6 @@
 .b-playlist__trash-all,
 .b-playlist__trash
 {
-    display: inline-block;
     width: 19px;
     height: 19px;
     margin: 2px;
