@@ -30,10 +30,6 @@ block b-dashboard {
                                 mix: [ { block: 'b-dashboard', elem: 'control' }],
                                 content: [
                                     {
-                                        block: 'b-dashboard',
-                                        elem: 'pl-add'
-                                    },
-                                    {
                                         block: 'b-text',
                                         mix: [{ block: 'b-dashboard', elem: 'suggest', mods: { visibility: 'hidden' } }],
                                         content: [
@@ -76,6 +72,10 @@ block b-dashboard {
                                                 ]
                                             }
                                         ]
+                                    },
+                                    {
+                                        block: 'b-dashboard',
+                                        elem: 'pl-add'
                                     }
                                 ]
                             }

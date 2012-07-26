@@ -14,6 +14,7 @@ table.b-dashboard /* type selector here is for making heavier */
 
 .b-dashboard__suggest .b-text__p
 {
+    text-align: left;
     margin: 0.5em 0;
 }
 
