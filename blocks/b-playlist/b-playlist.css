@@ -140,9 +140,19 @@
     right: 30px;
 }
 
+.b-playlist__track:first-child .button.b-playlist__up
+{
+    visibility: hidden;
+}
+
 .button.b-playlist__down
 {
     right: 60px;
+}
+
+.b-playlist__track:last-child .button.b-playlist__down
+{
+    visibility: hidden;
 }
 
 .b-playlist__track_state_current .b-playlist__track-title
