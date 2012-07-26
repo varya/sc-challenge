@@ -47,6 +47,6 @@ table.b-dashboard /* type selector here is for making heavier */
 
 .b-dashboard__searchresult
 {
-height: 400px;
-overflow-y: scroll;
+    max-height: 400px;
+    overflow-y: scroll;
 }
