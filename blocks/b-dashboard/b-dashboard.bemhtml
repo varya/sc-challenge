@@ -105,7 +105,7 @@ block b-dashboard {
     }
 
     elem 'pl-add' {
-        tag: 'a',
+        tag: 'span',
         cls: 'button orange xs',
         attrs: {
             'href': '',

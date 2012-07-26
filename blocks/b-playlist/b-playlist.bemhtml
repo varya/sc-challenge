@@ -69,7 +69,7 @@ block b-playlist {
     }
 
     elem trash {
-        tag: 'a'
+        tag: 'span'
         cls: 'button blue icon xxs'
         attrs: {
             'href': '',
@@ -79,7 +79,7 @@ block b-playlist {
     }
 
     elem trash-all {
-        tag: 'a'
+        tag: 'span'
         cls: 'button green icon xxs'
         attrs: {
             'href': '',
@@ -89,7 +89,7 @@ block b-playlist {
     }
 
     elem play {
-        tag: 'a'
+        tag: 'span'
         cls: 'button orange icon xxs'
         attrs: {
             'href': '',
