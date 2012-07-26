@@ -357,7 +357,8 @@ BEM.DOM.decl('b-playlist', {
                 this.remove();
             })
         /* Init if clone button is presed */
-            .liveBindTo('clone', 'click', function(){
+            .liveBindTo('clone', 'click', function(e){
+                e.stopPropagation();
                 this.clone();
             });
 
