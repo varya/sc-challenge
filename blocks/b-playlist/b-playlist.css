@@ -32,8 +32,7 @@
 
 .b-playlist__title
 {
-    width: 200px;
-    height: 23px;
+    margin-right: 50px;
 }
 
 .b-playlist__title_action_none .b-form-input__input
@@ -117,8 +116,7 @@
 
 .b-playlist__track
 {
-    height: 23px;
-    padding: 5px 0;
+    padding: 10px 0 0;
     border: #ccc 0 solid;
     border-width: 0 0 1px;
 }
