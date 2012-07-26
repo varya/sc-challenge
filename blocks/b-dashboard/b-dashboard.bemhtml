@@ -92,7 +92,10 @@ block b-dashboard {
         )
     }
 
-    elem 'pl-add', tag: 'span'
+    elem 'pl-add' {
+        tag: 'span'
+        content: 'ADD PLAYLIST'
+    }
 
 }
 
