@@ -68,6 +68,34 @@ block b-playlist {
 
     }
 
-    {'trash' : '', 'play' : '', 'trash-all' : ''}[this.elem], tag: 'span'
+    elem trash {
+        tag: 'a'
+        cls: 'button blue icon xxs'
+        attrs: {
+            'href': '',
+            'data-icon': '✗'
+        }
+        content: 'remove'
+    }
+
+    elem trash-all {
+        tag: 'a'
+        cls: 'button green icon xxs'
+        attrs: {
+            'href': '',
+            'data-icon': '✗'
+        }
+        content: 'remove'
+    }
+
+    elem play {
+        tag: 'a'
+        cls: 'button orange icon xxs'
+        attrs: {
+            'href': '',
+            'data-icon': '►'
+        }
+        content: 'play'
+    }
 
 }

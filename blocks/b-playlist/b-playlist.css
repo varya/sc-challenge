@@ -77,36 +77,33 @@
     display: block;
 }
 
-.b-playlist__trash-all,
-.b-playlist__play
-{
-    display: none;
-}
-.b-playlist_state_current .b-playlist__trash-all,
-.b-playlist_state_current .b-playlist__play
+.b-playlist_state_current .button.b-playlist__trash-all,
+.b-playlist_state_current .button.b-playlist__play
 {
     display: inline-block;
 }
 
 
-.b-playlist__play, .b-playlist__trash-all
+.button.b-playlist__play,
+.button.b-playlist__trash-all
 {
     position: absolute;
-    right: 5px;
+    right: 0px;
+    display: none;
 }
 
-.b-playlist__play
+.button.b-playlist__play
 {
-    right: 29px;
+    right: 30px;
 }
 
 .b-playlist_state_current .b-playlist__play
 {
-    width: 19px;
+   /* width: 19px;
     height: 19px;
     margin: 2px;
     background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: -19px 0;
+    background-position: -19px 0;*/
 }
 
 .b-playlist_state_current .b-playlist__play_action_playing
@@ -121,10 +118,13 @@
     border-width: 0 0 1px;
 }
 
-.b-playlist__trash-all,
-.b-playlist__trash
+.button.b-playlist__trash
 {
-    width: 19px;
+    position: absolute;
+    right: 0;
+    margin: -8px 5px 0;
+
+    /*width: 19px;
     height: 19px;
     margin: 2px;
     background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
@@ -132,7 +132,7 @@
 
     position: absolute;
     right: 0;
-
+*/
 }
 
 .b-playlist__track_state_current .b-playlist__track-title
