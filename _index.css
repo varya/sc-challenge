@@ -21,7 +21,10 @@
 table.b-dashboard /* type selector here is for making heavier */
 {
     width: 800px;
-    margin: 2em auto 0;
+    margin: 2em auto;
+
+    border-color: #CCC;
+    border-bottom: 1px solid;
 }
 
 .b-dashboard__suggest_visibility_hidden
@@ -29,19 +32,23 @@ table.b-dashboard /* type selector here is for making heavier */
     display: none;
 }
 
-.b-dashboard__pl-add
-{
-    display: inline-block;
-    width: 19px;
-    height: 19px;
-    margin: 5px;
-    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: 0 0;
-}
-
 .b-dashboard__suggest .b-text__p
 {
+    text-align: left;
     margin: 0.5em 0;
+}
+
+.b-dashboard__searchresult,
+.b-dashboard__playlists
+{
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.b-layout-table__cell.b-dashboard__control
+{
+    text-align: right;
+    vertical-align: bottom;
 }
 
 .b-layout-table
@@ -93,13 +100,16 @@ table.b-dashboard /* type selector here is for making heavier */
 }
 .b-search
 {
-
     background-color: #00A1CB;
     padding: 1em;
 
     position: relative;
     z-index: 1;
+}
 
+.b-search__button
+{
+    cursor: pointer;
 }
 
 td.b-search__layout-input
@@ -362,6 +372,15 @@ body .b-form-input_type_textarea .b-form-input__hint
     -moz-border-radius: 20px;
 }
 
+.b-cloud:hover
+{
+    background: linear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+    background: -webkit-linear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+    background: -moz-mozlinear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+    background: -ms-linear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+    background: -o-linear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+}
+
 .b-cloud:after,
 .b-cloud:before
 {
@@ -407,8 +426,8 @@ body .b-form-input_type_textarea .b-form-input__hint
     background: #00A1CB0;
 
     box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
-    -moz-25pxbox-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 0 25px5px 8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
 
     border-radius: 50%;
     -moz-border-radius:moz 50%;
@@ -449,32 +468,81 @@ body .b-form-input_type_textarea .b-form-input__hint
 
 .b-serp-item
 {
-    margin: 0.4em 0;
-    padding: 0.2em;
-
-    border: #ccc solid;
-    border-width: 0 0 1px;
-
-    background: #fee0e6;
-
+    margin: 1em 0;
 }
+
+.b-serp-item:nth-child(2n+1) .b-serp-item__title
+{
+    border-color: #61AE24;
+}
+
 .b-serp-item__title
 {
-    font-weight: bold;
+    font-size: 13px;
+
+    padding: 0.2em 0.2em 0.2em 0.4em;
+
+    border: #D70060 solid;
+    border-width: 0 0px 0 3px;
+}
+
+.b-serp-item__description
+{
+    color: #ccc;
+    font-size: 11px;
+
+    margin: 0.2em 0 0 0.4em;
+    padding: 0.4em;
 }
 
 .b-playlist
 {
-    margin: 0.4em;
+    margin: 5px;
     padding: 0.4em;
-    border: #f15572 1px solid;
+    border: #E54028 solid;
+    border-width: 0 0 0 3px;
     opacity: 0.7;
     position: relative;
 
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
 }
+
+.b-playlist:nth-child(3n+1)
+{
+    border-color: #113F8C;
+}
+
+.b-playlist:nth-child(3n+2)
+{
+    border-color: #61AE24;
+}
+
+.b-playlist.b-playlist_state_current
+{
+    opacity: 1;
+    border-width: 0 0 0 5px;
+    margin-left: 3px;
+}
+
+.b-playlist__title
+{
+    margin-right: 50px;
+}
+
+.b-playlist__title_action_none .b-form-input__input
+{
+    padding-left: 0;
+}
+
+.b-playlist__desc
+{
+    display: none;
+}
+
+.b-playlist_state_current .b-playlist__desc
+{
+    display: block;
+}
+
 .b-playlist__title_action_none .b-form-input__box,
 .b-playlist__desc_action_none .b-form-input__box
 {
@@ -483,18 +551,13 @@ body .b-form-input_type_textarea .b-form-input__hint
     -moz-box-shadow: none;
     box-shadow: none;
 
-    background: #FCF2EA;
+    background: transparent;
 }
 
-.b-playlist__title
+.b-playlist__desc_action_none .b-form-input__box
 {
-    width: 200px;
-    height: 23px;
-}
-
-.b-playlist_state_current
-{
-    opacity: 1;
+    height: 13px;
+    margin: 0 0 0.4em;
 }
 
 .b-playlist__songs
@@ -507,54 +570,67 @@ body .b-form-input_type_textarea .b-form-input__hint
     display: block;
 }
 
-.b-playlist__play, .b-playlist__trash-all
+.button.b-playlist__play,
+.button.b-playlist__trash-all,
+.button.b-playlist__clone
 {
     position: absolute;
-    right: 5px;
+    right: 0px;
+    display: none;
 }
 
-.b-playlist__play
-{
-    dispaly: none;
-    right: 29px;
-}
-
-.b-playlist_state_current .b-playlist__play
+.b-playlist_state_current .button.b-playlist__play,
+.b-playlist_state_current .button.b-playlist__trash-all,
+.b-playlist_state_current .button.b-playlist__clone
 {
     display: inline-block;
-    width: 19px;
-    height: 19px;
-    margin: 2px;
-    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: -19px 0;
 }
 
-.b-playlist_state_current .b-playlist__play_action_playing
+.button.b-playlist__play
 {
-    background-position: -19px -19px;
+    right: 30px;
+}
+
+.button.b-playlist__clone
+{
+    right: 65px;
 }
 
 .b-playlist__track
 {
-    height: 23px;
-    padding: 5px 0;
+    padding: 10px 0 0;
     border: #ccc 0 solid;
     border-width: 0 0 1px;
 }
 
-.b-playlist__trash-all,
-.b-playlist__trash
+.button.b-playlist__trash,
+.button.b-playlist__up,
+.button.b-playlist__down
 {
-    display: inline-block;
-    width: 19px;
-    height: 19px;
-    margin: 2px;
-    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: 19px 0;
-
     position: absolute;
     right: 0;
+    margin: -8px 5px 0;
 
+}
+
+.button.b-playlist__up
+{
+    right: 30px;
+}
+
+.b-playlist__track:first-child .button.b-playlist__up
+{
+    visibility: hidden;
+}
+
+.button.b-playlist__down
+{
+    right: 60px;
+}
+
+.b-playlist__track:last-child .button.b-playlist__down
+{
+    visibility: hidden;
 }
 
 .b-playlist__track_state_current .b-playlist__track-title
@@ -583,25 +659,13 @@ body .b-form-input_type_textarea .b-form-input__hint
     box-shadow: inset 0px 1px 1px #f4f4f4;
 }
 
-.b-form-input_size_s .b-form-input__hint,
-.b-form-input_size_s .b-form-input__input
+.button
 {
-    font: 11px Verdana, Arial, sans-serif;
+    cursor: pointer;
 }
 
-.b-form-input_size_s .b-form-input__input
+.button.xxs
 {
-    line-height: 137%;
-}
-
-.b-form-input_size_s .b-form-input__box
-{
-    height: 19px;
-}
-
-.b-form-input_size_s .b-form-input__hint-wrap
-{
-    height: 19px;
-    margin-bottom: -19px;
+    font-size: 11px;
 }
 
