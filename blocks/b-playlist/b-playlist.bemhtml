@@ -36,6 +36,12 @@ block b-playlist {
             elem: 'trash'
         },
         {
+            elem: 'up'
+        },
+        {
+            elem: 'down'
+        },
+        {
             elem: 'track-title',
             content: this.ctx.title
         }
@@ -79,6 +85,26 @@ block b-playlist {
             'data-icon': '✗'
         }
         content: 'remove'
+    }
+
+    elem up {
+        tag: 'span'
+        cls: 'button green icon xxs'
+        attrs: {
+            'href': '',
+            'data-icon': '∧'
+        }
+        content: 'up'
+    }
+
+    elem down {
+        tag: 'span'
+        cls: 'button green icon xxs'
+        attrs: {
+            'href': '',
+            'data-icon': '∨'
+        }
+        content: 'down'
     }
 
     elem trash-all {

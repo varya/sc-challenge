@@ -125,21 +125,24 @@
     border-width: 0 0 1px;
 }
 
-.button.b-playlist__trash
+.button.b-playlist__trash,
+.button.b-playlist__up,
+.button.b-playlist__down
 {
     position: absolute;
     right: 0;
     margin: -8px 5px 0;
 
-    /*width: 19px;
-    height: 19px;
-    margin: 2px;
-    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: 19px 0;
+}
 
-    position: absolute;
-    right: 0;
-*/
+.button.b-playlist__up
+{
+    right: 30px;
+}
+
+.button.b-playlist__down
+{
+    right: 60px;
 }
 
 .b-playlist__track_state_current .b-playlist__track-title
