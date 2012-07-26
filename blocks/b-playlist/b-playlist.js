@@ -95,6 +95,18 @@ BEM.DOM.decl('b-playlist', {
 
             'action' : {
 
+                'none': function(e) {
+
+                    e.removeClass('blue').addClass('orange').attr({'data-icon': '►'});
+
+                },
+
+                'playing' : function(e) {
+
+                    e.removeClass('orange').addClass('blue').attr({'data-icon': '◙'});
+
+                },
+
                 '*' : function(e, modName, modVal) {
 
                     /* Provide action to the list */
