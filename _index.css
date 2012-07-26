@@ -525,7 +525,7 @@ body .b-form-input_type_textarea .b-form-input__hint
 
 .b-playlist__title
 {
-    margin-right: 50px;
+    margin: 9px 100px 0 0;
 }
 
 .b-playlist__title_action_none .b-form-input__input
