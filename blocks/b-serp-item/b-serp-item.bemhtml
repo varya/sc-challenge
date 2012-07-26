@@ -6,8 +6,6 @@ block b-serp-item {
         { elem: 'description', content: this.ctx.description }
     ]
 
-    this.elem, tag: 'span'
-
     elem description, default, this.ctx.content == '': ''
 
     elem title, content: {

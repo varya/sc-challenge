@@ -27,7 +27,6 @@ block b-dashboard {
                             {
                                 elem: 'cell',
                                 mods: { position: 'r' },
-                                mix: [ { block: 'b-dashboard', elem: 'playlists'} ],
                                 content: [
                                     {
                                         block: 'b-dashboard',
@@ -80,13 +79,35 @@ block b-dashboard {
                                 ]
                             }
                         ]
+                    },
+                    {
+                        elem: 'row',
+                        content: [
+                            {
+                                elem: 'cell',
+                                mix: [ { block: 'b-dashboard', elem: 'searchfield'} ],
+                                content: {
+                                    block: 'b-dashboard',
+                                    elem: 'searchresult'
+                                }
+                            },
+                            {
+                                elem: 'cell',
+                                mods: { position: 'r' },
+                                mix: [ { block: 'b-dashboard', elem: 'playlists'} ],
+                                content: ''
+                            }
+                        ]
                     }
                 ]
             }
         )
     }
 
-    elem 'pl-add', tag: 'span'
+    elem 'pl-add' {
+        tag: 'span'
+        content: 'ADD PLAYLIST'
+    }
 
 }
 

@@ -5,7 +5,7 @@
     shouldDeps: [
         {
             block: 'b-form-input',
-            mods: { theme: 'grey', size: 's', type: 'textarea' },
+            mods: { theme: 'grey', size: 'm', type: 'textarea' },
             elems: ['input']
         }
     ]

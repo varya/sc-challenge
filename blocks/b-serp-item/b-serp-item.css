@@ -1,15 +1,28 @@
 .b-serp-item
 {
-    margin: 0.4em 0;
-    padding: 0.2em;
-
-    border: #ccc solid;
-    border-width: 0 0 1px;
-
-    background: #fee0e6;
-
+    margin: 1em 0;
 }
+
+.b-serp-item:nth-child(2n+1) .b-serp-item__title
+{
+    border-color: #61AE24;
+}
+
 .b-serp-item__title
 {
-    font-weight: bold;
+    font-size: 13px;
+
+    padding: 0.2em 0.2em 0.2em 0.4em;
+
+    border: #D70060 solid;
+    border-width: 0 0px 0 3px;
+}
+
+.b-serp-item__description
+{
+    color: #ccc;
+    font-size: 11px;
+
+    margin: 0.2em 0 0 0.4em;
+    padding: 0.4em;
 }

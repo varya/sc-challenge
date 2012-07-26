@@ -55,7 +55,7 @@ BEM.DOM.decl('b-dashboard', {
         tracks.forEach(function(track){
             var html = $(BEM.blocks['b-serp-item'].buildFromSearchResult(track));
             html.bem('b-serp-item').track(track);
-            BEM.DOM.append(bDashboard.elem('searchfield'), html)
+            BEM.DOM.append(bDashboard.elem('searchresult'), html)
         })
 
         return this;
