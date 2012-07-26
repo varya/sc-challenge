@@ -1,6 +1,6 @@
 .b-playlist
 {
-    margin: 0.4em;
+    margin: 5px;
     padding: 0.4em;
     border: #E54028 solid;
     border-width: 0 0 0 3px;
@@ -22,12 +22,8 @@
 .b-playlist.b-playlist_state_current
 {
     opacity: 1;
-    background: #eff8fe;
-    background: linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
-    background: -webkit-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
-    background: -moz-mozlinear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
-    background: -ms-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
-    background: -o-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    border-width: 0 0 0 5px;
+    margin-left: 3px;
 }
 
 .b-playlist__title

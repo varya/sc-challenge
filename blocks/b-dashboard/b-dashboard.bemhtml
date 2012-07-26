@@ -94,8 +94,7 @@ block b-dashboard {
                             {
                                 elem: 'cell',
                                 mods: { position: 'r' },
-                                mix: [ { block: 'b-dashboard', elem: 'playlists'} ],
-                                content: ''
+                                content: [ { block: 'b-dashboard', elem: 'playlists'} ]
                             }
                         ]
                     }
