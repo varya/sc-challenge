@@ -108,7 +108,6 @@ block b-dashboard {
         tag: 'span',
         cls: 'button orange xs',
         attrs: {
-            'href': '',
             'data-icon': '+'
         },
         content: 'ADD PLAYLIST'

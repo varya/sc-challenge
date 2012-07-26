@@ -81,7 +81,6 @@ block b-playlist {
         tag: 'span'
         cls: 'button blue icon xxs'
         attrs: {
-            'href': '',
             'data-icon': '✗'
         }
         content: 'remove'
@@ -91,7 +90,6 @@ block b-playlist {
         tag: 'span'
         cls: 'button green icon xxs'
         attrs: {
-            'href': '',
             'data-icon': '∧'
         }
         content: 'up'
@@ -101,7 +99,6 @@ block b-playlist {
         tag: 'span'
         cls: 'button green icon xxs'
         attrs: {
-            'href': '',
             'data-icon': '∨'
         }
         content: 'down'
@@ -111,7 +108,6 @@ block b-playlist {
         tag: 'span'
         cls: 'button green icon xxs'
         attrs: {
-            'href': '',
             'data-icon': '✗'
         }
         content: 'remove'
@@ -121,7 +117,6 @@ block b-playlist {
         tag: 'span'
         cls: 'button orange icon xxs'
         attrs: {
-            'href': '',
             'data-icon': '►'
         }
         content: 'play'
@@ -131,7 +126,6 @@ block b-playlist {
         tag: 'span'
         cls: 'button pink icon xxs'
         attrs: {
-            'href': '',
             'data-icon': '❏'
         }
         content: 'clone'
