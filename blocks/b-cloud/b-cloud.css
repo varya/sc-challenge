@@ -19,6 +19,15 @@
     -moz-border-radius: 20px;
 }
 
+.b-cloud:hover
+{
+    background: linear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+    background: -webkit-linear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+    background: -moz-mozlinear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+    background: -ms-linear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+    background: -o-linear-gradient(top, #f2f9fe 5%, #fdefd6 100%);
+}
+
 .b-cloud:after,
 .b-cloud:before
 {
