@@ -292,6 +292,46 @@ BEM.DOM.decl('b-playlist', {
 
     },
 
+    /* Changing track position */
+    _changeTrackPos: function(id, up) {
+
+        var track = this.getTrack(id),
+            stubTrack = { prevId: undefined, track: { id: undefined }, nextId: undefined },
+            prevTrack = this.getTrack(track.prevId) || stubTrack,
+            prevPrevTrack = this.getTrack(prevTrack.prevId) || stubTrack,
+            nextTrack = this.getTrack(track.nextId) || stubTrack,
+            nextNextTrack = this.getTrack(nextTrack.nextId) || stubTrack;
+
+        if (up) {
+            /* going up */
+
+            track.html.after(prevTrack.html[0]);
+
+            prevPrevTrack.nextId = id;
+            track.prevId = prevPrevTrack.track.id;
+            track.nextId = prevTrack.track.id;
+            prevTrack.prevId = id;
+            prevTrack.nextId = nextTrack.track.id;
+            nextTrack.prevId = prevTrack.track.id;
+
+        } else {
+            /* going down */
+
+            track.html.before(nextTrack.html[0]);
+
+            prevTrack.nextId = nextTrack.track.id;
+            nextTrack.prevId = prevTrack.track.id;
+            nextTrack.nextId = id;
+            track.prevId = nextTrack.track.id;
+            track.nextId = nextNextTrack.track.id;
+            nextNextTrack.prevId = id
+
+        }
+
+        this._save();
+
+    },
+
     /* Adding a new track */
     addTrack: function(track) {
 
@@ -347,6 +387,15 @@ BEM.DOM.decl('b-playlist', {
             .liveBindTo('trash', 'click', function(e){
                 var trackId = e.data.domElem.closest(this.buildSelector('track'))[0].onclick()['trackId'];
                 this.delTrack(trackId);
+            })
+        /* Init if the up button is used */
+            .liveBindTo('up down', 'click', function(e){
+
+                var trackId = e.data.domElem.closest(this.buildSelector('track'))[0].onclick()['trackId'],
+                    up = e.data.domElem.is(this.buildSelector('up'));
+
+                this._changeTrackPos(trackId, up);
+
             })
         /* Init if the play button is clicked */
             .liveBindTo('play', 'click', function(e) {
