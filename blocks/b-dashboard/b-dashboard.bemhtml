@@ -27,6 +27,7 @@ block b-dashboard {
                             {
                                 elem: 'cell',
                                 mods: { position: 'r' },
+                                mix: [ { block: 'b-dashboard', elem: 'control' }],
                                 content: [
                                     {
                                         block: 'b-dashboard',
