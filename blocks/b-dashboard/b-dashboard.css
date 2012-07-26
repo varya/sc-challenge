@@ -12,37 +12,6 @@ table.b-dashboard /* type selector here is for making heavier */
     display: none;
 }
 
-/*.b-dashboard__pl-add
-{
-    background-color: #00A1CB;
-    display: inline-block;
-    padding: 5px 10px 6px;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-    border-bottom: 1px solid rgba(0,0,0,0.25);
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
-}
-.b-dashboard__pl-add:after
-{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 0 4px;
-    width: 93%;
-    background-color: transparent;
-    z-index: -1;
-    box-shadow: 0 0 5px 8px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
-}*/
-
 .b-dashboard__suggest .b-text__p
 {
     margin: 0.5em 0;
