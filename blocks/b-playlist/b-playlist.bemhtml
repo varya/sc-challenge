@@ -7,6 +7,9 @@ block b-playlist {
             elem: 'trash-all'
         },
         {
+            elem: 'clone'
+        },
+        {
             elem: 'play',
             mods: {
                 'action' : 'none'
@@ -96,6 +99,16 @@ block b-playlist {
             'data-icon': '►'
         }
         content: 'play'
+    }
+
+    elem clone {
+        tag: 'span'
+        cls: 'button pink icon xxs'
+        attrs: {
+            'href': '',
+            'data-icon': '❏'
+        }
+        content: 'clone'
     }
 
 }

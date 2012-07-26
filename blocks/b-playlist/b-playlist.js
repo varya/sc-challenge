@@ -308,6 +308,11 @@ BEM.DOM.decl('b-playlist', {
 
     },
 
+    /* Clone current playlist */
+    clone: function() {
+        this.__self.createNew(this.params.uniqId).setMod('state', 'current');
+    },
+
     /* Method for removing the current playlist */
     remove: function() {
         var de = this.domElem,
@@ -350,6 +355,10 @@ BEM.DOM.decl('b-playlist', {
         /* Init if trash-all button is presed */
             .liveBindTo('trash-all', 'click', function(){
                 this.remove();
+            })
+        /* Init if clone button is presed */
+            .liveBindTo('clone', 'click', function(){
+                this.clone();
             });
 
     },

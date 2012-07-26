@@ -78,14 +78,16 @@
 }
 
 .b-playlist_state_current .button.b-playlist__trash-all,
-.b-playlist_state_current .button.b-playlist__play
+.b-playlist_state_current .button.b-playlist__play,
+.b-playlist_state_current .button.b-playlist__clone
 {
     display: inline-block;
 }
 
 
 .button.b-playlist__play,
-.button.b-playlist__trash-all
+.button.b-playlist__trash-all,
+.button.b-playlist__clone
 {
     position: absolute;
     right: 0px;
@@ -95,6 +97,11 @@
 .button.b-playlist__play
 {
     right: 30px;
+}
+
+.button.b-playlist__clone
+{
+    right: 65px;
 }
 
 .b-playlist_state_current .b-playlist__play
