@@ -9,7 +9,7 @@ table.b-dashboard /* type selector here is for making heavier */
     display: none;
 }
 
-.b-dashboard__pl-add
+/*.b-dashboard__pl-add
 {
     background-color: #00A1CB;
     display: inline-block;
@@ -38,7 +38,7 @@ table.b-dashboard /* type selector here is for making heavier */
     box-shadow: 0 0 5px 8px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
-}
+}*/
 
 .b-dashboard__suggest .b-text__p
 {

@@ -105,7 +105,12 @@ block b-dashboard {
     }
 
     elem 'pl-add' {
-        tag: 'span'
+        tag: 'a',
+        cls: 'button orange xs',
+        attrs: {
+            'href': '',
+            'data-icon': '+'
+        },
         content: 'ADD PLAYLIST'
     }
 
