@@ -1,6 +1,6 @@
 .b-playlist
 {
-    margin: 0.4em;
+    margin: 5px;
     padding: 0.4em;
     border: #E54028 solid;
     border-width: 0 0 0 3px;
@@ -22,12 +22,8 @@
 .b-playlist.b-playlist_state_current
 {
     opacity: 1;
-    background: #eff8fe;
-    background: linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
-    background: -webkit-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
-    background: -moz-mozlinear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
-    background: -ms-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
-    background: -o-linear-gradient(top, #eff8fe 100%, #d6f0fd 100%);
+    border-width: 0 0 0 5px;
+    margin-left: 3px;
 }
 
 .b-playlist__title
@@ -77,41 +73,30 @@
     display: block;
 }
 
-.b-playlist__trash-all,
-.b-playlist__play
+.button.b-playlist__play,
+.button.b-playlist__trash-all,
+.button.b-playlist__clone
 {
+    position: absolute;
+    right: 0px;
     display: none;
 }
-.b-playlist_state_current .b-playlist__trash-all,
-.b-playlist_state_current .b-playlist__play
+
+.b-playlist_state_current .button.b-playlist__play,
+.b-playlist_state_current .button.b-playlist__trash-all,
+.b-playlist_state_current .button.b-playlist__clone
 {
     display: inline-block;
 }
 
-
-.b-playlist__play, .b-playlist__trash-all
+.button.b-playlist__play
 {
-    position: absolute;
-    right: 5px;
+    right: 30px;
 }
 
-.b-playlist__play
+.button.b-playlist__clone
 {
-    right: 29px;
-}
-
-.b-playlist_state_current .b-playlist__play
-{
-    width: 19px;
-    height: 19px;
-    margin: 2px;
-    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: -19px 0;
-}
-
-.b-playlist_state_current .b-playlist__play_action_playing
-{
-    background-position: -19px -19px;
+    right: 65px;
 }
 
 .b-playlist__track
@@ -121,18 +106,34 @@
     border-width: 0 0 1px;
 }
 
-.b-playlist__trash-all,
-.b-playlist__trash
+.button.b-playlist__trash,
+.button.b-playlist__up,
+.button.b-playlist__down
 {
-    width: 19px;
-    height: 19px;
-    margin: 2px;
-    background-image: url(http://music.yandex.ru/i/ExZpc5YLm_sWy5otDdPc8Z5PLo0.png);
-    background-position: 19px 0;
-
     position: absolute;
     right: 0;
+    margin: -8px 5px 0;
 
+}
+
+.button.b-playlist__up
+{
+    right: 30px;
+}
+
+.b-playlist__track:first-child .button.b-playlist__up
+{
+    visibility: hidden;
+}
+
+.button.b-playlist__down
+{
+    right: 60px;
+}
+
+.b-playlist__track:last-child .button.b-playlist__down
+{
+    visibility: hidden;
 }
 
 .b-playlist__track_state_current .b-playlist__track-title

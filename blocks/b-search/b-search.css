@@ -1,12 +1,15 @@
 .b-search
 {
-
     background-color: #00A1CB;
     padding: 1em;
 
     position: relative;
     z-index: 1;
+}
 
+.b-search__button
+{
+    cursor: pointer;
 }
 
 td.b-search__layout-input

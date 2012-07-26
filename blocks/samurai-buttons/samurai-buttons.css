@@ -1,0 +1,9 @@
+.button
+{
+    cursor: pointer;
+}
+
+.button.xxs
+{
+    font-size: 11px;
+}

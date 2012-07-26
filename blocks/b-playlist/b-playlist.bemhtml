@@ -7,6 +7,9 @@ block b-playlist {
             elem: 'trash-all'
         },
         {
+            elem: 'clone'
+        },
+        {
             elem: 'play',
             mods: {
                 'action' : 'none'
@@ -31,6 +34,12 @@ block b-playlist {
     elem track, content: [
         {
             elem: 'trash'
+        },
+        {
+            elem: 'up'
+        },
+        {
+            elem: 'down'
         },
         {
             elem: 'track-title',
@@ -68,6 +77,58 @@ block b-playlist {
 
     }
 
-    {'trash' : '', 'play' : '', 'trash-all' : ''}[this.elem], tag: 'span'
+    elem trash {
+        tag: 'span'
+        cls: 'button blue icon xxs'
+        attrs: {
+            'data-icon': '✗'
+        }
+        content: 'remove'
+    }
+
+    elem up {
+        tag: 'span'
+        cls: 'button green icon xxs'
+        attrs: {
+            'data-icon': '∧'
+        }
+        content: 'up'
+    }
+
+    elem down {
+        tag: 'span'
+        cls: 'button green icon xxs'
+        attrs: {
+            'data-icon': '∨'
+        }
+        content: 'down'
+    }
+
+    elem trash-all {
+        tag: 'span'
+        cls: 'button green icon xxs'
+        attrs: {
+            'data-icon': '✗'
+        }
+        content: 'remove'
+    }
+
+    elem play {
+        tag: 'span'
+        cls: 'button orange icon xxs'
+        attrs: {
+            'data-icon': '►'
+        }
+        content: 'play'
+    }
+
+    elem clone {
+        tag: 'span'
+        cls: 'button pink icon xxs'
+        attrs: {
+            'data-icon': '❏'
+        }
+        content: 'clone'
+    }
 
 }

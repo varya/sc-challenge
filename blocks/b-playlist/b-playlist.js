@@ -95,6 +95,18 @@ BEM.DOM.decl('b-playlist', {
 
             'action' : {
 
+                'none': function(e) {
+
+                    e.removeClass('blue').addClass('orange').attr({'data-icon': '►'});
+
+                },
+
+                'playing' : function(e) {
+
+                    e.removeClass('orange').addClass('blue').attr({'data-icon': '◙'});
+
+                },
+
                 '*' : function(e, modName, modVal) {
 
                     /* Provide action to the list */
@@ -292,6 +304,46 @@ BEM.DOM.decl('b-playlist', {
 
     },
 
+    /* Changing track position */
+    _changeTrackPos: function(id, up) {
+
+        var track = this.getTrack(id),
+            stubTrack = { prevId: undefined, track: { id: undefined }, nextId: undefined },
+            prevTrack = this.getTrack(track.prevId) || stubTrack,
+            prevPrevTrack = this.getTrack(prevTrack.prevId) || stubTrack,
+            nextTrack = this.getTrack(track.nextId) || stubTrack,
+            nextNextTrack = this.getTrack(nextTrack.nextId) || stubTrack;
+
+        if (up) {
+            /* going up */
+
+            track.html.after(prevTrack.html[0]);
+
+            prevPrevTrack.nextId = id;
+            track.prevId = prevPrevTrack.track.id;
+            track.nextId = prevTrack.track.id;
+            prevTrack.prevId = id;
+            prevTrack.nextId = nextTrack.track.id;
+            nextTrack.prevId = prevTrack.track.id;
+
+        } else {
+            /* going down */
+
+            track.html.before(nextTrack.html[0]);
+
+            prevTrack.nextId = nextTrack.track.id;
+            nextTrack.prevId = prevTrack.track.id;
+            nextTrack.nextId = id;
+            track.prevId = nextTrack.track.id;
+            track.nextId = nextNextTrack.track.id;
+            nextNextTrack.prevId = id
+
+        }
+
+        this._save();
+
+    },
+
     /* Adding a new track */
     addTrack: function(track) {
 
@@ -306,6 +358,11 @@ BEM.DOM.decl('b-playlist', {
         this.getTrack(track.id) || this.setTrack(track, html) && BEM.DOM.append(this.elem('songs'), html);
         this._save();
 
+    },
+
+    /* Clone current playlist */
+    clone: function() {
+        this.__self.createNew(this.params.uniqId).setMod('state', 'current');
     },
 
     /* Method for removing the current playlist */
@@ -343,6 +400,15 @@ BEM.DOM.decl('b-playlist', {
                 var trackId = e.data.domElem.closest(this.buildSelector('track'))[0].onclick()['trackId'];
                 this.delTrack(trackId);
             })
+        /* Init if the up button is used */
+            .liveBindTo('up down', 'click', function(e){
+
+                var trackId = e.data.domElem.closest(this.buildSelector('track'))[0].onclick()['trackId'],
+                    up = e.data.domElem.is(this.buildSelector('up'));
+
+                this._changeTrackPos(trackId, up);
+
+            })
         /* Init if the play button is clicked */
             .liveBindTo('play', 'click', function(e) {
                 this.toggleMod(e.data.domElem, 'action', 'none', 'playing');
@@ -350,6 +416,11 @@ BEM.DOM.decl('b-playlist', {
         /* Init if trash-all button is presed */
             .liveBindTo('trash-all', 'click', function(){
                 this.remove();
+            })
+        /* Init if clone button is presed */
+            .liveBindTo('clone', 'click', function(e){
+                e.stopPropagation();
+                this.clone();
             });
 
     },
