@@ -73,7 +73,7 @@ In short, the important ideas are the following:
  * Each block has a JavaSript ``class``.
  * Each block representation is an ``instance`` of its class.
  * A block (class) is described declaratively.
- * A block (and its elements) can react on setting (or deleteing) their modifiers doing something.
+ * A block (and its elements) can react on setting (or deleting) their modifiers doing something.
  * Many helpers for event delegation ideas.
  * Lazy initialization for blocks.
 
