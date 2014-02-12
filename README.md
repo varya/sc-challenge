@@ -8,7 +8,7 @@ Sound Cloud Challenge
  * A user should be able to give a playlist a title and description.
 
 ## Usage
-The application is hosted at http://toivonen.github.com/sc-challenge/ and allows a user to do the things listed in the task.
+The application is hosted at http://varya.me/sc-challenge/ and allows a user to do the things listed in the task.
 Such as:
  * Creating playlists (click the "plus" button)
  * Searching for tracks (use search form)
